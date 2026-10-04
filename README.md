@@ -1,6 +1,6 @@
 # The Tidy Suite
 
-Seven friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
+Eight friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
 
 | App | What it does | Open it |
 |---|---|---|
@@ -11,10 +11,11 @@ Seven friendly apps that run in your web browser. No install, no account. Downlo
 | **Clearout** | Selling: price your stuff, write the listing, handle buyers, offer local services, track every sale | [`clearout/clearout.html`](clearout/clearout.html) |
 | **Handy** | Side income: offer local services, price yourself, find customers, track jobs and debt paid down | [`handy/handy.html`](handy/handy.html) |
 | **Sorted** | Repairs: step-by-step troubleshooting for engines, vehicles, HVAC and appliances, plus what to bill, flip price and cost to own | [`sorted/sorted.html`](sorted/sorted.html) |
+| **Hearty** | Meals: plan a week of food you'll enjoy, one shopping list, food and gas budget, and what you keep by skipping the drive-thru | [`hearty/hearty.html`](hearty/hearty.html) |
 
-Open `index.html` for a home page that links all seven apps.
+Open `index.html` for a home page that links all eight apps.
 
-They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills. Fixing something to sell or for a customer? Sorted walks you through the repair and tells you what to charge.
+They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills. Fixing something to sell or for a customer? Sorted walks you through the repair and tells you what to charge. Trying to stretch the food budget? Hearty plans your meals and shopping trip, and its weekly total pairs with the groceries line in Steady.
 
 ## Tidy
 
@@ -98,6 +99,21 @@ Fix it the smart way, one step at a time. For the jet ski that won't start, the 
 - **Notes** logs everything you checked and found, with dates.
 
 Safety notes are built in: gas smell, AC capacitors, and refrigerant work that needs a licensed tech. Two example projects (a Sea-Doo flip and a furnace) show how it works.
+
+## Hearty
+
+![Hearty](hearty/screenshot.png)
+
+You're the chef. You've totally got this. Hearty helps you choose meals, shop in one trip, and stay away from fast food for your health and your wallet.
+
+- **This week** lays out breakfast, lunch and dinner for seven days. A slider sets what matters most, from healthier to more comfort food, and **Fill my week** plans meals that share ingredients so less goes to waste. Meters show how healthy and enjoyable the week is and how many veggie servings it has.
+- **Meals** has 18 starter recipes with cost per plate, time, and health and enjoyment ratings. **Cook mode** shows big, simple steps scaled to your household, with a tip and some encouragement. Add your own family favorites too.
+- **Shopping list** builds itself from your plan, in the order most stores are laid out. Mark what you already have at home, type your store's real price over any estimate, and copy the list to your phone.
+- **Budget & trips** compares groceries, gas and treats with your weekly budget, works out gas per trip from your miles, MPG and gas price, and shows what one planned trip saves over several quick runs.
+- **You vs. the drive-thru** shows what you keep this week and over a year. Tick **Made it?** on each meal you cook to count real savings.
+- **Planned treat out** lets you budget an eating-out night on purpose, so skipping the others feels easy.
+
+Prices are typical estimates. Your store's prices are always better, and Hearty remembers the ones you type in.
 
 ---
 Made by hardwaremack.
