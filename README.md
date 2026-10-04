@@ -26,9 +26,9 @@ Keep all the app folders together and open them in the same browser. That's how 
 
 ## Run it at localhost or on your home network
 
-Double-click **`Start Tidy Suite.bat`**. A small window opens and your browser goes to **http://localhost:8765**, the suite home page. Every app runs from that one address. Leave the window open while you use the apps, and close it to stop.
+Double-click **`Start Tidy Suite.bat`**. A small window opens and your browser goes to **http://localhost:8780**, the suite home page. Every app runs from that one address. Leave the window open while you use the apps, and close it to stop.
 
-The window also shows a network address like `http://192.168.1.20:8765`. Phones, tablets and other computers on the same Wi-Fi can open that address to use the suite. The first time, Windows may ask whether to allow PowerShell on your network: allow it on **Private networks**. To keep the suite on this computer only, run `Start Tidy Suite.ps1 -LocalOnly`.
+The window also shows a network address like `http://192.168.1.20:8780`. Phones, tablets and other computers on the same Wi-Fi can open that address to use the suite. The first time, Windows may ask whether to allow PowerShell on your network: allow it on **Private networks**. To keep the suite on this computer only, run `Start Tidy Suite.ps1 -LocalOnly`.
 
 It uses PowerShell, which comes with Windows, so there is nothing to install. It only serves files from the Tidy Suite folder, and never the launcher itself.
 

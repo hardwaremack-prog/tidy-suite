@@ -1,18 +1,18 @@
 # Tidy Suite local server
 # Serves this folder so every app runs from one web address:
-#   on this computer:      http://localhost:8765
-#   on your home network:  http://<this computer's address>:8765  (shown when it starts)
+#   on this computer:      http://localhost:8780
+#   on your home network:  http://<this computer's address>:8780  (shown when it starts)
 # No install needed: it uses PowerShell, which comes with Windows.
 # Close this window (or press Ctrl+C) to stop it.
 # Server mode: each person's work is saved in the "Saved work" folder next to this file,
 # so they can pick up on any device. Opening an app file directly still works on its own.
 #
 #   -LocalOnly   only this computer can open the suite
-#   -Port 8766   use a different port (each port keeps its own saved work)
+#   -Port 8781   use a different port (each port keeps its own saved work)
 #   -NoBrowser   don't open the browser when it starts
 
 param(
-  [int]$Port = 8765,
+  [int]$Port = 8780,
   [switch]$LocalOnly,
   [switch]$NoBrowser
 )
@@ -54,7 +54,7 @@ try {
     }
   } catch {}
   Write-Host "Port $Port is being used by another program." -ForegroundColor Yellow
-  Write-Host "Close that program, or start the suite with:  -Port 8766" -ForegroundColor Yellow
+  Write-Host "Close that program, or start the suite with:  -Port 8781" -ForegroundColor Yellow
   Write-Host "(A different port starts with fresh saved work, so stick with one port.)"
   Read-Host "Press Enter to close"
   exit 1
