@@ -24,6 +24,14 @@ They work together. Copy cells from Tidy and paste them into Neat or Spruce as a
 
 Keep all the app folders together and open them in the same browser. That's how Ready, Snug and the home page can see what the other apps saved.
 
+## Run it at localhost
+
+Double-click **`Start Tidy Suite.bat`**. A small window opens and your browser goes to **http://localhost:8765**, the suite home page. Every app runs from that one address. Leave the window open while you use the apps, and close it to stop.
+
+It uses PowerShell, which comes with Windows, so there is nothing to install. It only answers on this computer (localhost) and only serves files from the Tidy Suite folder.
+
+Moving your work over: apps opened at localhost save separately from apps opened by double-clicking the files. Open Snug the old way and save a backup file, then open Snug at localhost and restore it. Stick with one way after that. Always use the same port (8765) too, because a different port starts with fresh saved data.
+
 ## Tidy
 
 ![Tidy](tidy/screenshot.png)
