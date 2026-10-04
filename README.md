@@ -45,6 +45,8 @@ You can use the suite two ways, and switch whenever you like.
 
 The apps work out which mode they're in by themselves. Server mode is only on while the launcher window is open.
 
+Moving work you saved standalone into server mode: open Snug by double-clicking it and save a backup file, then open the suite with the launcher, open Snug there and restore the file. It goes straight into the Saved work folder.
+
 ## People
 
 Every app has a small **people button** in the bottom corner. Tap it to pick who's using the suite, add a person, rename, or remove someone. Each person's work is saved separately, so nobody's bills, chores or resume get mixed up with anyone else's. Switching people switches every open suite app. Snug backs up and restores the person who is picked.
