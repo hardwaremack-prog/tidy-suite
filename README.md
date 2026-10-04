@@ -1,6 +1,6 @@
 # The Tidy Suite
 
-Six friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
+Seven friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
 
 | App | What it does | Open it |
 |---|---|---|
@@ -10,10 +10,11 @@ Six friendly apps that run in your web browser. No install, no account. Download
 | **Steady** | Bills: a plan for every bill, a debt-free date, and progress you can see | [`steady/steady.html`](steady/steady.html) |
 | **Clearout** | Selling: price your stuff, write the listing, handle buyers, offer local services, track every sale | [`clearout/clearout.html`](clearout/clearout.html) |
 | **Handy** | Side income: offer local services, price yourself, find customers, track jobs and debt paid down | [`handy/handy.html`](handy/handy.html) |
+| **Sorted** | Repairs: step-by-step troubleshooting for engines, vehicles, HVAC and appliances, plus what to bill, flip price and cost to own | [`sorted/sorted.html`](sorted/sorted.html) |
 
-Open `index.html` for a home page that links all six apps.
+Open `index.html` for a home page that links all seven apps.
 
-They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills.
+They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills. Fixing something to sell or for a customer? Sorted walks you through the repair and tells you what to charge.
 
 ## Tidy
 
@@ -81,6 +82,22 @@ You need money. That's okay. Your neighbors need you. Handy helps you turn what 
 - **Get the word out** covers Nextdoor, Facebook groups, Marketplace, flyers and word of mouth, writes your post in a friendly, professional or flyer style, and gives you an easy week plan.
 - **What to say** has 13 ready messages: first reply, quotes, saying no, confirmations, running late, payment, reviews, referrals, regulars and raising prices.
 - **Jobs & progress**: log each paid job and a bell rings. A ring fills toward your monthly goal, a bar shows debt paid down, and it tracks your hourly rate, reviews and repeat customers.
+
+## Sorted
+
+![Sorted](sorted/screenshot.png)
+
+Fix it the smart way, one step at a time. For the jet ski that won't start, the mower that dies, the furnace that keeps shutting off, or the washer that won't drain. Sorted keeps you from replacing parts you don't need and from getting buried when you don't know where to start.
+
+- **New project** asks three things: what you're working on (jet ski, car or truck, 4-wheeler, lawn mower, motorcycle, boat, snowblower, chainsaw, generator, furnace or AC, water heater, washer or dryer, fridge, dishwasher, or another appliance), your goal, and what it's doing.
+- **Your goal** shapes the whole project: enjoy it yourself, fix it for someone for money, fix it to sell, or sell it as-is.
+- **Do this next** shows one step at a time, cheapest and easiest checks first. Each step says why, how, what tools you need and what it costs. Mark it fine, found a problem, or skip. A found problem tells you what it points to and can add the part to your list.
+- **Troubleshoot** shows the full checklist with your notes and what you've ruled out.
+- **Parts** keeps a list of what you need and what you bought. Anything that hasn't failed a test is marked "not confirmed yet" so you test before you buy.
+- **Money** has four calculators: **What to bill** (labor, parts markup, shop supplies, and a quote to copy for your customer), **Flip price** (list price, break-even floor and what you earn per hour), **Sell as-is?** (which nets more: selling now or fixing first), and **Cost to own** (yearly upkeep, cost per use, and repair-or-replace for appliances).
+- **Notes** logs everything you checked and found, with dates.
+
+Safety notes are built in: gas smell, AC capacitors, and refrigerant work that needs a licensed tech. Two example projects (a Sea-Doo flip and a furnace) show how it works.
 
 ---
 Made by hardwaremack.
