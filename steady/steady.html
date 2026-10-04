@@ -13,7 +13,7 @@
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px; --r-sm:12px; --shadow:0 1px 2px rgba(21,48,42,.06),0 6px 20px rgba(21,48,42,.06);
   --c-house:#4F6BED; --c-car:#E2543B; --c-card:#8B4FD8; --c-bank:#2E8B6E; --c-bolt:#E09A00; --c-flame:#F06A2A;
-  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tooth:#2AA3C6; --c-steth:#DD5468; --c-eye:#7A5FD6; --c-oil:#C48A12; --c-tire:#58677A; --c-brake:#CC4636; --c-battery:#3A9A58; --c-bell:#E0841B; --c-roof:#B5583A; --c-snow:#3AA0D8; --c-tank:#5C7FA3; --c-filter:#8C8E4E; --c-therm:#1FA39A; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
+  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tooth:#2AA3C6; --c-steth:#DD5468; --c-eye:#7A5FD6; --c-oil:#C48A12; --c-tire:#58677A; --c-brake:#CC4636; --c-battery:#3A9A58; --c-bell:#E0841B; --c-roof:#B5583A; --c-snow:#3AA0D8; --c-tank:#5C7FA3; --c-filter:#8C8E4E; --c-therm:#1FA39A; --c-window:#4FA3D1; --c-deck:#A0703C; --c-siding:#6E8B9E; --c-road:#5B6470; --c-brick:#B2543F; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E1916; --surface:#16241F; --surface-2:#1E302A; --ink:#E6F1EC; --muted:#93A8A0; --line:#2A3E37;
@@ -316,6 +316,11 @@ const P = {
   snow:'<path d="M12 2v20M4 7l16 10M4 17L20 7"/><path d="M9.5 3.5L12 5l2.5-1.5M9.5 20.5L12 19l2.5 1.5"/>',
   tank:'<rect x="6" y="3" width="12" height="18" rx="3"/><path d="M10 15c0-1.5 2-2.5 2-4 0 1.5 2 2.5 2 4a2 2 0 0 1-4 0z"/>',
   filter:'<rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 9.3h16M4 14.6h16M9.3 4v16M14.6 4v16"/>',
+  window:'<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/>',
+  deck:'<path d="M3 8h18v3H3zM3 14h18v3H3z"/><path d="M6 11v3M18 11v3M6 17v4M18 17v4"/>',
+  siding:'<path d="M3 4h18M3 8h18M3 12h18M3 16h18M3 20h18"/><path d="M8 4v4M15 8v4M8 12v4M15 16v4"/>',
+  road:'<path d="M9 3L5 21M15 3l4 18M12 4v3M12 10.5v3M12 17v3"/>',
+  brick:'<rect x="3" y="5" width="18" height="15" rx="1"/><path d="M3 10h18M3 15h18M9 5v5M15 10v5M9 15v5"/>',
   therm:'<path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/><path d="M12 10v6"/>',
   bell:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>',
   wallet:'<rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M3 10h18M16 15h2"/>',
@@ -793,6 +798,13 @@ const UP_TYPES = {
   furnace:{kind:'home',icon:'flame',label:'Furnace / heating',months:216,cost:5500,big:true,q:'Has the furnace been replaced?',noun:'furnace'},
   ac:{kind:'home',icon:'snow',label:'Air conditioner',months:180,cost:5000,big:true,q:'Has the air conditioner been replaced?',noun:'air conditioner'},
   waterheater:{kind:'home',icon:'tank',label:'Water heater',months:144,cost:1600,big:true,q:'Has the water heater been replaced?',noun:'water heater'},
+  windows:{kind:'home',icon:'window',label:'Windows',months:300,cost:15000,big:true,q:'Have the windows been replaced?',noun:'windows'},
+  siding:{kind:'home',icon:'siding',label:'Siding',months:360,cost:14000,big:true,q:'Has the siding been replaced?',noun:'siding'},
+  deck:{kind:'home',icon:'deck',label:'Deck',months:240,cost:10000,big:true,q:'Has the deck been rebuilt?',noun:'deck'},
+  driveway:{kind:'home',icon:'road',label:'Driveway',months:240,cost:5000,big:true,q:'Has the driveway been redone?',noun:'driveway'},
+  deckseal:{kind:'home',icon:'deck',label:'Deck stain & seal',months:36,cost:400,q:'Have you stained and sealed the deck?',noun:'deck sealing'},
+  sealcoat:{kind:'home',icon:'road',label:'Driveway sealcoat',months:36,cost:300,q:'Has the driveway been sealcoated?',noun:'sealcoat'},
+  foundation:{kind:'home',icon:'brick',label:'Foundation & basement check',months:12,cost:0,q:'Have you checked the foundation and basement for cracks or water?',noun:'foundation check'},
   hvac:{kind:'home',icon:'wrench',label:'Heating & cooling tune-up',months:12,cost:130,q:'Have you had the heating and cooling serviced?',noun:'tune-up'},
   filter:{kind:'home',icon:'filter',label:'Furnace filter',months:3,cost:15,q:'Have you changed the furnace filter?',noun:'filter change'},
   septic:{kind:'home',icon:'drop',label:'Septic pumping',months:36,cost:450,q:'Has the septic been pumped?',noun:'septic pumping'},
@@ -805,7 +817,7 @@ const DAY=864e5, MON=30.44;
 const CONDITION=[[90,'Like new'],[70,'Good shape'],[50,'About halfway'],[25,'Showing its age'],[10,'Near the end']];
 const condLabel=p=>{if(p==null)return '';let best=CONDITION[0];CONDITION.forEach(c=>{if(Math.abs(c[0]-p)<Math.abs(best[0]-p))best=c});return best[1]};
 const isBig=it=>!!(UP_TYPES[it.type]?.big||(UP_TYPES[it.type]?.kind==='home'&&+it.everyMonths>=60));
-function setAside(it){const st=upStatus(it); if(!isBig(it)||!it.cost||!st.due) return 0; const m=Math.max(1,(st.due.date-todayD())/DAY/MON); return it.cost/m}
+function setAside(it){const st=upStatus(it); if(!isBig(it)||!it.cost||!st.due||st.days<=30) return 0; const m=Math.max(1,(st.due.date-todayD())/DAY/MON); return it.cost/m}
 const todayD=()=>new Date(now.getFullYear(),now.getMonth(),now.getDate());
 const parseD=s=>{if(!s)return null;const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
 const addMonthsD=(d,m)=>new Date(d.getTime()+m*MON*DAY);
@@ -829,8 +841,9 @@ function upDue(it){
   if(v&&it.everyMiles&&last.odo!=null&&r){ const left=last.odo+ +it.everyMiles-odoNow(v); c.push({date:new Date(todayD().getTime()+left/r*DAY),basis:'miles',milesLeft:left}) }
   if(!c.length) return null; c.sort((a,b)=>a.date-b.date); return c[0];
 }
-function upStatus(it){ const d=upDue(it); if(!d) return {k:'unset',t:UP_TYPES[it.type]?.kind==='home'?'Add its age or condition':'Set the last date',due:null};
+function upStatus(it){ const d=upDue(it); if(!d) return {k:'unset',t:isBig(it)?'Add its age or condition':'Set the last date',due:null};
   const days=Math.round((d.date-todayD())/DAY);
+  if(days<0&&isBig(it)) return {k:'soon',t:'Past its usual life',due:d,days};
   if(days<0){const m=Math.max(1,Math.round(-days/MON));return {k:'late',t:days>-31?`Due ${-days} days ago`:`${plural(m,'month')} past due`,due:d,days}}
   if(days<=30) return {k:'soon',t:days===0?'Due today':`Due in ${plural(days,'day')}`,due:d,days};
   if(days>540){const y=Math.round(days/365);return {k:'up',t:`About ${plural(y,'year')} left`,due:d,days}}
@@ -866,7 +879,7 @@ function upRow(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, st=upStatus(it)
   if(T.kind==='home'){ const big=isBig(it), sa=setAside(it);
     const hm=[it.last?.date?(big?`Installed ${parseD(it.last.date).getFullYear()}`:`Last ${fmtM(parseD(it.last.date))}`):(big?'Age not set':'Not set yet'), big?`lasts about ${plural(Math.round(it.everyMonths/12),'year')}`:`every ${plural(+it.everyMonths,'month')}`, it.cost?(big?`about ${money(it.cost)} to replace`:`about ${money(it.cost)}`):''].filter(Boolean).join(' · ');
     const cond=it.lifePct!=null?`<div class="mini-bar" style="margin-top:6px;max-width:220px"><i style="width:${Math.max(3,it.lifePct)}%;${it.lifePct<25?'background:var(--bad)':''}"></i></div><div class="meta">${condLabel(it.lifePct)} (as of ${fmtM(parseD(it.lifeDate))})</div>`:'';
-    return `<div class="up-row" style="--c:var(--c-${T.icon})">${ico(T.icon)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta">${hm}</div>${cond}${sa>=1?`<div class="meta" style="color:var(--good);font-weight:600">Save ${money(sa)} a month and it's paid for when the time comes.</div>`:''}</div>
+    return `<div class="up-row" style="--c:var(--c-${T.icon})">${ico(T.icon)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta">${hm}</div>${cond}${sa>=1?`<div class="meta" style="color:var(--good);font-weight:600">Save ${money(sa)} a month and it's paid for when the time comes.</div>`:(big&&st.due&&st.days<=30?`<div class="meta" style="font-weight:600">It's reached its usual life. If it's still holding up, tap the pencil and say how it looks. If not, it's time to get a quote.</div>`:'')}</div>
     <span class="pill ${st.k==='unset'?'up':st.k}">${st.t}</span><div class="row acts" style="gap:6px"><button class="btn small" data-up-done="${it.id}">${svg('check',2.5)}${big?'Replaced':'Done'}</button><button class="icon-btn" data-up-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button></div></div>` }
   const meta=[it.last?.date?`Last ${fmtM(parseD(it.last.date))}${it.last.odo!=null?` at ${it.last.odo.toLocaleString()} mi`:''}`:'Not set yet', [it.everyMonths?`every ${plural(+it.everyMonths,'month')}`:'', it.everyMiles?`${(+it.everyMiles).toLocaleString()} mi`:''].filter(Boolean).join(' or '), it.cost?`about ${money(it.cost)}`:''].filter(Boolean).join(' · ');
   return `<div class="up-row" style="--c:var(--c-${T.icon})">${ico(T.icon)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta">${meta}${miles}</div>${learned&&T.kind==='car'?`<div class="meta">You usually do this every ${plural(Math.round(learned),'month')}.</div>`:''}${life}</div>
@@ -889,7 +902,7 @@ function renderUpkeep(){
     <div class="row">${['dentist','doctor','eye'].some(t=>!health.some(h=>h.type===t))?`<button class="btn small primary" data-act="up-health">${svg('plus')}Add dentist, doctor & eye</button>`:''}<button class="btn small ghost" data-up-add="health">${svg('plus')}Other reminder</button></div></div>
     <div class="up-list">${health.map(upRow).join('')||'<p class="muted">No health reminders yet.</p>'}</div></div>
   ${(()=>{const home=U.items.filter(it=>UP_TYPES[it.type]?.kind==='home'); const fund=home.reduce((s,it)=>s+setAside(it),0), hf=(state.spending||[]).find(x=>x.cat==='roof');
-    return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('roof')}<div><h2>Home</h2><p class="muted" style="margin:2px 0 0">${home.length?(fund>=1?`Save about <b class="num">${money(fund)}</b> a month and the big stuff is covered when it wears out.`:'Roof, furnace, water heater and the small stuff that keeps them going.'):'Roof, furnace, water heater and the small stuff that keeps them going.'}</p></div></div>
+    return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('roof')}<div><h2>Home</h2><p class="muted" style="margin:2px 0 0">${home.length?(fund>=1?`Save about <b class="num">${money(fund)}</b> a month and the big stuff is covered when it wears out.`:'Roof, windows, siding, furnace, deck, driveway and the small stuff that keeps them going.'):'Roof, windows, siding, furnace, deck, driveway and the small stuff that keeps them going.'}</p></div></div>
       <div class="row"><button class="btn small primary" data-act="up-home">${svg('plus')}${home.length?'Add more':'Add home items'}</button><button class="btn small ghost" data-up-add="home">${svg('plus')}Other reminder</button>${fund>=1?`<button class="btn small ghost" data-act="up-homefund">${svg('wallet')}${hf?'Update':'Start'} Home upkeep fund</button>`:''}</div></div>
       <div class="up-list">${home.map(upRow).join('')||'<p class="muted">Tell Steady roughly how old your roof, furnace and water heater are, and how they\'re holding up. It will say about how long they have left and what to save each month.</p>'}</div></div>`})()}
   ${U.vehicles.map(v=>{const items=U.items.filter(it=>it.vehicleId===v.id);const r=vehRate(v);const o=odoNow(v);
@@ -950,7 +963,7 @@ function upEditModal(it,kind,vehicleId){ const isNew=!it; kind=kind||(UP_TYPES[i
     if(isNew) up().items.push(it); if(state.example) state.example=false; closeModal(); save(); renderAll(); };
   if($('#ue-del')){ const d=$('#ue-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().items=up().items.filter(x=>x.id!==it.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
 }
-const HOME_KEYS=['roof','furnace','ac','waterheater','hvac','filter','septic'];
+const HOME_KEYS=['roof','windows','siding','furnace','ac','waterheater','deck','driveway','foundation','hvac','filter','deckseal','sealcoat','septic'];
 function condSelect(id,val){return `<select id="${id}"><option value="">Not sure</option>${CONDITION.map(([p,l])=>`<option value="${p}" ${val!=null&&condLabel(val)===l?'selected':''}>${l}</option>`).join('')}</select>`}
 function homeAddModal(){
   const have=new Set(up().items.map(x=>x.type)); const keys=HOME_KEYS.filter(k=>!have.has(k));
