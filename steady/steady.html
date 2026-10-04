@@ -855,7 +855,7 @@ function scanErrorText(e){const c=e&&e.code;
 async function runScan(outEl,onDone){
   const btn=outEl.parentElement.querySelector('.scan-btn'); if(btn) btn.disabled=true;
   const say=t=>{outEl.innerHTML=`<p class="muted" style="display:flex;gap:8px;align-items:center"><span class="mic live" style="width:14px;height:14px"></span>${esc(t)}</p>`};
-  say('Opening Gmail…');
+  say('Waiting for Gmail permission. If Claude asks whether Steady may use Gmail, click Continue.');
   try{const found=await scanGmail(say); onDone(found)}
   catch(e){outEl.innerHTML=`<p style="color:var(--bad)">${esc(scanErrorText(e))}</p>`; if(btn) btn.disabled=false}
 }
