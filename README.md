@@ -9,6 +9,8 @@ Four friendly apps that run in your web browser. No install, no account. Downloa
 | **Spruce** | Slides: build a talk, present it, save it as PowerPoint | [`spruce/spruce.html`](spruce/spruce.html) |
 | **Steady** | Bills: a plan for every bill, a debt-free date, and progress you can see | [`steady/steady.html`](steady/steady.html) |
 
+Open `index.html` for a home page that links all four apps.
+
 They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy.
 
 ## Tidy
