@@ -38,6 +38,7 @@ A bill tracker that gives you hope and a plan.
 - **Start my plan** asks a few easy questions: your income, how often you're paid, which bills you have, and what a win looks like to you.
 - **Bring your bills in** by importing a CSV or Excel file. When Steady runs inside Claude with Gmail connected, it can also read your bill emails (statements, due reminders, autopay receipts) and fill most of the list in for you, with months of history. You check everything before it's saved.
 - **Today** shows a progress ring for the month and a colorful tile for every bill. Tap **Paid** and watch the ring fill.
+- **Everyday spending** covers the money that isn't a bill: groceries and fuel by the week, plus eating out, household, pets, kids and kids' allowance, tobacco and vape, drinks, car upkeep, boat and recreation, club dues, gifts and more. Set each one per week, month or year, log what you spend, and see how much is left this week.
 - **Plan** gives your debt-free date, how much interest you save compared with paying minimums only, which debt to pay first (highest interest or smallest balance), and a paycheck-by-paycheck split.
 - **Trends** charts your debt going down and points out what changed and why, like a utility bill rising with the seasons or a card that costs you the most in interest.
 - **Talk** lets you tell Steady things in plain words, like "I paid the electric, it was 142". It can read its replies out loud.
