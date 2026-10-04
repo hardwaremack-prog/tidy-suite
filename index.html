@@ -4,7 +4,7 @@
 <style>
 /* Layout: one calm page, four app cards in a grid. Matches Tidy's warm paper look. */
 :root{--paper:#FBF9F4;--card:#FFFFFF;--ink:#2C2A25;--soft:#7A7365;--line:#E3DDCF;--pine:#3F6E63;--honey:#E8B93E;
-  --tidy:#3F6E63;--neat:#C2694F;--spruce:#E8B93E;--steady:#FF7A33;--clearout:#23824A;
+  --tidy:#3F6E63;--neat:#C2694F;--spruce:#E8B93E;--steady:#FF7A33;--clearout:#23824A;--handy:#3E3AA0;
   --display:Georgia,'Iowan Old Style','Palatino Linotype',serif;--ui:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif}
 @media (prefers-color-scheme:dark){:root{--paper:#1B1E1C;--card:#262A27;--ink:#E9E5DA;--soft:#A39C8E;--line:#323833;--pine:#7FB3A5;color-scheme:dark}}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--ui)}
@@ -24,13 +24,14 @@ footer{margin-top:36px;color:var(--soft);font-size:13px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){a.app{transition:none}}
 </style></head><body><main>
 <h1>Tidy Suite</h1>
-<p class="lead">Five friendly apps for everyday work and home life. Pick one to open it. Each saves on this computer.</p>
+<p class="lead">Six friendly apps for everyday work and home life. Pick one to open it. Each saves on this computer.</p>
 <div class="grid">
 <a class="app" href="tidy/tidy.html"><div class="icon" style="background:var(--tidy)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16M15 4v16"/></svg></div><b>Tidy</b><span>Spreadsheets for budgets, lists and anything with rows and columns.</span><span class="open">Open Tidy →</span></a>
 <a class="app" href="neat/neat.html"><div class="icon" style="background:var(--neat)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg></div><b>Neat</b><span>Writing: letters, notes and reports, with a helper that tells you how easy it reads.</span><span class="open">Open Neat →</span></a>
 <a class="app" href="spruce/spruce.html"><div class="icon" style="background:var(--spruce);color:#3a2c05"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8M8 12l3-3 2 2 3-3"/></svg></div><b>Spruce</b><span>Slides: build a talk, present it full screen, save it as PowerPoint.</span><span class="open">Open Spruce →</span></a>
 <a class="app" href="steady/steady.html"><div class="icon" style="background:var(--steady)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></div><b>Steady</b><span>Bills, everyday spending and upkeep reminders, with a plan and progress you can see.</span><span class="open">Open Steady →</span></a>
 <a class="app" href="clearout/clearout.html"><div class="icon" style="background:var(--clearout)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h7l9 9-9 9-9-9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><b>Clearout</b><span>Turn stuff and skills into money: price it, list it, handle buyers, and celebrate every sale.</span><span class="open">Open Clearout →</span></a>
+<a class="app" href="handy/handy.html"><div class="icon" style="background:var(--handy);color:#FFB24A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13V6a1.5 1.5 0 0 1 3 0v5M10 11V4.5a1.5 1.5 0 0 1 3 0V11M13 11V6a1.5 1.5 0 0 1 3 0v6M16 12v-2a1.5 1.5 0 0 1 3 0v5c0 4-3 7-7 7h-1c-2.5 0-4-1.3-5.3-3.3L3 15a1.5 1.5 0 0 1 2.5-1.6L7 15"/></svg></div><b>Handy</b><span>Earn with your time and skills: find services to offer, price yourself, tell your neighbors, track every job.</span><span class="open">Open Handy →</span></a>
 </div>
 <footer>Made by hardwaremack. Steady's Gmail scan and smart chat need Claude; everything else works right here.</footer>
 </main></body></html>

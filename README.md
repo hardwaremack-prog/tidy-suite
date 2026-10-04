@@ -1,6 +1,6 @@
 # The Tidy Suite
 
-Five friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
+Six friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
 
 | App | What it does | Open it |
 |---|---|---|
@@ -9,10 +9,11 @@ Five friendly apps that run in your web browser. No install, no account. Downloa
 | **Spruce** | Slides: build a talk, present it, save it as PowerPoint | [`spruce/spruce.html`](spruce/spruce.html) |
 | **Steady** | Bills: a plan for every bill, a debt-free date, and progress you can see | [`steady/steady.html`](steady/steady.html) |
 | **Clearout** | Selling: price your stuff, write the listing, handle buyers, offer local services, track every sale | [`clearout/clearout.html`](clearout/clearout.html) |
+| **Handy** | Side income: offer local services, price yourself, find customers, track jobs and debt paid down | [`handy/handy.html`](handy/handy.html) |
 
-Open `index.html` for a home page that links all five apps.
+Open `index.html` for a home page that links all six apps.
 
-They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use.
+They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills.
 
 ## Tidy
 
@@ -67,6 +68,19 @@ For people with too much stuff who want to turn it into money. It takes the stre
 - **Dashboard** checks in on each item: "Did it sell?" Say yes, enter the price, and a bell rings. Say not yet, pick what happened, and it suggests a fix like a lower price, a different site, or a fresh relist. Every sale goes into Your wins, and it shows which site makes you the most.
 
 Prices are estimates. Real sold prices near you are always better.
+
+## Handy
+
+![Handy](handy/screenshot.png)
+
+You need money. That's okay. Your neighbors need you. Handy helps you turn what you already know and own into side income, with a lot of encouragement along the way.
+
+- **Start here** asks your goal for the month, the hours you can give, and the debt you want to pay down (your total from Steady works great). It shows how many months to pay it off and walks you through five first steps.
+- **What I can do**: tap your tools and skills to see 27 local services with starting prices. Heart the ones you'd enjoy (if you enjoy it, it's not work) and pick the ones to offer.
+- **My prices** works out the hourly rate you need, lets you set each price, and tells you if it meets your goal. Includes pricing tips and what to say when someone asks for cheaper.
+- **Get the word out** covers Nextdoor, Facebook groups, Marketplace, flyers and word of mouth, writes your post in a friendly, professional or flyer style, and gives you an easy week plan.
+- **What to say** has 13 ready messages: first reply, quotes, saying no, confirmations, running late, payment, reviews, referrals, regulars and raising prices.
+- **Jobs & progress**: log each paid job and a bell rings. A ring fills toward your monthly goal, a bar shows debt paid down, and it tracks your hourly rate, reviews and repeat customers.
 
 ---
 Made by hardwaremack.
