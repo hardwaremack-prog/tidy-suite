@@ -32,13 +32,28 @@ The window also shows a network address like `http://192.168.1.20:8765`. Phones,
 
 It uses PowerShell, which comes with Windows, so there is nothing to install. It only serves files from the Tidy Suite folder, and never the launcher itself.
 
+## Standalone or server mode
+
+You can use the suite two ways, and switch whenever you like.
+
+| | **Standalone** | **Server mode** |
+|---|---|---|
+| How to open it | Double-click any app file, or `index.html` | Double-click **`Start Tidy Suite.bat`** |
+| Where work is saved | In that web browser only | In the **Saved work** folder next to the launcher, plus a copy in each browser |
+| Other devices | Each device keeps its own work | Phones and computers on your Wi-Fi share it. Pick up where you left off on any device |
+| Needs the launcher running | No | Yes. If the computer is off, work is kept on the device and sent when it's back |
+
+The apps work out which mode they're in by themselves. Server mode is only on while the launcher window is open.
+
 ## People
 
-Every app has a small **people button** in the bottom corner. Tap it to pick who's using the suite, add a person, rename, or remove someone. Each person's work is saved separately, so on a shared computer nobody's bills, chores or resume get mixed up with anyone else's. Switching people switches every open suite app. Snug backs up and restores the person who is picked.
+Every app has a small **people button** in the bottom corner. Tap it to pick who's using the suite, add a person, rename, or remove someone. Each person's work is saved separately, so nobody's bills, chores or resume get mixed up with anyone else's. Switching people switches every open suite app. Snug backs up and restores the person who is picked.
 
-Work is saved in the browser on each device, so a phone and a computer each keep their own. The first person keeps everything saved before people were added. The picker keeps work tidy and separate. It isn't a password lock.
+In server mode the list of people is shared by every device, and a dot on the people button shows how saving is going: green means saved to the folder, yellow is saving, and red means it can't reach the Tidy Suite computer right now (your work is safe on the device and is sent when the computer is back). The menu says which mode you're in.
 
-Moving your work over to localhost: apps opened at localhost save separately from apps opened by double-clicking the files. Open Snug the old way and save a backup file, then open Snug at localhost and restore it. After that, stick with one way and one port (8765).
+The first person ("Me") keeps everything saved before people were added. People keep work tidy and separate; it isn't a password lock, and anyone on your Wi-Fi who opens the suite can pick any person. If two devices change the same thing for the same person at the same moment, the last save wins. Open an app again to see changes made on another device.
+
+To back up server mode, copy the **Saved work** folder somewhere safe (or use Snug for each person).
 
 ## Tidy
 
