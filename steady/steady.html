@@ -13,7 +13,7 @@
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px; --r-sm:12px; --shadow:0 1px 2px rgba(21,48,42,.06),0 6px 20px rgba(21,48,42,.06);
   --c-house:#4F6BED; --c-car:#E2543B; --c-card:#8B4FD8; --c-bank:#2E8B6E; --c-bolt:#E09A00; --c-flame:#F06A2A;
-  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tooth:#2AA3C6; --c-steth:#DD5468; --c-eye:#7A5FD6; --c-oil:#C48A12; --c-tire:#58677A; --c-brake:#CC4636; --c-battery:#3A9A58; --c-bell:#E0841B; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
+  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tooth:#2AA3C6; --c-steth:#DD5468; --c-eye:#7A5FD6; --c-oil:#C48A12; --c-tire:#58677A; --c-brake:#CC4636; --c-battery:#3A9A58; --c-bell:#E0841B; --c-roof:#B5583A; --c-snow:#3AA0D8; --c-tank:#5C7FA3; --c-filter:#8C8E4E; --c-therm:#1FA39A; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E1916; --surface:#16241F; --surface-2:#1E302A; --ink:#E6F1EC; --muted:#93A8A0; --line:#2A3E37;
@@ -312,6 +312,11 @@ const P = {
   tire:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/>',
   brake:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2"/><path d="M5 9a7.5 7.5 0 0 1 5-4.6M19 9a7.5 7.5 0 0 0-5-4.6"/>',
   battery:'<rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5M17 7V5M6.5 13h3M14.5 13h3M16 11.5v3"/>',
+  roof:'<path d="M3 12l9-8 9 8"/><path d="M5 10.5V20h14v-9.5"/><path d="M15 6V3h3v5.5"/>',
+  snow:'<path d="M12 2v20M4 7l16 10M4 17L20 7"/><path d="M9.5 3.5L12 5l2.5-1.5M9.5 20.5L12 19l2.5 1.5"/>',
+  tank:'<rect x="6" y="3" width="12" height="18" rx="3"/><path d="M10 15c0-1.5 2-2.5 2-4 0 1.5 2 2.5 2 4a2 2 0 0 1-4 0z"/>',
+  filter:'<rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 9.3h16M4 14.6h16M9.3 4v16M14.6 4v16"/>',
+  therm:'<path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z"/><path d="M12 10v6"/>',
   bell:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>',
   wallet:'<rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M3 10h18M16 15h2"/>',
   check:'<path d="M5 12l5 5 9-10"/>', plus:'<path d="M12 5v14M5 12h14"/>',
@@ -359,6 +364,7 @@ const SPEND = {
   glass:{label:'Drinks & nights out',hint:'Beer, wine, bars',freq:'week',ph:25,re:/beer|wine|liquor|drink|bar\b|booze|alcohol|party store/,why:'Weekends, game days and get-togethers make this one swing.'},
   boat:{label:'Boat & recreation',hint:'Marina, boat fuel, storage, toys',freq:'year',ph:2500,re:/boat|marina|dock|slip|winteriz|outboard|jet ?ski|kayak|camp|atv|snowmobile/,why:'Boat costs land in seasons: spring launch, summer fuel, fall winterizing and storage.'},
   badge:{label:'Clubs & dues',hint:'Associations, memberships, gym',freq:'year',ph:300,re:/dues|club|association|membership|lodge|gym|legion|vfw|hoa dues/,why:'Dues usually come once a year, so setting a little aside monthly keeps them from surprising you.'},
+  roof:{label:'Home upkeep fund',hint:'Saving for roof, furnace, repairs',freq:'month',ph:100,re:/roof|furnace|repair|plumb|contractor|home depot|lowe/,why:'Big home repairs come every few years. A steady monthly set-aside turns them from a crisis into a plan.'},
   other:{label:'Other spending',hint:'Anything else regular',freq:'month',ph:50,re:/other|misc/,why:''}
 };
 const SPEND_KEYS=Object.keys(SPEND);
@@ -435,7 +441,12 @@ function exampleUpkeep(){
     it('rotate',{last:{date:ago(5),odo:44100}}),
     it('tires',{last:{date:ago(30),odo:21000},lifePct:45,lifeDate:ago(1)}),
     it('brakes',{last:{date:ago(26),odo:27500},lifePct:60,lifeDate:ago(1)}),
-    it('battery',{last:{date:ago(40)}})]};
+    it('battery',{last:{date:ago(40)}}),
+    it('coolant',{last:{date:ago(50),odo:15000}}),
+    it('roof',{last:{date:ago(12*16)},lifePct:50,lifeDate:ago(1)}),
+    it('furnace',{last:{date:ago(12*11)},lifePct:40,lifeDate:ago(1)}),
+    it('waterheater',{last:{date:ago(12*9)}}),
+    it('filter',{last:{date:ago(4)}})]};
 }
 function blankState(){return {v:1,example:false,profile:{name:'',income:0,payFreq:'monthly',goal:'both',extra:200,strategy:'avalanche',cushion:{saved:0,target:0}},bills:[],payments:[],history:[],spending:[],spends:[],upkeep:{vehicles:[],items:[]},startedAt:ymd(now)}}
 
@@ -777,11 +788,24 @@ const UP_TYPES = {
   tires:{kind:'car',icon:'tire',label:'New tires',months:72,miles:50000,cost:750,q:'Have you replaced the tires',noun:'tire replacement',life:true},
   brakes:{kind:'car',icon:'brake',label:'Brakes',months:48,miles:40000,cost:350,q:'Have you had the brakes done',noun:'brake job',life:true},
   battery:{kind:'car',icon:'battery',label:'Battery',months:48,cost:180,q:'Have you replaced the battery',noun:'battery'},
+  coolant:{kind:'car',icon:'therm',label:'Coolant flush',months:60,miles:60000,cost:150,q:'Have you had the coolant flushed',noun:'coolant flush'},
+  roof:{kind:'home',icon:'roof',label:'Roof',months:300,cost:12000,big:true,q:'Has the roof been replaced?',noun:'roof'},
+  furnace:{kind:'home',icon:'flame',label:'Furnace / heating',months:216,cost:5500,big:true,q:'Has the furnace been replaced?',noun:'furnace'},
+  ac:{kind:'home',icon:'snow',label:'Air conditioner',months:180,cost:5000,big:true,q:'Has the air conditioner been replaced?',noun:'air conditioner'},
+  waterheater:{kind:'home',icon:'tank',label:'Water heater',months:144,cost:1600,big:true,q:'Has the water heater been replaced?',noun:'water heater'},
+  hvac:{kind:'home',icon:'wrench',label:'Heating & cooling tune-up',months:12,cost:130,q:'Have you had the heating and cooling serviced?',noun:'tune-up'},
+  filter:{kind:'home',icon:'filter',label:'Furnace filter',months:3,cost:15,q:'Have you changed the furnace filter?',noun:'filter change'},
+  septic:{kind:'home',icon:'drop',label:'Septic pumping',months:36,cost:450,q:'Has the septic been pumped?',noun:'septic pumping'},
+  mcustom:{kind:'home',icon:'bell',label:'Home reminder',months:12,cost:0,q:'Have you taken care of',noun:'job'},
   hcustom:{kind:'health',icon:'bell',label:'Health reminder',months:12,cost:0,q:'Have you taken care of',noun:'visit'},
   ccustom:{kind:'car',icon:'bell',label:'Car reminder',months:12,cost:0,q:'Have you taken care of',noun:'service'}
 };
 UP_TYPES.oil.life=true;
 const DAY=864e5, MON=30.44;
+const CONDITION=[[90,'Like new'],[70,'Good shape'],[50,'About halfway'],[25,'Showing its age'],[10,'Near the end']];
+const condLabel=p=>{if(p==null)return '';let best=CONDITION[0];CONDITION.forEach(c=>{if(Math.abs(c[0]-p)<Math.abs(best[0]-p))best=c});return best[1]};
+const isBig=it=>!!(UP_TYPES[it.type]?.big||(UP_TYPES[it.type]?.kind==='home'&&+it.everyMonths>=60));
+function setAside(it){const st=upStatus(it); if(!isBig(it)||!it.cost||!st.due) return 0; const m=Math.max(1,(st.due.date-todayD())/DAY/MON); return it.cost/m}
 const todayD=()=>new Date(now.getFullYear(),now.getMonth(),now.getDate());
 const parseD=s=>{if(!s)return null;const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
 const addMonthsD=(d,m)=>new Date(d.getTime()+m*MON*DAY);
@@ -805,16 +829,23 @@ function upDue(it){
   if(v&&it.everyMiles&&last.odo!=null&&r){ const left=last.odo+ +it.everyMiles-odoNow(v); c.push({date:new Date(todayD().getTime()+left/r*DAY),basis:'miles',milesLeft:left}) }
   if(!c.length) return null; c.sort((a,b)=>a.date-b.date); return c[0];
 }
-function upStatus(it){ const d=upDue(it); if(!d) return {k:'unset',t:'Set the last date',due:null};
+function upStatus(it){ const d=upDue(it); if(!d) return {k:'unset',t:UP_TYPES[it.type]?.kind==='home'?'Add its age or condition':'Set the last date',due:null};
   const days=Math.round((d.date-todayD())/DAY);
   if(days<0){const m=Math.max(1,Math.round(-days/MON));return {k:'late',t:days>-31?`Due ${-days} days ago`:`${plural(m,'month')} past due`,due:d,days}}
   if(days<=30) return {k:'soon',t:days===0?'Due today':`Due in ${plural(days,'day')}`,due:d,days};
+  if(days>540){const y=Math.round(days/365);return {k:'up',t:`About ${plural(y,'year')} left`,due:d,days}}
   return {k:'up',t:`Due ${fmtM(d.date)}`,due:d,days} }
 function upQuestion(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it);
   if(it.type==='hcustom'||it.type==='ccustom') return `${T.q} “${it.name}”${v?` on the ${v.name}`:''}?`;
   return T.kind==='car'?`${T.q} on the ${v?v.name:'car'}?`:T.q }
+function homeDetail(it){ const T=UP_TYPES[it.type], ms=monthsSince(it.last?.date), parts=[];
+  if(it.last?.date) parts.push(isBig(it)?`Installed around ${parseD(it.last.date).getFullYear()}, and they usually last about ${plural(Math.round(it.everyMonths/12),'year')}.`:`Last done ${fmtM(parseD(it.last.date))}, about ${plural(Math.round(ms),'month')} ago.`);
+  if(it.lifePct!=null) parts.push(`You said it was ${condLabel(it.lifePct).toLowerCase()} in ${fmtM(parseD(it.lifeDate))}.`);
+  if(!isBig(it)&&it.everyMonths) parts.push(`Every ${plural(+it.everyMonths,'month')} keeps it right.`);
+  return parts.join(' ') }
 function upDetail(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it), st=upStatus(it), ms=monthsSince(it.last?.date);
   const noun=(it.type.endsWith('custom')?it.name.toLowerCase():T.noun);
+  if(T.kind==='home') return homeDetail(it);
   if(T.kind==='health'){ const m=Math.round(ms||0);
     return `It's been ${plural(m,'month')} since your last ${noun} (${fmtM(parseD(it.last.date))}). ${it.everyMonths?`Every ${plural(+it.everyMonths,'month')} is the usual rhythm`:''}${m>(+it.everyMonths||0)?`, so it's ${plural(m-(+it.everyMonths),'month')} past.`:'.'}` }
   const r=vehRate(v); const parts=[];
@@ -832,6 +863,11 @@ function annualUpkeep(kind){ return (up().items||[]).filter(it=>(UP_TYPES[it.typ
 function upRow(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, st=upStatus(it), v=vehOf(it), learned=learnedMonths(it);
   const life=it.lifePct!=null?`<div class="mini-bar" style="margin-top:6px;max-width:220px"><i style="width:${Math.max(3,it.lifePct)}%;${it.lifePct<25?'background:var(--bad)':''}"></i></div><div class="meta">${it.lifePct}% life left (as of ${fmtM(parseD(it.lifeDate))})</div>`:'';
   const miles=st.due?.basis==='miles'?` · about ${Math.max(0,Math.round(st.due.milesLeft)).toLocaleString()} miles left`:'';
+  if(T.kind==='home'){ const big=isBig(it), sa=setAside(it);
+    const hm=[it.last?.date?(big?`Installed ${parseD(it.last.date).getFullYear()}`:`Last ${fmtM(parseD(it.last.date))}`):(big?'Age not set':'Not set yet'), big?`lasts about ${plural(Math.round(it.everyMonths/12),'year')}`:`every ${plural(+it.everyMonths,'month')}`, it.cost?(big?`about ${money(it.cost)} to replace`:`about ${money(it.cost)}`):''].filter(Boolean).join(' · ');
+    const cond=it.lifePct!=null?`<div class="mini-bar" style="margin-top:6px;max-width:220px"><i style="width:${Math.max(3,it.lifePct)}%;${it.lifePct<25?'background:var(--bad)':''}"></i></div><div class="meta">${condLabel(it.lifePct)} (as of ${fmtM(parseD(it.lifeDate))})</div>`:'';
+    return `<div class="up-row" style="--c:var(--c-${T.icon})">${ico(T.icon)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta">${hm}</div>${cond}${sa>=1?`<div class="meta" style="color:var(--good);font-weight:600">Save ${money(sa)} a month and it's paid for when the time comes.</div>`:''}</div>
+    <span class="pill ${st.k==='unset'?'up':st.k}">${st.t}</span><div class="row acts" style="gap:6px"><button class="btn small" data-up-done="${it.id}">${svg('check',2.5)}${big?'Replaced':'Done'}</button><button class="icon-btn" data-up-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button></div></div>` }
   const meta=[it.last?.date?`Last ${fmtM(parseD(it.last.date))}${it.last.odo!=null?` at ${it.last.odo.toLocaleString()} mi`:''}`:'Not set yet', [it.everyMonths?`every ${plural(+it.everyMonths,'month')}`:'', it.everyMiles?`${(+it.everyMiles).toLocaleString()} mi`:''].filter(Boolean).join(' or '), it.cost?`about ${money(it.cost)}`:''].filter(Boolean).join(' · ');
   return `<div class="up-row" style="--c:var(--c-${T.icon})">${ico(T.icon)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta">${meta}${miles}</div>${learned&&T.kind==='car'?`<div class="meta">You usually do this every ${plural(Math.round(learned),'month')}.</div>`:''}${life}</div>
   <span class="pill ${st.k==='unset'?'up':st.k}">${st.t}</span><div class="row acts" style="gap:6px"><button class="btn small" data-up-done="${it.id}">${svg('check',2.5)}Done</button><button class="icon-btn" data-up-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button></div></div>` }
@@ -852,17 +888,21 @@ function renderUpkeep(){
   <div class="card"><div class="section-head"><div><h2>Health checkups</h2><p class="muted" style="margin:2px 0 0">Dentist, doctor, eyes. Tap Done after each visit.</p></div>
     <div class="row">${['dentist','doctor','eye'].some(t=>!health.some(h=>h.type===t))?`<button class="btn small primary" data-act="up-health">${svg('plus')}Add dentist, doctor & eye</button>`:''}<button class="btn small ghost" data-up-add="health">${svg('plus')}Other reminder</button></div></div>
     <div class="up-list">${health.map(upRow).join('')||'<p class="muted">No health reminders yet.</p>'}</div></div>
+  ${(()=>{const home=U.items.filter(it=>UP_TYPES[it.type]?.kind==='home'); const fund=home.reduce((s,it)=>s+setAside(it),0), hf=(state.spending||[]).find(x=>x.cat==='roof');
+    return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('roof')}<div><h2>Home</h2><p class="muted" style="margin:2px 0 0">${home.length?(fund>=1?`Save about <b class="num">${money(fund)}</b> a month and the big stuff is covered when it wears out.`:'Roof, furnace, water heater and the small stuff that keeps them going.'):'Roof, furnace, water heater and the small stuff that keeps them going.'}</p></div></div>
+      <div class="row"><button class="btn small primary" data-act="up-home">${svg('plus')}${home.length?'Add more':'Add home items'}</button><button class="btn small ghost" data-up-add="home">${svg('plus')}Other reminder</button>${fund>=1?`<button class="btn small ghost" data-act="up-homefund">${svg('wallet')}${hf?'Update':'Start'} Home upkeep fund</button>`:''}</div></div>
+      <div class="up-list">${home.map(upRow).join('')||'<p class="muted">Tell Steady roughly how old your roof, furnace and water heater are, and how they\'re holding up. It will say about how long they have left and what to save each month.</p>'}</div></div>`})()}
   ${U.vehicles.map(v=>{const items=U.items.filter(it=>it.vehicleId===v.id);const r=vehRate(v);const o=odoNow(v);
     return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('car')}<div><h2>${esc(v.name)}</h2><p class="muted" style="margin:2px 0 0">${o!=null?`About ${o.toLocaleString()} miles`:'Mileage not set'}${r?` · ${Math.round(r*MON).toLocaleString()} miles a month`:''}</p></div></div>
       <div class="row"><button class="btn small primary" data-up-odo="${v.id}">${svg('car')}Update mileage</button><button class="btn small ghost" data-up-add="car:${v.id}">${svg('plus')}Reminder</button><button class="icon-btn" data-up-veh="${v.id}" aria-label="Edit ${esc(v.name)}">${svg('edit')}</button></div></div>
       ${!r?`<p class="muted" style="margin:10px 0 0;font-size:13px">Update the mileage now and again (or enter miles per week) and Steady will predict services from how much you really drive.</p>`:''}
       <div class="up-list">${items.map(upRow).join('')}</div></div>`}).join('')}
-  <div class="card" style="text-align:center"><button class="btn primary" data-act="up-addveh">${svg('car')}Add a vehicle</button><p class="muted" style="margin:10px 0 0;font-size:13px">Comes with oil, tire rotation, tires, brakes and battery. Defaults are common guidelines; check your owner's manual and adjust.</p></div>`;
+  <div class="card" style="text-align:center"><button class="btn primary" data-act="up-addveh">${svg('car')}Add a vehicle</button><p class="muted" style="margin:10px 0 0;font-size:13px">Comes with oil, tire rotation, tires, brakes, battery and coolant. Defaults are common guidelines; check your owner's manual and adjust.</p></div>`;
 }
 function newUpItem(type,vehicleId){const T=UP_TYPES[type];return {id:uid(),type,vehicleId:vehicleId||null,name:T.label,everyMonths:T.months,everyMiles:T.miles||null,cost:T.cost,last:{},history:[],misses:[],lifePct:null,lifeDate:null,snoozeUntil:null}}
-function spendFor(it){const k=(UP_TYPES[it.type]?.kind==='car')?'wrench':'pill';return (state.spending||[]).find(x=>x.cat===k)}
+function spendFor(it){const kd=UP_TYPES[it.type]?.kind;const k=kd==='car'?'wrench':kd==='home'?'roof':'pill';return (state.spending||[]).find(x=>x.cat===k)}
 function upDoneModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it), sp=spendFor(it);
-  openModal(`<div class="row" style="flex-wrap:nowrap">${ico(T.icon)}<div><h2>${esc(it.name)}${v?` · ${esc(v.name)}`:''}</h2><p class="muted" style="margin:0">Nice. That's one less thing hanging over you.</p></div></div>
+  openModal(`<div class="row" style="flex-wrap:nowrap">${ico(T.icon)}<div><h2>${esc(it.name)}${v?` · ${esc(v.name)}`:''}${isBig(it)?' replaced':''}</h2><p class="muted" style="margin:0">${isBig(it)?'A big one. Good to have it done.':'Nice. That\'s one less thing hanging over you.'}</p></div></div>
   <div class="fields" style="margin-top:16px"><div class="field"><label for="ud-date">When</label><input id="ud-date" type="date" value="${ymd(now)}"></div>
   ${T.kind==='car'?`<div class="field"><label for="ud-odo">Odometer</label><input id="ud-odo" inputmode="numeric" value="${odoNow(v)??''}" placeholder="miles"></div>`:''}
   <div class="field"><label for="ud-cost">What it cost</label><input id="ud-cost" inputmode="decimal" value="${it.cost||''}" placeholder="$0 if covered"></div></div>
@@ -875,22 +915,23 @@ function upDoneModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(i
     if(state.example) state.example=false; closeModal(); save(); renderAll();
     const st=upStatus(it); toast(`${it.name} done.`, st.due?`Next one around ${fmtM(st.due.date)}.`:''); confetti(70); };
 }
-const NOT_YET={time:'Haven\'t had time',money:'Money is tight',forgot:'Didn\'t know it was due',little:'Hardly drove it',fine:'Feeling fine, putting it off',other:'Something else'};
-function upNotYetModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom; const keys=T.kind==='car'?['time','money','forgot','little','other']:['time','money','forgot','fine','other'];
+const NOT_YET={holding:'Still holding up fine',time:'Haven\'t had time',money:'Money is tight',forgot:'Didn\'t know it was due',little:'Hardly drove it',fine:'Feeling fine, putting it off',other:'Something else'};
+function upNotYetModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom; const keys=T.kind==='car'?['time','money','forgot','little','other']:T.kind==='home'?(isBig(it)?['holding','money','time','other']:['time','forgot','money','other']):['time','money','forgot','fine','other'];
   openModal(`<h2>No problem. What got in the way?</h2><p class="lead">No judgment. Your answer helps Steady give a better nudge next time. I'll check back in a month.</p>
   <div class="goal">${keys.map(k=>`<label><input type="radio" name="ny" value="${k}" ${k==='time'?'checked':''}><span><b>${NOT_YET[k]}</b></span></label>`).join('')}</div>
   <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="ny-go">Remind me in a month</button></div>`);
   $('#ny-go').onclick=()=>{ const k=(document.querySelector('[name=ny]:checked')||{}).value||'other';
-    it.misses=(it.misses||[]).concat([{date:ymd(now),reason:k}]); it.snoozeUntil=ymd(new Date(todayD().getTime()+30*DAY));
+    it.misses=(it.misses||[]).concat([{date:ymd(now),reason:k}]); it.snoozeUntil=ymd(new Date(todayD().getTime()+(isBig(it)&&k==='holding'?182:30)*DAY));
     if(state.example) state.example=false; closeModal(); save(); renderAll();
     const tips={time:T.kind==='car'?'Many quick-lube shops take walk-ins in about 30 minutes. Maybe a Saturday morning?':'Booking the next opening now, even weeks out, means it\'s handled.',
-      money:T.kind==='car'?`Setting aside ${money((annualUpkeep('car')||600)/12)} a month in Car upkeep spreads the cost out.`:'Ask about payment plans or what your insurance covers. Many checkups are covered at 100%.',
-      forgot:'Now you know. I\'ll keep it on the list.', little:'Update the mileage and Steady will move the date out if you really drove less.', fine:'Checkups catch things before they hurt. Worth booking soon.', other:'Got it.'};
-    toast('I\'ll check back in a month.', tips[k]); if(k==='little'){ const v=vehOf(it); if(v) setTimeout(()=>odoModal(v),400) } };
+      money:T.kind==='home'?`Saving ${money(Math.max(10,setAside(it)||it.cost/24))} a month in a Home upkeep fund makes it doable. Ask about financing or ask for a few quotes too.`:T.kind==='car'?`Setting aside ${money((annualUpkeep('car')||600)/12)} a month in Car upkeep spreads the cost out.`:'Ask about payment plans or what your insurance covers. Many checkups are covered at 100%.',
+      forgot:'Now you know. I\'ll keep it on the list.', holding:'Good to hear. Tell me how it looks now and I\'ll adjust. I\'ll check again in six months.', little:'Update the mileage and Steady will move the date out if you really drove less.', fine:'Checkups catch things before they hurt. Worth booking soon.', other:'Got it.'};
+    toast(k==='holding'?'I\'ll check back in six months.':'I\'ll check back in a month.', tips[k]); if(k==='little'){ const v=vehOf(it); if(v) setTimeout(()=>odoModal(v),400) } if(k==='holding') setTimeout(()=>upEditModal(it),400); };
 }
 function upEditModal(it,kind,vehicleId){ const isNew=!it; kind=kind||(UP_TYPES[it.type]?.kind);
   const types=Object.keys(UP_TYPES).filter(k=>UP_TYPES[k].kind===kind);
-  it=it||newUpItem(kind==='car'?'ccustom':'hcustom',vehicleId); const T=UP_TYPES[it.type];
+  it=it||newUpItem(kind==='car'?'ccustom':kind==='home'?'mcustom':'hcustom',vehicleId); const T=UP_TYPES[it.type];
+  if(kind==='home'){ homeEditModal(it,isNew); return }
   openModal(`<h2>${isNew?'Add a reminder':'Edit '+esc(it.name)}</h2><p class="lead">${kind==='car'?'Whichever comes first, months or miles, sets the due date.':'Steady will ask if you went once it is due.'}</p>
   <div class="fields"><div class="field"><label for="ue-type">Type</label><select id="ue-type">${types.map(k=>`<option value="${k}" ${k===it.type?'selected':''}>${UP_TYPES[k].label}</option>`).join('')}</select></div>
   <div class="field"><label for="ue-name">Name</label><input id="ue-name" value="${esc(it.name)}"></div>
@@ -909,6 +950,45 @@ function upEditModal(it,kind,vehicleId){ const isNew=!it; kind=kind||(UP_TYPES[i
     if(isNew) up().items.push(it); if(state.example) state.example=false; closeModal(); save(); renderAll(); };
   if($('#ue-del')){ const d=$('#ue-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().items=up().items.filter(x=>x.id!==it.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
 }
+const HOME_KEYS=['roof','furnace','ac','waterheater','hvac','filter','septic'];
+function condSelect(id,val){return `<select id="${id}"><option value="">Not sure</option>${CONDITION.map(([p,l])=>`<option value="${p}" ${val!=null&&condLabel(val)===l?'selected':''}>${l}</option>`).join('')}</select>`}
+function homeAddModal(){
+  const have=new Set(up().items.map(x=>x.type)); const keys=HOME_KEYS.filter(k=>!have.has(k));
+  const pick=new Set(keys.filter(k=>['roof','furnace','waterheater'].includes(k)));
+  const rowsHTML=()=>[...pick].map(k=>{const T=UP_TYPES[k];return `<div class="wiz-bill" data-hrow="${k}">${ico(T.icon)}<div><b>${T.label}</b><div class="fields" style="margin-top:8px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
+    <div class="field"><label>${T.big?'About what year was it installed?':'When was it last done?'}</label><input data-h="when" ${T.big?'inputmode="numeric" placeholder="e.g. 2012"':'type="date"'}></div>
+    ${T.big?`<div class="field"><label>How's it doing?</label>${condSelect('h-'+k,null)}</div>`:''}
+    <div class="field"><label>${T.big?'Cost to replace':'Usual cost'}</label><input data-h="cost" inputmode="decimal" value="${T.cost}"></div></div></div></div>`}).join('');
+  const draw=()=>{openModal(`<h2>Your home</h2><p class="lead">Rough answers are perfect. Pick what applies, then tell Steady about how old it is and how it's holding up.</p>
+    <div class="pick">${keys.map(k=>`<button type="button" style="--c:var(--c-${UP_TYPES[k].icon})" aria-pressed="${pick.has(k)}" data-hpick="${k}">${ico(UP_TYPES[k].icon)}<span>${UP_TYPES[k].label}</span></button>`).join('')||'<p class="muted">You have all the common home items. Use the pencil on each to adjust.</p>'}</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">${rowsHTML()}</div>
+    <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="h-save">Add to Upkeep</button></div>`);
+    document.querySelectorAll('[data-hpick]').forEach(b=>b.onclick=()=>{const k=b.dataset.hpick;pick.has(k)?pick.delete(k):pick.add(k);draw()});
+    $('#h-save').onclick=()=>{ document.querySelectorAll('[data-hrow]').forEach(r=>{const k=r.dataset.hrow,T=UP_TYPES[k],it=newUpItem(k);const w=r.querySelector('[data-h=when]').value.trim();
+        if(T.big){const y=parseInt(w);if(y>1900&&y<=now.getFullYear())it.last={date:`${y}-06-01`}}else if(w)it.last={date:w};
+        const c=r.querySelector('#h-'+k); if(c&&c.value!==''){it.lifePct=+c.value;it.lifeDate=ymd(now)}
+        it.cost=num(r.querySelector('[data-h=cost]').value)||T.cost; up().items.push(it)});
+      if(state.example) state.example=false; closeModal(); save(); tab='upkeep'; renderAll(); toast('Home items added.','Steady will say about how long each one has left.'); };
+  }; draw();
+}
+function homeEditModal(it,isNew){ const T=UP_TYPES[it.type], big=isBig(it); const types=Object.keys(UP_TYPES).filter(k=>UP_TYPES[k].kind==='home');
+  openModal(`<h2>${isNew?'Add a home reminder':'Edit '+esc(it.name)}</h2><p class="lead">${big?'Rough is fine. Steady uses the age and how it is holding up.':'Steady will ask if it is done once it is due.'}</p>
+  <div class="fields"><div class="field"><label for="he-type">Type</label><select id="he-type">${types.map(k=>`<option value="${k}" ${k===it.type?'selected':''}>${UP_TYPES[k].label}</option>`).join('')}</select></div>
+  <div class="field"><label for="he-name">Name</label><input id="he-name" value="${esc(it.name)}"></div>
+  <div class="field"><label for="he-last">${big?'Installed or last replaced':'Last done'}</label><input id="he-last" type="date" value="${it.last?.date||''}"></div>
+  <div class="field"><label for="he-life">${big?'Usually lasts (years)':'Every (months)'}</label><input id="he-life" inputmode="decimal" value="${big?Math.round((it.everyMonths||0)/12):it.everyMonths||''}"></div>
+  <div class="field"><label for="he-cost">${big?'Cost to replace':'Usual cost'}</label><input id="he-cost" inputmode="decimal" value="${it.cost||''}"></div>
+  <div class="field"><label for="he-cond">How's it doing now?</label>${condSelect('he-cond',it.lifePct)}</div></div>
+  <div class="sheet-foot">${isNew?'<span></span>':`<button class="btn ghost" id="he-del" style="color:var(--bad)">${svg('trash')}Remove</button>`}<div class="row"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="he-save">${isNew?'Add':'Save'}</button></div></div>`);
+  $('#he-type').onchange=e=>{const N=UP_TYPES[e.target.value];$('#he-name').value=N.label;$('#he-cost').value=N.cost||'';$('#he-life').value=N.big?Math.round(N.months/12):N.months;$('label[for=he-life]').textContent=N.big?'Usually lasts (years)':'Every (months)'};
+  $('#he-save').onclick=()=>{ it.type=$('#he-type').value; const B=!!UP_TYPES[it.type].big; it.name=$('#he-name').value.trim()||UP_TYPES[it.type].label; const lv=num($('#he-life').value); it.everyMonths=lv?(B?lv*12:lv):UP_TYPES[it.type].months;
+    it.last={date:$('#he-last').value||null}; it.cost=num($('#he-cost').value); const c=$('#he-cond').value; if(c===''){it.lifePct=null;it.lifeDate=null}else if(+c!==it.lifePct||!it.lifeDate){it.lifePct=+c;it.lifeDate=ymd(now)}
+    if(isNew) up().items.push(it); if(state.example) state.example=false; closeModal(); save(); renderAll(); };
+  if($('#he-del')){ const d=$('#he-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().items=up().items.filter(x=>x.id!==it.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
+}
+function homeFund(){ const amt=Math.ceil(up().items.reduce((s,it)=>s+setAside(it),0)/5)*5; let f=(state.spending||[]).find(x=>x.cat==='roof');
+  if(!f){f={id:uid(),cat:'roof',name:SPEND.roof.label,amount:amt,freq:'month'};state.spending.push(f)} else {f.amount=amt;f.freq='month'}
+  if(state.example) state.example=false; save(); renderAll(); toast('Home upkeep fund set.',`${money(amt)} a month. When the roof or furnace goes, the money is there.`); }
 function vehModal(v){ const isNew=!v;
   openModal(`<h2>${isNew?'Add a vehicle':'Edit '+esc(v.name)}</h2><p class="lead">The mileage lets Steady predict when service is really needed.</p>
   <div class="fields"><div class="field"><label for="vm-name">Name</label><input id="vm-name" value="${esc(v?.name||'')}" placeholder="e.g. Family SUV"></div>
@@ -916,7 +996,7 @@ function vehModal(v){ const isNew=!v;
   <div class="field"><label for="vm-mpw">Miles per week (guess)</label><input id="vm-mpw" inputmode="numeric" value="${v?.milesPerWeek||''}" placeholder="e.g. 200 (optional)"></div></div>
   <div class="sheet-foot">${isNew?'<span></span>':`<button class="btn ghost" id="vm-del" style="color:var(--bad)">${svg('trash')}Remove vehicle</button>`}<div class="row"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="vm-save">${isNew?'Add vehicle':'Save'}</button></div></div>`);
   $('#vm-save').onclick=()=>{ const name=$('#vm-name').value.trim()||'My car', odo=parseInt(String($('#vm-odo').value).replace(/\D/g,'')), mpw=num($('#vm-mpw').value)||null;
-    if(isNew){ v={id:uid(),name,milesPerWeek:mpw,odoLog:[]}; up().vehicles.push(v); ['oil','rotate','tires','brakes','battery'].forEach(t=>up().items.push(newUpItem(t,v.id))) } else { v.name=name; v.milesPerWeek=mpw }
+    if(isNew){ v={id:uid(),name,milesPerWeek:mpw,odoLog:[]}; up().vehicles.push(v); ['oil','rotate','tires','brakes','battery','coolant'].forEach(t=>up().items.push(newUpItem(t,v.id))) } else { v.name=name; v.milesPerWeek=mpw }
     if(isFinite(odo)) v.odoLog=(v.odoLog||[]).filter(x=>x.date!==ymd(now)).concat([{date:ymd(now),odo}]);
     if(state.example) state.example=false; closeModal(); save(); tab='upkeep'; renderAll(); if(isNew) toast(`${name} added.`,'Tap the pencil on each item to set when it was last done.'); };
   if($('#vm-del')){ const d=$('#vm-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().vehicles=up().vehicles.filter(x=>x.id!==v.id); up().items=up().items.filter(x=>x.vehicleId!==v.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
@@ -1426,6 +1506,8 @@ document.addEventListener('click',e=>{
   if(a==='spend-log') spendLogModal();
   if(a==='up-addveh') vehModal(null);
   if(a==='up-budget') upBudget();
+  if(a==='up-home') homeAddModal();
+  if(a==='up-homefund') homeFund();
   if(a==='up-health'){ ['dentist','doctor','eye'].forEach(t=>{if(!up().items.some(x=>x.type===t)) up().items.push(newUpItem(t))}); if(state.example) state.example=false; save(); renderAll(); toast('Checkups added.','Tap the pencil on each to set when you last went.') }
   if(a==='spend-add') spendEditModal(null);
   if(a==='export') exportCSV();
