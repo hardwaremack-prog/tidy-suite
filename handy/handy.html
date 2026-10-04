@@ -177,6 +177,15 @@ tr:last-child td{border-bottom:0}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:700;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none;z-index:6}
 .toast.show{opacity:1}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}.win.go .bell{animation:none}}
+
+/* saved light */
+.save-status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--muted,#667);white-space:nowrap;padding:3px 10px;border:1px solid var(--line,#ccd);border-radius:99px;background:var(--surface,transparent)}
+.save-dot{width:8px;height:8px;border-radius:50%;background:var(--good,#2C8A57);flex:none}
+.save-dot.saving{background:var(--warn,#E39A00);animation:svpulse .9s infinite ease-in-out}
+.save-dot.error{background:var(--bad,#C2453A)}
+.save-dot.example{background:var(--muted,#889)}
+@keyframes svpulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.save-dot.saving{animation:none}}
 </style></head><body>
 
 <div class="wrap">
@@ -187,6 +196,7 @@ tr:last-child td{border-bottom:0}
         <path d="M14 25v-9a2.5 2.5 0 0 1 5 0v7M19 22v-9a2.5 2.5 0 0 1 5 0v9M24 22v-7a2.5 2.5 0 0 1 5 0v9M29 24v-4a2.5 2.5 0 0 1 5 0v7c0 6-4 10-10 10h-1c-4 0-6-2-8-5l-4-6a2.4 2.4 0 0 1 4-2.6L14 25" fill="none" stroke="var(--sun)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <div><div class="suite">Tidy suite</div><h1>Handy</h1></div>
+      <div class="save-status" aria-live="polite" title="Your work saves automatically in this browser"><span class="save-dot" id="saveDot"></span><span id="saveText">Saved</span></div>
     </div>
     <div class="boost" aria-live="polite">
       <svg class="heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.4 4.5 7 4.5c2 0 3.5 1.1 5 3 1.5-1.9 3-3 5-3 3.6 0 6 3.5 4.5 7.2C19.5 16.4 12 21 12 21z" fill="var(--bad)"/></svg>
@@ -445,6 +455,11 @@ tr:last-child td{border-bottom:0}
 <div class="toast" id="toast" role="status"></div>
 
 <script>
+function saveLight(s){const d=document.getElementById('saveDot'),t=document.getElementById('saveText');if(!d)return;
+ d.className='save-dot'+(s==='saved'?'':' '+s);t.textContent={saved:'Saved',saving:'Saving…',error:'Not saved. Check browser settings',example:'Example, not saved'}[s];
+ clearTimeout(saveLight.t);if(s==='saving')saveLight.t=setTimeout(()=>{if(d.classList.contains('saving'))saveLight('saved')},4000);}
+function storeOK(k,v){try{localStorage.setItem(k,v);return localStorage.getItem(k)===v}catch(e){return false}}
+
 (function(){
 const $ = id => document.getElementById(id);
 const money = n => "$" + Math.round(n).toLocaleString();
@@ -528,7 +543,7 @@ let S;
 try { S = JSON.parse(localStorage.getItem(KEY)); } catch(e){ S = null; }
 if (!S || typeof S !== "object") S = JSON.parse(JSON.stringify(DEFAULT));
 for (const k in DEFAULT) if (S[k] === undefined) S[k] = JSON.parse(JSON.stringify(DEFAULT[k]));
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+function save(){ saveLight('saving'); const ok=storeOK(KEY, JSON.stringify(S)); setTimeout(()=>saveLight(ok?'saved':'error'),350); }
 const priceOf = s => S.prices[s.id] != null ? S.prices[s.id] : Math.round((s.lo+s.hi)/2/5)*5;
 const neededRate = () => S.goal/(Math.max(1,S.hours)*4.33) + (+S.cost||0);
 

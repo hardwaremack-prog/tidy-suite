@@ -170,6 +170,15 @@ td input,td select{padding:5px 7px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:6px;font-size:14px;font-weight:500;z-index:9}
 .empty{padding:40px 20px;text-align:center;color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){.next{animation:pop .25s ease-out}@keyframes pop{from{transform:translateY(4px);opacity:.6}to{transform:none;opacity:1}}}
+
+/* saved light */
+.save-status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--muted,#667);white-space:nowrap;padding:3px 10px;border:1px solid var(--line,#ccd);border-radius:99px;background:var(--surface,transparent)}
+.save-dot{width:8px;height:8px;border-radius:50%;background:var(--good,#2C8A57);flex:none}
+.save-dot.saving{background:var(--warn,#E39A00);animation:svpulse .9s infinite ease-in-out}
+.save-dot.error{background:var(--bad,#C2453A)}
+.save-dot.example{background:var(--muted,#889)}
+@keyframes svpulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.save-dot.saving{animation:none}}
 </style>
 
 </head><body>
@@ -177,6 +186,7 @@ td input,td select{padding:5px 7px}
   <header class="top">
     <div class="logo"><h1>Sort<span>ed</span></h1><p>Fix it the smart way. One step at a time.</p></div>
     <div class="sp"></div>
+    <div class="save-status" aria-live="polite" title="Your work saves automatically in this browser"><span class="save-dot" id="saveDot"></span><span id="saveText">Saved</span></div>
     <button class="btn primary" id="newBtn">+ New project</button>
   </header>
   <div class="grid">
@@ -194,6 +204,11 @@ td input,td select{padding:5px 7px}
 <div class="toast" id="toast" hidden></div>
 
 <script>
+function saveLight(s){const d=document.getElementById('saveDot'),t=document.getElementById('saveText');if(!d)return;
+ d.className='save-dot'+(s==='saved'?'':' '+s);t.textContent={saved:'Saved',saving:'Saving…',error:'Not saved. Check browser settings',example:'Example, not saved'}[s];
+ clearTimeout(saveLight.t);if(s==='saving')saveLight.t=setTimeout(()=>{if(d.classList.contains('saving'))saveLight('saved')},4000);}
+function storeOK(k,v){try{localStorage.setItem(k,v);return localStorage.getItem(k)===v}catch(e){return false}}
+
 // ---------- data ----------
 const MACHINES=[
  {id:'jetski',label:'Jet ski / PWC',sub:'Sea-Doo, Yamaha, Kawasaki'},
@@ -347,7 +362,7 @@ const KEY='sorted.v1';
 let state=load()||seed();
 let ui={tab:'plan',wiz:null,mode:null,backup:false,found:null};
 function load(){try{const r=localStorage.getItem(KEY);return r?JSON.parse(r):null}catch(e){return null}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+function save(){saveLight('saving');const ok=storeOK(KEY,JSON.stringify(state));setTimeout(()=>saveLight(ok?'saved':'error'),350)}
 function uid(){return Math.random().toString(36).slice(2,9)}
 function seed(){
  const p={id:uid(),example:true,name:'2004 Sea-Doo GTX',details:'Bought for $600. Sat 2 seasons. Cranks strong, will not fire.',machine:'jetski',goal:'flip',symptom:'nostart',created:Date.now()-86400000*2,

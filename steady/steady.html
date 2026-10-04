@@ -258,11 +258,21 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .checkin .ico{width:48px;height:48px;border-radius:15px}
 .foot-note{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* saved light */
+.save-status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--muted,#667);white-space:nowrap;padding:3px 10px;border:1px solid var(--line,#ccd);border-radius:99px;background:var(--surface,transparent)}
+.save-dot{width:8px;height:8px;border-radius:50%;background:var(--good,#2C8A57);flex:none}
+.save-dot.saving{background:var(--warn,#E39A00);animation:svpulse .9s infinite ease-in-out}
+.save-dot.error{background:var(--bad,#C2453A)}
+.save-dot.example{background:var(--muted,#889)}
+@keyframes svpulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.save-dot.saving{animation:none}}
 </style>
 
 <header class="top"><div class="top-in">
   <div class="brand"><span class="brand-mark"><i></i></span><span>Steady<small>part of the Tidy suite</small></span></div>
   <nav class="tabs" role="tablist" id="tabs"></nav>
+  <div class="save-status" style="margin-left:auto" aria-live="polite" title="Your work saves automatically in this browser"><span class="save-dot" id="saveDot"></span><span id="saveText">Saved</span></div>
 </div></header>
 
 <main id="main">
@@ -474,9 +484,15 @@ function blankState(){return {v:1,example:false,profile:{modules:{spending:true,
 let store={kind:'none'}; let saveTimer=null;
 const LS='steady-bills-v1';
 function localGet(){try{const s=localStorage.getItem(LS);return s?JSON.parse(s):null}catch(e){return null}}
-function localSet(v){try{localStorage.setItem(LS,JSON.stringify(v))}catch(e){}}
+
+function saveLight(s){const d=document.getElementById('saveDot'),t=document.getElementById('saveText');if(!d)return;
+ d.className='save-dot'+(s==='saved'?'':' '+s);t.textContent={saved:'Saved',saving:'Saving…',error:'Not saved. Check browser settings',example:'Example, not saved'}[s];
+ clearTimeout(saveLight.t);if(s==='saving')saveLight.t=setTimeout(()=>{if(d.classList.contains('saving'))saveLight('saved')},4000);}
+function storeOK(k,v){try{localStorage.setItem(k,v);return localStorage.getItem(k)===v}catch(e){return false}}
+function localSet(v){const ok=storeOK(LS,JSON.stringify(v));saveLight(ok?'saved':'error')}
 function save(){
-  if(!state||state.example) return;
+  if(!state||state.example){saveLight('example');return;}
+  saveLight('saving');
   snapshotHistory();
   if(state.payments.length>600) state.payments=state.payments.slice(-600);
   if(state.spends&&state.spends.length>1500) state.spends=state.spends.slice(-1500);
@@ -593,6 +609,7 @@ function renderBanner(){
   $('#banner').innerHTML=state.example?`<div class="banner"><p><b>You're looking at example bills.</b><br>Answer a few quick questions, or bring in a spreadsheet, and Steady builds a plan from your real numbers.</p>
   <div class="row"><button class="btn primary" data-act="wizard">${svg('star')}Start my plan</button><button class="btn ghost" data-act="import">${svg('upload')}Import CSV / Excel</button></div></div>`:'';
   $('#banner').style.marginBottom=state.example?'18px':'0';
+  if(state.example) saveLight('example'); else if(document.getElementById('saveDot').classList.contains('example')) saveLight('saved');
 }
 
 /* ---------- TODAY ---------- */

@@ -193,6 +193,15 @@ td input{max-width:110px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:999px;font-weight:700;font-size:.9rem;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.show{opacity:1}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}.pricetag{transform:none}}
+
+/* saved light */
+.save-status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--muted,#667);white-space:nowrap;padding:3px 10px;border:1px solid var(--line,#ccd);border-radius:99px;background:var(--surface,transparent)}
+.save-dot{width:8px;height:8px;border-radius:50%;background:var(--good,#2C8A57);flex:none}
+.save-dot.saving{background:var(--warn,#E39A00);animation:svpulse .9s infinite ease-in-out}
+.save-dot.error{background:var(--bad,#C2453A)}
+.save-dot.example{background:var(--muted,#889)}
+@keyframes svpulse{50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.save-dot.saving{animation:none}}
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head><body>
@@ -208,6 +217,7 @@ td input{max-width:110px}
         <div class="suite">Tidy suite</div>
         <h1>Clearout</h1>
       </div>
+      <div class="save-status" aria-live="polite" title="Your work saves automatically in this browser"><span class="save-dot" id="saveDot"></span><span id="saveText">Saved</span></div>
     </div>
     <p class="hello"><strong>Too much stuff, or need some cash?</strong> Spent a little too long in Steady? You came to the right place. We'll price it, list it, handle the buyers, and find ways to earn with what you already know.</p>
   </header>
@@ -540,6 +550,11 @@ td input{max-width:110px}
 <div class="toast" id="toast" role="status"></div>
 
 <script>
+function saveLight(s){const d=document.getElementById('saveDot'),t=document.getElementById('saveText');if(!d)return;
+ d.className='save-dot'+(s==='saved'?'':' '+s);t.textContent={saved:'Saved',saving:'Saving…',error:'Not saved. Check browser settings',example:'Example, not saved'}[s];
+ clearTimeout(saveLight.t);if(s==='saving')saveLight.t=setTimeout(()=>{if(d.classList.contains('saving'))saveLight('saved')},4000);}
+function storeOK(k,v){try{localStorage.setItem(k,v);return localStorage.getItem(k)===v}catch(e){return false}}
+
 (function(){
 const $ = id => document.getElementById(id);
 const money = n => "$" + Math.round(n).toLocaleString();
@@ -905,7 +920,7 @@ if (!Array.isArray(items)) items = [
   {id:4,name:"Wooden dresser, 6 drawers",list:120,floor:85,quick:100,status:"listed",sold:0,platform:"Facebook Marketplace",listedAt:ago(9),attempts:[],alts:["Facebook Marketplace","Nextdoor","Craigslist"],ex:true},
   {id:5,name:"Box of DVDs (40)",list:20,floor:10,quick:15,status:"todo",sold:0,platform:"",attempts:[],alts:["Yard sale","Facebook Marketplace","Nextdoor"],ex:true}
 ];
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(items)); }catch(e){} }
+function save(){ saveLight('saving'); const ok=storeOK(KEY, JSON.stringify(items)); setTimeout(()=>saveLight(ok?'saved':'error'),350); }
 
 /* check-in state */
 let cId = null, cState = "ask", winInfo = null, whyKey = null, skipped = new Set();
