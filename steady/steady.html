@@ -13,7 +13,7 @@
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px; --r-sm:12px; --shadow:0 1px 2px rgba(21,48,42,.06),0 6px 20px rgba(21,48,42,.06);
   --c-house:#4F6BED; --c-car:#E2543B; --c-card:#8B4FD8; --c-bank:#2E8B6E; --c-bolt:#E09A00; --c-flame:#F06A2A;
-  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
+  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tooth:#2AA3C6; --c-steth:#DD5468; --c-eye:#7A5FD6; --c-oil:#C48A12; --c-tire:#58677A; --c-brake:#CC4636; --c-battery:#3A9A58; --c-bell:#E0841B; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E1916; --surface:#16241F; --surface-2:#1E302A; --ink:#E6F1EC; --muted:#93A8A0; --line:#2A3E37;
@@ -242,6 +242,14 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .spend-row .ico{width:36px;height:36px;border-radius:11px}.spend-row .ico svg{width:19px;height:19px}
 .spend-row input,.spend-row select{border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--bg);width:100%;min-width:0}
 @media (max-width:520px){.spend-row{grid-template-columns:auto 1fr 1fr}.spend-row>div:nth-child(2){grid-column:2/-1}.spend-row input{grid-column:2}}
+.up-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.up-row{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:10px 12px;border-radius:var(--r-sm);border:1.5px solid color-mix(in oklab,var(--c) 22%,var(--line));background:color-mix(in oklab,var(--c) 6%,var(--surface))}
+.up-row .ico{width:38px;height:38px;border-radius:12px}.up-row .ico svg{width:20px;height:20px}
+.up-row .meta{font-size:12.5px;color:var(--muted)}
+.up-row .mini-bar{--c:var(--good)}
+@media (max-width:620px){.up-row{grid-template-columns:auto 1fr}.up-row .pill{grid-column:2;justify-self:start}.up-row .acts{grid-column:1/-1;justify-self:end}}
+.checkin{border:2px solid color-mix(in oklab,var(--c) 45%,transparent);background:color-mix(in oklab,var(--c) 9%,var(--surface))}
+.checkin .ico{width:48px;height:48px;border-radius:15px}
 .foot-note{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -256,6 +264,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
   <section class="panel" id="p-today"></section>
   <section class="panel" id="p-plan" hidden></section>
   <section class="panel" id="p-trends" hidden></section>
+  <section class="panel" id="p-upkeep" hidden></section>
   <section class="panel" id="p-bills" hidden></section>
   <section class="panel" id="p-talk" hidden></section>
   <p class="foot-note">Steady does the math with the numbers you give it. Figures are estimates, not financial advice.</p>
@@ -296,6 +305,14 @@ const P = {
   glass:'<path d="M7 3h10l-1 8a4 4 0 0 1-8 0z"/><path d="M12 15v6M8 21h8M7.5 7h9"/>',
   boat:'<path d="M3 15h18l-2.5 4.5a2 2 0 0 1-1.8 1H7.3a2 2 0 0 1-1.8-1z"/><path d="M12 3v12M12 4l6 9h-6"/>',
   badge:'<circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/>',
+  tooth:'<path d="M12 5.5C10 3.5 6 3 5 6.5c-.8 2.8.5 5 1 7 .6 2.6.8 7 2.5 7s1.5-4.5 3.5-4.5 1.8 4.5 3.5 4.5 1.9-4.4 2.5-7c.5-2 1.8-4.2 1-7-1-3.5-5-3-7-1z"/>',
+  steth:'<path d="M5 3v5a4 4 0 0 0 8 0V3"/><path d="M9 12v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="11" r="2"/>',
+  eye:'<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  oil:'<path d="M3 11h9l3-3h3l3 2-5 6H5a2 2 0 0 1-2-2z"/><path d="M8 8V6h3M20 16s1.5 2 1.5 3a1.5 1.5 0 0 1-3 0c0-1 1.5-3 1.5-3z"/>',
+  tire:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/>',
+  brake:'<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2"/><path d="M5 9a7.5 7.5 0 0 1 5-4.6M19 9a7.5 7.5 0 0 0-5-4.6"/>',
+  battery:'<rect x="3" y="7" width="18" height="12" rx="2"/><path d="M7 7V5M17 7V5M6.5 13h3M14.5 13h3M16 11.5v3"/>',
+  bell:'<path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/>',
   wallet:'<rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M3 10h18M16 15h2"/>',
   check:'<path d="M5 12l5 5 9-10"/>', plus:'<path d="M12 5v14M5 12h14"/>',
   today:'<rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/>',
@@ -404,9 +421,23 @@ function exampleState(){
   spends.push({id:uid(),itemId:spending[1].id,amount:38,date:ymd(new Date(ws.getTime()+Math.min(today,1)*864e5))});
   spends.push({id:uid(),itemId:spending[3].id,amount:34,date:ymd(new Date(now.getFullYear(),now.getMonth(),1))});
   spends.push({id:uid(),itemId:spending[4].id,amount:79,date:ymd(new Date(now.getFullYear(),now.getMonth()-2,14))});
-  return {v:1,example:true,profile:{name:'',income:5200,payFreq:'biweekly',goal:'both',extra:300,strategy:'avalanche',cushion:{saved:850,target:9000}},bills,payments,history,spending,spends,startedAt:ymd(addMonths(now,-6))};
+  return {v:1,example:true,profile:{name:'',income:5200,payFreq:'biweekly',goal:'both',extra:300,strategy:'avalanche',cushion:{saved:850,target:9000}},bills,payments,history,spending,spends,upkeep:exampleUpkeep(),startedAt:ymd(addMonths(now,-6))};
 }
-function blankState(){return {v:1,example:false,profile:{name:'',income:0,payFreq:'monthly',goal:'both',extra:200,strategy:'avalanche',cushion:{saved:0,target:0}},bills:[],payments:[],history:[],spending:[],spends:[],startedAt:ymd(now)}}
+function exampleUpkeep(){
+  const ago=m=>ymd(new Date(now.getFullYear(),now.getMonth()-m,Math.min(now.getDate(),28)));
+  const v={id:uid(),name:'Family SUV',milesPerWeek:null,odoLog:[{date:ago(3),odo:45800},{date:ago(0),odo:48200}]};
+  const it=(type,patch)=>Object.assign(newUpItem(type,UP_TYPES[type].kind==='car'?v.id:null),patch);
+  return {vehicles:[v],items:[
+    it('dentist',{last:{date:ago(7)},history:[{date:ago(13)},{date:ago(7)}]}),
+    it('doctor',{last:{date:ago(9)}}),
+    it('eye',{last:{date:ago(20)}}),
+    it('oil',{last:{date:ago(5),odo:44100},history:[{date:ago(16),odo:36000},{date:ago(5),odo:44100}]}),
+    it('rotate',{last:{date:ago(5),odo:44100}}),
+    it('tires',{last:{date:ago(30),odo:21000},lifePct:45,lifeDate:ago(1)}),
+    it('brakes',{last:{date:ago(26),odo:27500},lifePct:60,lifeDate:ago(1)}),
+    it('battery',{last:{date:ago(40)}})]};
+}
+function blankState(){return {v:1,example:false,profile:{name:'',income:0,payFreq:'monthly',goal:'both',extra:200,strategy:'avalanche',cushion:{saved:0,target:0}},bills:[],payments:[],history:[],spending:[],spends:[],upkeep:{vehicles:[],items:[]},startedAt:ymd(now)}}
 
 /* ---------- storage ---------- */
 let store={kind:'none'}; let saveTimer=null;
@@ -435,7 +466,7 @@ async function initStore(){
     }
   }catch(e){}
   if(!loaded) loaded=localGet();
-  if(loaded&&loaded.bills){state=loaded; state.example=false; if(!state.spending)state.spending=[]; if(!state.spends)state.spends=[]; renderAll();}
+  if(loaded&&loaded.bills){state=loaded; state.example=false; if(!state.spending)state.spending=[]; if(!state.spends)state.spends=[]; if(!state.upkeep)state.upkeep={vehicles:[],items:[]}; renderAll();}
 }
 
 /* ---------- derived ---------- */
@@ -497,7 +528,7 @@ function simulate(extra,strategy){
 const fromNow=m=>{const d=addMonths(now,m);return MONTHS[d.getMonth()]+' '+d.getFullYear()};
 
 /* ---------- tabs ---------- */
-const TABS=[['today','Today','today'],['plan','Plan','plan'],['trends','Trends','trends'],['bills','Bills','list'],['talk','Talk','talk']];
+const TABS=[['today','Today','today'],['plan','Plan','plan'],['trends','Trends','trends'],['upkeep','Upkeep','wrench'],['bills','Bills','list'],['talk','Talk','talk']];
 let tab='today';
 try{const h=location.hash.slice(1); if(TABS.some(t=>t[0]===h)) tab=h}catch(e){}
 function renderTabs(){
@@ -531,6 +562,7 @@ function renderToday(){
   const sim=debts().length?simulate(splitExtra().debt,state.profile.strategy):null;
   const cu=state.profile.cushion||{saved:0,target:0}; const cpct=cu.target?Math.min(1,cu.saved/cu.target):0;
   $('#p-today').innerHTML=`
+  ${checkinHTML()}
   <div class="card hero">
     <div class="ring"><svg viewBox="0 0 180 180"><circle cx="90" cy="90" r="78" fill="none" stroke="var(--surface-2)" stroke-width="18"/>
       <circle cx="90" cy="90" r="78" fill="none" stroke="url(#rg)" stroke-width="18" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct)}" style="transition:stroke-dashoffset .8s"/>
@@ -735,6 +767,172 @@ function renderTrends(){
   </div>`;
 }
 
+/* ---------- UPKEEP (reminders) ---------- */
+const UP_TYPES = {
+  dentist:{kind:'health',icon:'tooth',label:'Dentist checkup',months:6,cost:0,q:'Have you been to the dentist?',noun:'dentist visit'},
+  doctor:{kind:'health',icon:'steth',label:'Doctor checkup',months:12,cost:0,q:'Have you had your yearly checkup?',noun:'checkup'},
+  eye:{kind:'health',icon:'eye',label:'Eye exam',months:24,cost:0,q:'Have you had your eyes checked?',noun:'eye exam'},
+  oil:{kind:'car',icon:'oil',label:'Oil change',months:12,miles:7500,cost:75,q:'Have you changed the oil',noun:'oil change'},
+  rotate:{kind:'car',icon:'tire',label:'Tire rotation',months:12,miles:7500,cost:30,q:'Have you had the tires rotated',noun:'tire rotation'},
+  tires:{kind:'car',icon:'tire',label:'New tires',months:72,miles:50000,cost:750,q:'Have you replaced the tires',noun:'tire replacement',life:true},
+  brakes:{kind:'car',icon:'brake',label:'Brakes',months:48,miles:40000,cost:350,q:'Have you had the brakes done',noun:'brake job',life:true},
+  battery:{kind:'car',icon:'battery',label:'Battery',months:48,cost:180,q:'Have you replaced the battery',noun:'battery'},
+  hcustom:{kind:'health',icon:'bell',label:'Health reminder',months:12,cost:0,q:'Have you taken care of',noun:'visit'},
+  ccustom:{kind:'car',icon:'bell',label:'Car reminder',months:12,cost:0,q:'Have you taken care of',noun:'service'}
+};
+UP_TYPES.oil.life=true;
+const DAY=864e5, MON=30.44;
+const todayD=()=>new Date(now.getFullYear(),now.getMonth(),now.getDate());
+const parseD=s=>{if(!s)return null;const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d)};
+const addMonthsD=(d,m)=>new Date(d.getTime()+m*MON*DAY);
+const monthsSince=s=>{const d=parseD(s);return d?(todayD()-d)/DAY/MON:null};
+const fmtM=d=>d?MONTHS[d.getMonth()]+' '+d.getFullYear():'';
+const plural=(n,w)=>`${n} ${w}${n===1?'':'s'}`;
+const up=()=>state.upkeep||(state.upkeep={vehicles:[],items:[]});
+const vehOf=it=>up().vehicles.find(v=>v.id===it.vehicleId);
+function vehRate(v){ if(!v) return null; const log=(v.odoLog||[]).slice().sort((a,b)=>a.date<b.date?-1:1);
+  if(log.length>=2){const a=log[0],b=log[log.length-1];const days=(parseD(b.date)-parseD(a.date))/DAY;if(days>=14&&b.odo>a.odo)return (b.odo-a.odo)/days}
+  return v.milesPerWeek?v.milesPerWeek/7:null }
+function odoNow(v){ if(!v) return null; const log=(v.odoLog||[]).slice().sort((a,b)=>a.date<b.date?-1:1); const last=log[log.length-1]; if(!last) return null;
+  const r=vehRate(v)||0; return Math.round(last.odo+r*Math.max(0,(todayD()-parseD(last.date))/DAY)) }
+function effMonths(it){ const r=vehRate(vehOf(it)); const m=[]; if(it.everyMonths) m.push(+it.everyMonths); if(it.everyMiles&&r) m.push(it.everyMiles/(r*MON)); return m.length?Math.min(...m):null }
+function learnedMonths(it){ const h=(it.history||[]).map(x=>x.date).sort(); if(h.length<2) return null; let g=0; for(let i=1;i<h.length;i++) g+=(parseD(h[i])-parseD(h[i-1]))/DAY/MON; return g/(h.length-1) }
+function upDue(it){
+  const v=vehOf(it), r=vehRate(v), last=it.last||{};
+  if(it.lifePct!=null&&it.lifeDate&&(!last.date||it.lifeDate>=last.date)){ const em=effMonths(it); if(em) return {date:addMonthsD(parseD(it.lifeDate),em*it.lifePct/100),basis:'life'} }
+  const c=[];
+  if(last.date&&it.everyMonths) c.push({date:addMonthsD(parseD(last.date),+it.everyMonths),basis:'time'});
+  if(v&&it.everyMiles&&last.odo!=null&&r){ const left=last.odo+ +it.everyMiles-odoNow(v); c.push({date:new Date(todayD().getTime()+left/r*DAY),basis:'miles',milesLeft:left}) }
+  if(!c.length) return null; c.sort((a,b)=>a.date-b.date); return c[0];
+}
+function upStatus(it){ const d=upDue(it); if(!d) return {k:'unset',t:'Set the last date',due:null};
+  const days=Math.round((d.date-todayD())/DAY);
+  if(days<0){const m=Math.max(1,Math.round(-days/MON));return {k:'late',t:days>-31?`Due ${-days} days ago`:`${plural(m,'month')} past due`,due:d,days}}
+  if(days<=30) return {k:'soon',t:days===0?'Due today':`Due in ${plural(days,'day')}`,due:d,days};
+  return {k:'up',t:`Due ${fmtM(d.date)}`,due:d,days} }
+function upQuestion(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it);
+  if(it.type==='hcustom'||it.type==='ccustom') return `${T.q} “${it.name}”${v?` on the ${v.name}`:''}?`;
+  return T.kind==='car'?`${T.q} on the ${v?v.name:'car'}?`:T.q }
+function upDetail(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it), st=upStatus(it), ms=monthsSince(it.last?.date);
+  const noun=(it.type.endsWith('custom')?it.name.toLowerCase():T.noun);
+  if(T.kind==='health'){ const m=Math.round(ms||0);
+    return `It's been ${plural(m,'month')} since your last ${noun} (${fmtM(parseD(it.last.date))}). ${it.everyMonths?`Every ${plural(+it.everyMonths,'month')} is the usual rhythm`:''}${m>(+it.everyMonths||0)?`, so it's ${plural(m-(+it.everyMonths),'month')} past.`:'.'}` }
+  const r=vehRate(v); const parts=[];
+  if(it.last?.date) parts.push(`Last done ${fmtM(parseD(it.last.date))}${it.last.odo!=null?` at ${it.last.odo.toLocaleString()} miles`:''}.`);
+  if(st.due?.basis==='miles') parts.push(`At about ${Math.round(r*MON).toLocaleString()} miles a month, it hit ${(+it.everyMiles).toLocaleString()} miles around ${fmtM(st.due.date)}.`);
+  else if(st.due?.basis==='life') parts.push(`You said it had about ${it.lifePct}% life left in ${fmtM(parseD(it.lifeDate))}.`);
+  else if(it.everyMonths) parts.push(`It's due every ${plural(+it.everyMonths,'month')}.`);
+  return parts.join(' ') }
+const checkins=()=>(up().items||[]).filter(it=>{const s=upStatus(it);return s.due&&s.days<=0&&(!it.snoozeUntil||it.snoozeUntil<=ymd(now))}).sort((a,b)=>upStatus(a).days-upStatus(b).days);
+function checkinHTML(){ const list=checkins().slice(0,2); if(!list.length) return '';
+  return list.map(it=>{const T=UP_TYPES[it.type]||UP_TYPES.hcustom; const misses=(it.misses||[]).length;
+    return `<div class="card checkin" style="--c:var(--c-${T.icon})"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">${ico(T.icon)}<div style="min-width:0;flex:1"><span class="eyebrow">${misses?`Checking back in (${plural(misses,'time')} so far)`:'Quick check-in'}</span><h2 style="font-size:21px;margin:2px 0 4px">${esc(upQuestion(it))}</h2><p class="muted" style="margin:0">${esc(upDetail(it))}</p>
+    <div class="row" style="margin-top:12px"><button class="btn primary" data-up-done="${it.id}">${svg('check',2.5)}Yes, it's done</button><button class="btn ghost" data-up-notyet="${it.id}">Not yet</button></div></div></div></div>`}).join('') }
+function annualUpkeep(kind){ return (up().items||[]).filter(it=>(UP_TYPES[it.type]||{}).kind===kind).reduce((s,it)=>{const m=effMonths(it);return s+(m&&it.cost?it.cost*12/m:0)},0) }
+function upRow(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, st=upStatus(it), v=vehOf(it), learned=learnedMonths(it);
+  const life=it.lifePct!=null?`<div class="mini-bar" style="margin-top:6px;max-width:220px"><i style="width:${Math.max(3,it.lifePct)}%;${it.lifePct<25?'background:var(--bad)':''}"></i></div><div class="meta">${it.lifePct}% life left (as of ${fmtM(parseD(it.lifeDate))})</div>`:'';
+  const miles=st.due?.basis==='miles'?` · about ${Math.max(0,Math.round(st.due.milesLeft)).toLocaleString()} miles left`:'';
+  const meta=[it.last?.date?`Last ${fmtM(parseD(it.last.date))}${it.last.odo!=null?` at ${it.last.odo.toLocaleString()} mi`:''}`:'Not set yet', [it.everyMonths?`every ${plural(+it.everyMonths,'month')}`:'', it.everyMiles?`${(+it.everyMiles).toLocaleString()} mi`:''].filter(Boolean).join(' or '), it.cost?`about ${money(it.cost)}`:''].filter(Boolean).join(' · ');
+  return `<div class="up-row" style="--c:var(--c-${T.icon})">${ico(T.icon)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta">${meta}${miles}</div>${learned&&T.kind==='car'?`<div class="meta">You usually do this every ${plural(Math.round(learned),'month')}.</div>`:''}${life}</div>
+  <span class="pill ${st.k==='unset'?'up':st.k}">${st.t}</span><div class="row acts" style="gap:6px"><button class="btn small" data-up-done="${it.id}">${svg('check',2.5)}Done</button><button class="icon-btn" data-up-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button></div></div>` }
+function renderUpkeep(){
+  const U=up(), health=U.items.filter(it=>UP_TYPES[it.type]?.kind==='health');
+  const next=U.items.filter(it=>upStatus(it).due).sort((a,b)=>upStatus(a).due.date-upStatus(b).due.date).slice(0,4);
+  const carYear=annualUpkeep('car'), wrench=(state.spending||[]).find(x=>x.cat==='wrench');
+  $('#p-upkeep').innerHTML=`
+  ${checkinHTML()}
+  <div class="grid2">
+    <div class="card"><span class="eyebrow">Coming up</span><h2 style="margin:4px 0 12px">${next.length?'Next on the list':'Set your first reminders'}</h2>
+      <div class="next-list">${next.map(it=>{const T=UP_TYPES[it.type];const st=upStatus(it);const v=vehOf(it);return `<div class="next">${ico(T.icon)}<div class="grow"><b>${esc(it.name)}${v?` · ${esc(v.name)}`:''}</b><div class="when">${st.t}${st.due.basis==='miles'?' (by mileage)':st.due.basis==='life'?' (from life left)':''}</div></div>${it.cost?`<b class="num">${money(it.cost)}</b>`:''}</div>`}).join('')||'<p class="muted">Add your checkups and a vehicle below. Steady will tell you what is due and when.</p>'}</div></div>
+    <div class="card"><span class="eyebrow">What upkeep costs</span><div class="big-num num" style="margin:6px 0 2px">${money(carYear)}<span class="muted" style="font-size:15px;font-family:var(--body)"> a year for vehicles</span></div>
+      <p class="muted" style="margin:0 0 12px">${carYear?`About ${money(carYear/12)} a month, based on your schedules${U.vehicles.some(v=>vehRate(v))?' and how much you drive':''}.`:'Add a vehicle to see what its upkeep costs.'}</p>
+      ${carYear?`<button class="btn small" data-act="up-budget">${svg('wallet')}${wrench?`Set Car upkeep budget to ${money(Math.round(carYear/50)*50)} a year`:`Add Car upkeep to spending (${money(Math.round(carYear/50)*50)} a year)`}</button>`:''}
+      <p class="muted" style="font-size:12.5px;margin:12px 0 0">Steady shows reminders whenever you open it. It can't send alerts while it's closed.</p></div>
+  </div>
+  <div class="card"><div class="section-head"><div><h2>Health checkups</h2><p class="muted" style="margin:2px 0 0">Dentist, doctor, eyes. Tap Done after each visit.</p></div>
+    <div class="row">${['dentist','doctor','eye'].some(t=>!health.some(h=>h.type===t))?`<button class="btn small primary" data-act="up-health">${svg('plus')}Add dentist, doctor & eye</button>`:''}<button class="btn small ghost" data-up-add="health">${svg('plus')}Other reminder</button></div></div>
+    <div class="up-list">${health.map(upRow).join('')||'<p class="muted">No health reminders yet.</p>'}</div></div>
+  ${U.vehicles.map(v=>{const items=U.items.filter(it=>it.vehicleId===v.id);const r=vehRate(v);const o=odoNow(v);
+    return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('car')}<div><h2>${esc(v.name)}</h2><p class="muted" style="margin:2px 0 0">${o!=null?`About ${o.toLocaleString()} miles`:'Mileage not set'}${r?` · ${Math.round(r*MON).toLocaleString()} miles a month`:''}</p></div></div>
+      <div class="row"><button class="btn small primary" data-up-odo="${v.id}">${svg('car')}Update mileage</button><button class="btn small ghost" data-up-add="car:${v.id}">${svg('plus')}Reminder</button><button class="icon-btn" data-up-veh="${v.id}" aria-label="Edit ${esc(v.name)}">${svg('edit')}</button></div></div>
+      ${!r?`<p class="muted" style="margin:10px 0 0;font-size:13px">Update the mileage now and again (or enter miles per week) and Steady will predict services from how much you really drive.</p>`:''}
+      <div class="up-list">${items.map(upRow).join('')}</div></div>`}).join('')}
+  <div class="card" style="text-align:center"><button class="btn primary" data-act="up-addveh">${svg('car')}Add a vehicle</button><p class="muted" style="margin:10px 0 0;font-size:13px">Comes with oil, tire rotation, tires, brakes and battery. Defaults are common guidelines; check your owner's manual and adjust.</p></div>`;
+}
+function newUpItem(type,vehicleId){const T=UP_TYPES[type];return {id:uid(),type,vehicleId:vehicleId||null,name:T.label,everyMonths:T.months,everyMiles:T.miles||null,cost:T.cost,last:{},history:[],misses:[],lifePct:null,lifeDate:null,snoozeUntil:null}}
+function spendFor(it){const k=(UP_TYPES[it.type]?.kind==='car')?'wrench':'pill';return (state.spending||[]).find(x=>x.cat===k)}
+function upDoneModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it), sp=spendFor(it);
+  openModal(`<div class="row" style="flex-wrap:nowrap">${ico(T.icon)}<div><h2>${esc(it.name)}${v?` · ${esc(v.name)}`:''}</h2><p class="muted" style="margin:0">Nice. That's one less thing hanging over you.</p></div></div>
+  <div class="fields" style="margin-top:16px"><div class="field"><label for="ud-date">When</label><input id="ud-date" type="date" value="${ymd(now)}"></div>
+  ${T.kind==='car'?`<div class="field"><label for="ud-odo">Odometer</label><input id="ud-odo" inputmode="numeric" value="${odoNow(v)??''}" placeholder="miles"></div>`:''}
+  <div class="field"><label for="ud-cost">What it cost</label><input id="ud-cost" inputmode="decimal" value="${it.cost||''}" placeholder="$0 if covered"></div></div>
+  ${sp?`<label class="switch" style="margin-top:12px"><input type="checkbox" id="ud-log" checked>Add the cost to ${esc(sp.name)} spending</label>`:''}
+  <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="ud-go">${svg('check',2.5)}Save</button></div>`);
+  $('#ud-go').onclick=()=>{ const date=$('#ud-date').value||ymd(now), cost=num($('#ud-cost').value), odo=$('#ud-odo')?parseInt(String($('#ud-odo').value).replace(/\D/g,'')):NaN, logIt=$('#ud-log')?.checked;
+    it.history=(it.history||[]).concat([{date,odo:isFinite(odo)?odo:null,cost}]); it.last={date,odo:isFinite(odo)?odo:null}; it.lifePct=null; it.lifeDate=null; it.snoozeUntil=null; it.misses=[]; if(cost) it.cost=cost;
+    if(v&&isFinite(odo)){v.odoLog=(v.odoLog||[]).filter(x=>x.date!==date).concat([{date,odo}])}
+    if(sp&&logIt&&cost>0) state.spends.push({id:uid(),itemId:sp.id,amount:cost,date});
+    if(state.example) state.example=false; closeModal(); save(); renderAll();
+    const st=upStatus(it); toast(`${it.name} done.`, st.due?`Next one around ${fmtM(st.due.date)}.`:''); confetti(70); };
+}
+const NOT_YET={time:'Haven\'t had time',money:'Money is tight',forgot:'Didn\'t know it was due',little:'Hardly drove it',fine:'Feeling fine, putting it off',other:'Something else'};
+function upNotYetModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom; const keys=T.kind==='car'?['time','money','forgot','little','other']:['time','money','forgot','fine','other'];
+  openModal(`<h2>No problem. What got in the way?</h2><p class="lead">No judgment. Your answer helps Steady give a better nudge next time. I'll check back in a month.</p>
+  <div class="goal">${keys.map(k=>`<label><input type="radio" name="ny" value="${k}" ${k==='time'?'checked':''}><span><b>${NOT_YET[k]}</b></span></label>`).join('')}</div>
+  <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="ny-go">Remind me in a month</button></div>`);
+  $('#ny-go').onclick=()=>{ const k=(document.querySelector('[name=ny]:checked')||{}).value||'other';
+    it.misses=(it.misses||[]).concat([{date:ymd(now),reason:k}]); it.snoozeUntil=ymd(new Date(todayD().getTime()+30*DAY));
+    if(state.example) state.example=false; closeModal(); save(); renderAll();
+    const tips={time:T.kind==='car'?'Many quick-lube shops take walk-ins in about 30 minutes. Maybe a Saturday morning?':'Booking the next opening now, even weeks out, means it\'s handled.',
+      money:T.kind==='car'?`Setting aside ${money((annualUpkeep('car')||600)/12)} a month in Car upkeep spreads the cost out.`:'Ask about payment plans or what your insurance covers. Many checkups are covered at 100%.',
+      forgot:'Now you know. I\'ll keep it on the list.', little:'Update the mileage and Steady will move the date out if you really drove less.', fine:'Checkups catch things before they hurt. Worth booking soon.', other:'Got it.'};
+    toast('I\'ll check back in a month.', tips[k]); if(k==='little'){ const v=vehOf(it); if(v) setTimeout(()=>odoModal(v),400) } };
+}
+function upEditModal(it,kind,vehicleId){ const isNew=!it; kind=kind||(UP_TYPES[it.type]?.kind);
+  const types=Object.keys(UP_TYPES).filter(k=>UP_TYPES[k].kind===kind);
+  it=it||newUpItem(kind==='car'?'ccustom':'hcustom',vehicleId); const T=UP_TYPES[it.type];
+  openModal(`<h2>${isNew?'Add a reminder':'Edit '+esc(it.name)}</h2><p class="lead">${kind==='car'?'Whichever comes first, months or miles, sets the due date.':'Steady will ask if you went once it is due.'}</p>
+  <div class="fields"><div class="field"><label for="ue-type">Type</label><select id="ue-type">${types.map(k=>`<option value="${k}" ${k===it.type?'selected':''}>${UP_TYPES[k].label}</option>`).join('')}</select></div>
+  <div class="field"><label for="ue-name">Name</label><input id="ue-name" value="${esc(it.name)}"></div>
+  <div class="field"><label for="ue-m">Every (months)</label><input id="ue-m" inputmode="decimal" value="${it.everyMonths??''}"></div>
+  ${kind==='car'?`<div class="field"><label for="ue-mi">Every (miles)</label><input id="ue-mi" inputmode="numeric" value="${it.everyMiles??''}" placeholder="optional"></div>`:''}
+  <div class="field"><label for="ue-last">Last done</label><input id="ue-last" type="date" value="${it.last?.date||''}"></div>
+  ${kind==='car'?`<div class="field"><label for="ue-lodo">Miles when last done</label><input id="ue-lodo" inputmode="numeric" value="${it.last?.odo??''}" placeholder="optional"></div>`:''}
+  <div class="field"><label for="ue-cost">Usual cost</label><input id="ue-cost" inputmode="decimal" value="${it.cost||''}" placeholder="$"></div>
+  ${kind==='car'?`<div class="field"><label for="ue-life">Life left right now (%)</label><input id="ue-life" inputmode="numeric" value="${it.lifePct??''}" placeholder="e.g. 60 (optional)"></div>`:''}</div>
+  ${kind==='car'?'<p class="muted" style="font-size:12.5px;margin:10px 0 0">Life left: many cars show oil life on the dash, and a shop can tell you tire tread and brake pad wear. Steady uses it to predict the date.</p>':''}
+  <div class="sheet-foot">${isNew?'<span></span>':`<button class="btn ghost" id="ue-del" style="color:var(--bad)">${svg('trash')}Remove</button>`}<div class="row"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="ue-save">${isNew?'Add':'Save'}</button></div></div>`);
+  $('#ue-type').onchange=e=>{const N=UP_TYPES[e.target.value];$('#ue-name').value=N.label;$('#ue-m').value=N.months;if($('#ue-mi'))$('#ue-mi').value=N.miles||'';$('#ue-cost').value=N.cost||''};
+  $('#ue-save').onclick=()=>{ it.type=$('#ue-type').value; it.name=$('#ue-name').value.trim()||UP_TYPES[it.type].label; it.everyMonths=num($('#ue-m').value)||null; it.everyMiles=$('#ue-mi')?(parseInt($('#ue-mi').value)||null):null;
+    const ld=$('#ue-last').value, lo=$('#ue-lodo')?parseInt(String($('#ue-lodo').value).replace(/\D/g,'')):NaN; it.last={date:ld||null,odo:isFinite(lo)?lo:null}; it.cost=num($('#ue-cost').value);
+    const lf=$('#ue-life')?$('#ue-life').value.trim():''; if(lf===''){it.lifePct=null;it.lifeDate=null}else{const n=Math.min(100,Math.max(0,num(lf)));if(n!==it.lifePct||!it.lifeDate){it.lifePct=n;it.lifeDate=ymd(now)}}
+    if(isNew) up().items.push(it); if(state.example) state.example=false; closeModal(); save(); renderAll(); };
+  if($('#ue-del')){ const d=$('#ue-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().items=up().items.filter(x=>x.id!==it.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
+}
+function vehModal(v){ const isNew=!v;
+  openModal(`<h2>${isNew?'Add a vehicle':'Edit '+esc(v.name)}</h2><p class="lead">The mileage lets Steady predict when service is really needed.</p>
+  <div class="fields"><div class="field"><label for="vm-name">Name</label><input id="vm-name" value="${esc(v?.name||'')}" placeholder="e.g. Family SUV"></div>
+  <div class="field"><label for="vm-odo">Odometer today</label><input id="vm-odo" inputmode="numeric" value="${v?odoNow(v)??'':''}" placeholder="miles"></div>
+  <div class="field"><label for="vm-mpw">Miles per week (guess)</label><input id="vm-mpw" inputmode="numeric" value="${v?.milesPerWeek||''}" placeholder="e.g. 200 (optional)"></div></div>
+  <div class="sheet-foot">${isNew?'<span></span>':`<button class="btn ghost" id="vm-del" style="color:var(--bad)">${svg('trash')}Remove vehicle</button>`}<div class="row"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="vm-save">${isNew?'Add vehicle':'Save'}</button></div></div>`);
+  $('#vm-save').onclick=()=>{ const name=$('#vm-name').value.trim()||'My car', odo=parseInt(String($('#vm-odo').value).replace(/\D/g,'')), mpw=num($('#vm-mpw').value)||null;
+    if(isNew){ v={id:uid(),name,milesPerWeek:mpw,odoLog:[]}; up().vehicles.push(v); ['oil','rotate','tires','brakes','battery'].forEach(t=>up().items.push(newUpItem(t,v.id))) } else { v.name=name; v.milesPerWeek=mpw }
+    if(isFinite(odo)) v.odoLog=(v.odoLog||[]).filter(x=>x.date!==ymd(now)).concat([{date:ymd(now),odo}]);
+    if(state.example) state.example=false; closeModal(); save(); tab='upkeep'; renderAll(); if(isNew) toast(`${name} added.`,'Tap the pencil on each item to set when it was last done.'); };
+  if($('#vm-del')){ const d=$('#vm-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().vehicles=up().vehicles.filter(x=>x.id!==v.id); up().items=up().items.filter(x=>x.vehicleId!==v.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
+}
+function odoModal(v){
+  openModal(`<h2>Update mileage · ${esc(v.name)}</h2><p class="lead">Check the odometer now and then. Steady learns how much you drive and moves service dates to match.</p>
+  <div class="field"><label for="om-odo">Odometer today</label><input id="om-odo" inputmode="numeric" value="${odoNow(v)??''}"></div>
+  <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="om-go">Save mileage</button></div>`);
+  $('#om-go').onclick=()=>{ const o=parseInt(String($('#om-odo').value).replace(/\D/g,'')); if(!isFinite(o)) return;
+    v.odoLog=(v.odoLog||[]).filter(x=>x.date!==ymd(now)).concat([{date:ymd(now),odo:o}]); if(state.example) state.example=false; closeModal(); save(); renderAll();
+    const r=vehRate(v); toast('Mileage saved.', r?`You drive about ${Math.round(r*MON).toLocaleString()} miles a month.`:'Update it again in a few weeks and Steady will learn your driving.'); };
+}
+function upBudget(){ const yr=Math.round(annualUpkeep('car')/50)*50; let it=(state.spending||[]).find(x=>x.cat==='wrench');
+  if(!it){ it={id:uid(),cat:'wrench',name:SPEND.wrench.label,amount:yr,freq:'year'}; state.spending.push(it) } else { it.amount=yr; it.freq='year' }
+  if(state.example) state.example=false; save(); renderAll(); toast('Car upkeep budget set.', `${money(yr)} a year, about ${money(yr/12)} a month set aside.`); }
+
 /* ---------- BILLS ---------- */
 function renderBills(){
   const total=monthlyTotal();
@@ -795,6 +993,9 @@ function applyActions(actions){
     if(a.type==='set_spend'){let it=findSpend(a.item); const cat=SPEND[a.cat]?a.cat:(it?it.cat:(SPEND_KEYS.find(k=>SPEND[k].re.test(String(a.item||'').toLowerCase()))||'other'));
       if(!it){it={id:uid(),cat,name:String(a.item||SPEND[cat].label),amount:0,freq:SPEND[cat].freq};state.spending.push(it)}
       if(a.amount!=null) it.amount=num(a.amount); if(['week','month','year'].includes(a.freq)) it.freq=a.freq; did.push(`${it.name} set to ${money(it.amount)} ${FREQ_L[it.freq]}`)}
+    if(a.type==='upkeep_done'){const n=String(a.item||'').toLowerCase(); const it=up().items.find(x=>x.name.toLowerCase()===n)||up().items.find(x=>n.includes(x.name.toLowerCase())||x.name.toLowerCase().includes(n)||n.includes(x.type));
+      if(it){const date=/^\d{4}-\d\d-\d\d$/.test(a.date||'')?a.date:ymd(now); const odo=a.odometer!=null?parseInt(a.odometer):null; it.history=(it.history||[]).concat([{date,odo,cost:num(a.cost)}]); it.last={date,odo}; it.lifePct=null; it.lifeDate=null; it.snoozeUntil=null; it.misses=[]; const v=vehOf(it); if(v&&odo) v.odoLog=(v.odoLog||[]).concat([{date,odo}]); did.push(`${it.name} marked done`)}}
+    if(a.type==='update_odometer'){const v=up().vehicles.find(x=>!a.vehicle||x.name.toLowerCase().includes(String(a.vehicle).toLowerCase()))||up().vehicles[0]; const o=parseInt(a.miles); if(v&&isFinite(o)){v.odoLog=(v.odoLog||[]).filter(x=>x.date!==ymd(now)).concat([{date:ymd(now),odo:o}]);did.push(`${v.name} mileage set to ${o.toLocaleString()}`)}}
     if(a.type==='add_cushion'){state.profile.cushion.saved+=num(a.amount);did.push(`Added ${money(a.amount)} to cushion`)}
   });
   if(did.length){ if(state.example) state.example=false; save(); renderBanner(); }
@@ -816,6 +1017,7 @@ async function ask(text){
   try{ if(sampleFn===null&&window.claude&&claude.use) sampleFn=await claude.use('sample')||false; }catch(e){sampleFn=false}
   if(sampleFn){
     const summary={today:ymd(now),profile:state.profile,monthlyBills:monthlyTotal(),totalDebt:totalDebt(),
+      upkeep:(up().items||[]).map(it=>({name:it.name,vehicle:vehOf(it)?.name,status:upStatus(it).t,lastDone:it.last?.date,cost:it.cost})),
       everydaySpending:(state.spending||[]).map(it=>({name:it.name,estimate:it.amount,per:it.freq,spentSoFar:spentNow(it),period:PERIOD_L[it.freq]})),
       bills:state.bills.map(b=>({name:b.name,cat:b.cat,amount:b.amount,dueDay:b.dueDay,status:status(b).t,balance:b.balance,apr:b.apr,paidLastMonth:paidIn(b,mkey(addMonths(now,-1))),paidMonthBefore:paidIn(b,mkey(addMonths(now,-2)))})),
       plan:debts().length?(()=>{const s=simulate(splitExtra().debt,state.profile.strategy);return {debtFreeBy:s.never?'never at current payments':fromNow(s.months),order:s.order.map(o=>o.name),interest:Math.round(s.interest)}})():null};
@@ -826,6 +1028,8 @@ Return ONLY JSON: {"reply": string, "actions": [ ... ]}. Allowed actions (only w
 - {"type":"add_bill","name":string,"cat":one of ${CAT_KEYS.join('|')},"amount":number,"dueDay":1-31,"balance":number?,"apr":number?}
 - {"type":"update_bill","bill":<existing bill name>,"fields":{"amount"?,"dueDay"?,"balance"?,"apr"?,"name"?}}
 - {"type":"add_cushion","amount":number}
+- {"type":"upkeep_done","item":<upkeep reminder name, e.g. Oil change or Dentist checkup>,"date":"YYYY-MM-DD"?,"odometer":number?,"cost":number?}  (for 'I changed the oil', 'went to the dentist')
+- {"type":"update_odometer","vehicle":string?,"miles":number}
 - {"type":"log_spend","item":<everyday spending name, e.g. Groceries or Fuel>,"amount":number,"date":"YYYY-MM-DD"?}  (for 'I spent 80 on groceries', 'filled up for 45')
 - {"type":"set_spend","item":string,"cat":one of ${SPEND_KEYS.join('|')},"amount":number,"freq":"week|month|year"}  (to add or change an everyday spending estimate)
 If details are missing for an add (amount or due day), ask for them instead of guessing.
@@ -1198,6 +1402,12 @@ function exportCSV(){const q=v=>/[",\n]/.test(String(v))?'"'+String(v).replace(/
 /* ---------- global actions ---------- */
 document.addEventListener('click',e=>{
   const tj=e.target.closest('[data-tabjump]'); if(tj){tab=tj.dataset.tabjump;renderTabs();renderPanel();window.scrollTo({top:0});return}
+  const ud=e.target.closest('[data-up-done]'); if(ud){const it=up().items.find(x=>x.id===ud.dataset.upDone); if(it) upDoneModal(it); return}
+  const un=e.target.closest('[data-up-notyet]'); if(un){const it=up().items.find(x=>x.id===un.dataset.upNotyet); if(it) upNotYetModal(it); return}
+  const ue=e.target.closest('[data-up-edit]'); if(ue){const it=up().items.find(x=>x.id===ue.dataset.upEdit); if(it) upEditModal(it); return}
+  const ua=e.target.closest('[data-up-add]'); if(ua){const [k,vid]=ua.dataset.upAdd.split(':'); upEditModal(null,k,vid); return}
+  const uo=e.target.closest('[data-up-odo]'); if(uo){const v=up().vehicles.find(x=>x.id===uo.dataset.upOdo); if(v) odoModal(v); return}
+  const uv=e.target.closest('[data-up-veh]'); if(uv){const v=up().vehicles.find(x=>x.id===uv.dataset.upVeh); if(v) vehModal(v); return}
   const sl=e.target.closest('[data-spend-log]'); if(sl){spendLogModal(sl.dataset.spendLog);return}
   const se=e.target.closest('[data-spend-edit]'); if(se){spendEditModal(state.spending.find(x=>x.id===se.dataset.spendEdit));return}
   const sd=e.target.closest('[data-spend-del]'); if(sd){ if(sd.dataset.confirm){state.spending=state.spending.filter(x=>x.id!==sd.dataset.spendDel);if(state.example)state.example=false;save();renderAll()} else {sd.dataset.confirm='1';sd.style.background='var(--bad)';sd.style.color='#fff';setTimeout(()=>{if(sd.isConnected){delete sd.dataset.confirm;sd.style.background='';sd.style.color=''}},3000)} return}
@@ -1214,6 +1424,9 @@ document.addEventListener('click',e=>{
   if(a==='add') billModal(null);
   if(a==='cushion') cushionModal();
   if(a==='spend-log') spendLogModal();
+  if(a==='up-addveh') vehModal(null);
+  if(a==='up-budget') upBudget();
+  if(a==='up-health'){ ['dentist','doctor','eye'].forEach(t=>{if(!up().items.some(x=>x.type===t)) up().items.push(newUpItem(t))}); if(state.example) state.example=false; save(); renderAll(); toast('Checkups added.','Tap the pencil on each to set when you last went.') }
   if(a==='spend-add') spendEditModal(null);
   if(a==='export') exportCSV();
   if(a==='reset-ask') $('#reset-zone').innerHTML=`<p><b>Clear every bill and payment?</b> This can't be undone.</p><div class="row"><button class="btn ghost" data-act="reset-no">Keep everything</button><button class="btn" style="background:var(--bad);color:#fff" data-act="reset-yes">Yes, clear it</button></div>`;
@@ -1222,7 +1435,7 @@ document.addEventListener('click',e=>{
 });
 
 /* ---------- render ---------- */
-function renderPanel(){({today:renderToday,plan:renderPlan,trends:renderTrends,bills:renderBills,talk:renderTalk})[tab]()}
+function renderPanel(){({today:renderToday,plan:renderPlan,trends:renderTrends,upkeep:renderUpkeep,bills:renderBills,talk:renderTalk})[tab]()}
 function renderAll(){renderBanner();renderTabs();renderPanel()}
 state=exampleState();
 renderAll();
