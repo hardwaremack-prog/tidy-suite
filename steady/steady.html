@@ -13,7 +13,7 @@
   --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px; --r-sm:12px; --shadow:0 1px 2px rgba(21,48,42,.06),0 6px 20px rgba(21,48,42,.06);
   --c-house:#4F6BED; --c-car:#E2543B; --c-card:#8B4FD8; --c-bank:#2E8B6E; --c-bolt:#E09A00; --c-flame:#F06A2A;
-  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tooth:#2AA3C6; --c-steth:#DD5468; --c-eye:#7A5FD6; --c-oil:#C48A12; --c-tire:#58677A; --c-brake:#CC4636; --c-battery:#3A9A58; --c-bell:#E0841B; --c-roof:#B5583A; --c-snow:#3AA0D8; --c-tank:#5C7FA3; --c-filter:#8C8E4E; --c-therm:#1FA39A; --c-window:#4FA3D1; --c-deck:#A0703C; --c-siding:#6E8B9E; --c-road:#5B6470; --c-brick:#B2543F; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
+  --c-drop:#1E9BD7; --c-cart:#3A9E52; --c-fuel:#E0662E; --c-fork:#C2509A; --c-basket:#7666D6; --c-paw:#B07A3E; --c-kid:#D99A12; --c-ticket:#2B98C8; --c-cut:#D0567A; --c-pill:#25A396; --c-wrench:#66788C; --c-gift:#D8443A; --c-shirt:#4D74D4; --c-smoke:#8C7B6B; --c-glass:#A8457E; --c-boat:#1F7FB8; --c-badge:#5E8A3A; --c-piggy:#E07AA0; --c-tooth:#2AA3C6; --c-steth:#DD5468; --c-eye:#7A5FD6; --c-oil:#C48A12; --c-tire:#58677A; --c-brake:#CC4636; --c-battery:#3A9A58; --c-bell:#E0841B; --c-roof:#B5583A; --c-snow:#3AA0D8; --c-tank:#5C7FA3; --c-filter:#8C8E4E; --c-therm:#1FA39A; --c-window:#4FA3D1; --c-deck:#A0703C; --c-siding:#6E8B9E; --c-road:#5B6470; --c-brick:#B2543F; --c-idcard:#3C7DD9; --c-plate:#2E9E6E; --c-passport:#3A4F9A; --c-fish:#2B9AB8; --c-folder:#C9952B; --c-tv:#D2448E; --c-wifi:#22A39B; --c-phone:#5A6B7D; --c-shield:#3C9A3C; --c-transit:#2477B3; --c-other:#8A7F70;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#0E1916; --surface:#16241F; --surface-2:#1E302A; --ink:#E6F1EC; --muted:#93A8A0; --line:#2A3E37;
@@ -208,8 +208,8 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .pick button[aria-pressed="true"]{border-color:var(--c);background:color-mix(in oklab,var(--c) 12%,var(--surface))}
 .wiz-bill{border:1.5px solid var(--line);border-radius:16px;padding:12px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
 .wiz-bill .ico{width:38px;height:38px;border-radius:12px}.wiz-bill .ico svg{width:20px;height:20px}
-.wiz-bill .f4{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px}
-.wiz-bill .f4.debt{grid-template-columns:2fr 1fr 1fr 1fr 1fr}
+.wiz-bill .f4{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+
 @media (max-width:560px){.wiz-bill .f4,.wiz-bill .f4.debt{grid-template-columns:1fr 1fr}}
 .wiz-bill .field label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
 .wiz-bill .field input{padding:8px 10px}
@@ -233,7 +233,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .spend-list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 .spend{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 12px;border-radius:var(--r-sm);background:color-mix(in oklab,var(--c) 9%,var(--surface));border:1.5px solid color-mix(in oklab,var(--c) 20%,transparent)}
 .spend .ico{width:40px;height:40px;border-radius:12px}.spend .ico svg{width:21px;height:21px}
-.spend .top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
+.spend .stop{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
 .spend .per{font-size:12px;color:var(--muted);font-weight:600}
 .spend .mini-bar{margin-top:6px;height:8px}
 .spend .note{font-size:12.5px;margin-top:4px;font-weight:600}
@@ -242,6 +242,12 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .spend-row .ico{width:36px;height:36px;border-radius:11px}.spend-row .ico svg{width:19px;height:19px}
 .spend-row input,.spend-row select{border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--bg);width:100%;min-width:0}
 @media (max-width:520px){.spend-row{grid-template-columns:auto 1fr 1fr}.spend-row>div:nth-child(2){grid-column:2/-1}.spend-row input{grid-column:2}}
+.mod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.mod{display:flex;gap:12px;align-items:center;padding:12px 14px;border:2px solid var(--line);border-radius:16px;cursor:pointer;font-size:14px;line-height:1.35}
+.mod:has(input:checked){border-color:var(--c);background:color-mix(in oklab,var(--c) 9%,var(--surface))}
+.mod input{accent-color:var(--accent);width:20px;height:20px;flex:none}
+.mod .ico{width:38px;height:38px;border-radius:12px;flex:none}.mod .ico svg{width:20px;height:20px}
+.mod.locked{opacity:.85;cursor:default}
 .up-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
 .up-row{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:10px 12px;border-radius:var(--r-sm);border:1.5px solid color-mix(in oklab,var(--c) 22%,var(--line));background:color-mix(in oklab,var(--c) 6%,var(--surface))}
 .up-row .ico{width:38px;height:38px;border-radius:12px}.up-row .ico svg{width:20px;height:20px}
@@ -316,6 +322,11 @@ const P = {
   snow:'<path d="M12 2v20M4 7l16 10M4 17L20 7"/><path d="M9.5 3.5L12 5l2.5-1.5M9.5 20.5L12 19l2.5 1.5"/>',
   tank:'<rect x="6" y="3" width="12" height="18" rx="3"/><path d="M10 15c0-1.5 2-2.5 2-4 0 1.5 2 2.5 2 4a2 2 0 0 1-4 0z"/>',
   filter:'<rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 9.3h16M4 14.6h16M9.3 4v16M14.6 4v16"/>',
+  idcard:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.6-1.5 1.7-2.2 3-2.2s2.4.7 3 2.2M14 10h4M14 13h3"/>',
+  plate:'<rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 12h3M11 12h2M15 12h3"/>',
+  passport:'<rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/>',
+  fish:'<path d="M3 12c3-4 9-5 13-2l4-3v10l-4-3c-4 3-10 2-13-2z"/><circle cx="12.5" cy="11" r=".9"/>',
+  folder:'<path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
   window:'<rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 12h16"/>',
   deck:'<path d="M3 8h18v3H3zM3 14h18v3H3z"/><path d="M6 11v3M18 11v3M6 17v4M18 17v4"/>',
   siding:'<path d="M3 4h18M3 8h18M3 12h18M3 16h18M3 20h18"/><path d="M8 4v4M15 8v4M8 12v4M15 16v4"/>',
@@ -398,24 +409,25 @@ let state = null;
 function exampleState(){
   const b=(cat,name,amount,dueDay,debt)=>Object.assign({id:uid(),cat,name,amount,dueDay},debt?{isDebt:true,balance:debt[0],apr:debt[1],startBalance:debt[2]}:{});
   const bills=[
-    b('house','Mortgage',1650,1), b('car','Car loan',420,12,[14800,6.9,16900]),
+    Object.assign(b('house','Mortgage',1650,1),{mort:{pi:1180,tax:265,ins:110,pmi:95,balance:186500,rate:6.25,value:220000}}), b('car','Car loan',420,12,[14800,6.9,16900]),
     b('card','Visa',120,18,[4200,24.9,5600]), b('card','Store card',45,22,[980,27,1400]),
     b('bolt','Electric',138,15), b('flame','Gas & heat',72,20), b('drop','Water & sewer',64,25),
     b('wifi','Internet',70,8), b('phone','Cell phone',95,10), b('shield','Car insurance',128,5),
-    b('transit','Ferry pass',60,3), b('tv','Streaming',42,28)
+    b('transit','Ferry pass',60,3), b('tv','Streaming',42,28),
+    Object.assign(b('shield','Home insurance',1180,10),{freq:'year',dueMonth:((now.getMonth()+3)%12)+1})
   ];
   const payments=[]; const byName=Object.fromEntries(bills.map(x=>[x.name,x]));
   const seasonal={Electric:[96,104,121,148,152,131,138],'Gas & heat':[64,48,30,26,24,38,72]};
   for(let k=6;k>=1;k--){
     const d=addMonths(now,-k);
-    bills.forEach(x=>{let amt=x.amount;
+    bills.forEach(x=>{if(x.freq) return; let amt=x.amount;
       if(seasonal[x.name]) amt=seasonal[x.name][6-k];
       if(x.isDebt) amt=x.amount+(x.name==='Visa'?180:x.name==='Store card'?40:0);
       payments.push({id:uid(),billId:x.id,amount:amt,date:ymd(new Date(d.getFullYear(),d.getMonth(),Math.min(x.dueDay,dim(d.getFullYear(),d.getMonth()))))});
     });
   }
   // this month: things due before today paid
-  bills.forEach(x=>{ if(x.dueDay<now.getDate()) payments.push({id:uid(),billId:x.id,amount:x.amount,date:ymd(new Date(now.getFullYear(),now.getMonth(),x.dueDay))}); });
+  bills.forEach(x=>{ if(!x.freq&&x.dueDay<now.getDate()) payments.push({id:uid(),billId:x.id,amount:x.amount,date:ymd(new Date(now.getFullYear(),now.getMonth(),x.dueDay))}); });
   const history=[]; const debts=[24200,23620,23010,22430,21720,21010,19980];
   for(let k=6;k>=0;k--) history.push({m:mkey(addMonths(now,-k)),debt:debts[6-k]});
   const sp=(cat,amount,freq)=>({id:uid(),cat,name:SPEND[cat].label,amount,freq});
@@ -451,9 +463,12 @@ function exampleUpkeep(){
     it('roof',{last:{date:ago(12*16)},lifePct:50,lifeDate:ago(1)}),
     it('furnace',{last:{date:ago(12*11)},lifePct:40,lifeDate:ago(1)}),
     it('waterheater',{last:{date:ago(12*9)}}),
-    it('filter',{last:{date:ago(4)}})]};
+    it('filter',{last:{date:ago(4)}}),
+    it('dl',{expires:ymd(new Date(now.getFullYear(),now.getMonth()+5,12))}),
+    it('plates',{expires:ymd(new Date(now.getFullYear(),now.getMonth(),now.getDate()+24))}),
+    it('passport',{expires:ymd(new Date(now.getFullYear()+3,2,3))})]};
 }
-function blankState(){return {v:1,example:false,profile:{name:'',income:0,payFreq:'monthly',goal:'both',extra:200,strategy:'avalanche',cushion:{saved:0,target:0}},bills:[],payments:[],history:[],spending:[],spends:[],upkeep:{vehicles:[],items:[]},startedAt:ymd(now)}}
+function blankState(){return {v:1,example:false,profile:{modules:{spending:true,health:false,car:false,home:false,papers:false},name:'',income:0,payFreq:'monthly',goal:'both',extra:200,strategy:'avalanche',cushion:{saved:0,target:0}},bills:[],payments:[],history:[],spending:[],spends:[],upkeep:{vehicles:[],items:[]},startedAt:ymd(now)}}
 
 /* ---------- storage ---------- */
 let store={kind:'none'}; let saveTimer=null;
@@ -489,7 +504,23 @@ async function initStore(){
 const thisMonth=mkey(now);
 function paidIn(b,month){return state.payments.filter(p=>p.billId===b.id&&p.date.slice(0,7)===month).reduce((s,p)=>s+p.amount,0)}
 function dueDateThisMonth(b){return new Date(now.getFullYear(),now.getMonth(),Math.min(b.dueDay||1,dim(now.getFullYear(),now.getMonth())))}
+const BFREQ={month:{l:'Monthly',n:1},quarter:{l:'Every 3 months',n:3},half:{l:'Every 6 months',n:6},year:{l:'Yearly',n:12}};
+const bfreq=b=>BFREQ[b.freq]?b.freq:'month';
+const billMonthly=b=>(+b.amount||0)/BFREQ[bfreq(b)].n;
+function nextDue(b){ const f=bfreq(b); if(f==='month') return dueDateThisMonth(b);
+  const n=BFREQ[f].n, dm=((+b.dueMonth||now.getMonth()+1)-1), cur=now.getFullYear()*12+now.getMonth();
+  let k=Math.floor(cur/12)*12+dm; while(k<cur) k+=n; while(k-n>=cur) k-=n;
+  const y=Math.floor(k/12), m=k%12; return new Date(y,m,Math.min(b.dueDay||1,dim(y,m))) }
+const dueThisMonth=b=>bfreq(b)==='month'||mkey(nextDue(b))===thisMonth;
+function paidSince(b,fromYmd){return state.payments.filter(p=>p.billId===b.id&&p.date>=fromYmd).reduce((s,p)=>s+p.amount,0)}
 function status(b){
+  if(bfreq(b)!=='month'){ const D=nextDue(b), today=new Date(now.getFullYear(),now.getMonth(),now.getDate()); const days=Math.round((D-today)/864e5);
+    const win=ymd(new Date(D.getTime()-45*864e5)); if(paidSince(b,win)>=b.amount*0.98&&b.amount>0) return {k:'paid',t:'Paid'};
+    const prevWin=ymd(new Date(today.getTime()-30*864e5)); if(days>45&&paidSince(b,prevWin)>=b.amount*0.98&&b.amount>0) return {k:'paid',t:'Paid'};
+    if(days<0) return {k:'late',t:days===-1?'Due yesterday':`${-days} days past due`};
+    if(days===0) return {k:'soon',t:'Due today'};
+    if(days<=45) return {k:'soon',t:`Due in ${days} day${days>1?'s':''}`};
+    return {k:'up',t:`Due ${MONTHS[D.getMonth()]} ${D.getFullYear()}`}; }
   const paid=paidIn(b,thisMonth);
   if(paid>=b.amount*0.98&&paid>0) return {k:'paid',t:'Paid'};
   const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
@@ -499,14 +530,18 @@ function status(b){
   if(days<=5) return {k:'soon',t:`Due in ${days} day${days>1?'s':''}`};
   return {k:'up',t:`Due the ${ord(b.dueDay)}`};
 }
-const monthlyTotal=()=>state.bills.reduce((s,b)=>s+(+b.amount||0),0);
+const monthlyTotal=()=>state.bills.reduce((s,b)=>s+billMonthly(b),0);
 function weekStart(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
-const spendMonthly=()=>(state.spending||[]).reduce((s,it)=>s+perMonth(it),0);
+const spendMonthly=()=>mod('spending')?(state.spending||[]).reduce((s,it)=>s+perMonth(it),0):0;
 const weeklyItems=()=>(state.spending||[]).filter(it=>it.freq==='week');
 function periodStart(freq){return freq==='week'?ymd(weekStart(now)):freq==='month'?thisMonth+'-01':now.getFullYear()+'-01-01'}
 function spentIn(it,from,to){return (state.spends||[]).filter(x=>x.itemId===it.id&&x.date>=from&&(!to||x.date<to)).reduce((s,x)=>s+x.amount,0)}
 const spentNow=it=>spentIn(it,periodStart(it.freq));
 const PERIOD_L={week:'this week',month:'this month',year:'this year'};
+const MODS={spending:{l:'Everyday spending',d:'Groceries, fuel, eating out and other weekly money',icon:'cart'},health:{l:'Health checkups',d:'Reminders for the dentist, doctor and eye exams',icon:'tooth'},car:{l:'Car care',d:'Oil, tires, brakes, with dates that follow your driving',icon:'car'},home:{l:'Home upkeep',d:'Roof, furnace, water heater and saving for them',icon:'roof'},papers:{l:'Papers & renewals',d:'Driver\'s license, plate tags, passport and more',icon:'idcard'}};
+const mod=k=>((state&&state.profile&&state.profile.modules)||{})[k]!==false;
+const upMods=()=>['health','car','home','papers'].some(mod);
+const KIND_MOD={health:'health',car:'car',home:'home',papers:'papers'};
 function weekBuckets(n){const ws=weekStart(now),out=[];for(let i=n-1;i>=0;i--){const a=new Date(ws);a.setDate(a.getDate()-7*i);const b=new Date(a);b.setDate(b.getDate()+7);out.push({from:ymd(a),to:ymd(b),l:MONTHS[a.getMonth()]+' '+a.getDate()})}return out}
 function findSpend(name){if(!name)return null;const n=String(name).toLowerCase();
   return (state.spending||[]).find(x=>x.name.toLowerCase()===n)||(state.spending||[]).find(x=>n.includes(x.name.toLowerCase())||x.name.toLowerCase().includes(n))||(state.spending||[]).find(x=>SPEND[x.cat]?.re.test(n))}
@@ -548,7 +583,8 @@ const TABS=[['today','Today','today'],['plan','Plan','plan'],['trends','Trends',
 let tab='today';
 try{const h=location.hash.slice(1); if(TABS.some(t=>t[0]===h)) tab=h}catch(e){}
 function renderTabs(){
-  $('#tabs').innerHTML=TABS.map(([k,l,i])=>`<button class="tab" role="tab" aria-selected="${tab===k}" data-tab="${k}">${svg(i)}<span>${l}</span></button>`).join('');
+  if(tab==='upkeep'&&!upMods()) tab='today';
+  $('#tabs').innerHTML=TABS.filter(([k])=>k!=='upkeep'||upMods()).map(([k,l,i])=>`<button class="tab" role="tab" aria-selected="${tab===k}" data-tab="${k}">${svg(i)}<span>${l}</span></button>`).join('');
   TABS.forEach(([k])=>$('#p-'+k).hidden=tab!==k);
 }
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('[data-tab]'); if(!b) return; tab=b.dataset.tab; renderTabs(); renderPanel(); window.scrollTo({top:0})});
@@ -569,16 +605,16 @@ function heroLine(pct,left,name){
   return `Fresh month${hi}. One bill at a time.`;
 }
 function renderToday(){
-  const total=monthlyTotal(); const paid=state.bills.reduce((s,b)=>s+Math.min(paidIn(b,thisMonth),b.amount),0);
-  const pct=total?paid/total:0; const nPaid=state.bills.filter(b=>status(b).k==='paid').length;
+  const dueNow=state.bills.filter(dueThisMonth); const total=dueNow.reduce((s,b)=>s+(+b.amount||0),0); const paid=dueNow.reduce((s,b)=>s+(status(b).k==='paid'?(+b.amount||0):Math.min(paidIn(b,thisMonth),b.amount)),0);
+  const pct=total?paid/total:0; const nPaid=dueNow.filter(b=>status(b).k==='paid').length;
   const C=2*Math.PI*78;
-  const sorted=state.bills.slice().sort((a,b)=>{const sa=status(a).k==='paid',sb=status(b).k==='paid'; return sa-sb||(a.dueDay-b.dueDay)});
-  const upcoming=sorted.filter(b=>status(b).k!=='paid').slice(0,4);
+  const sorted=state.bills.slice().sort((a,b)=>{const sa=status(a).k==='paid',sb=status(b).k==='paid'; return sa-sb||(nextDue(a)-nextDue(b))});
+  const upcoming=sorted.filter(b=>{const s=status(b);return s.k!=='paid'&&s.k!=='up'||(s.k==='up'&&bfreq(b)==='month')}).slice(0,4);
   const td=totalDebt(), sd=startDebt(), down=Math.max(0,sd-td), dpct=sd?down/sd:0;
   const sim=debts().length?simulate(splitExtra().debt,state.profile.strategy):null;
   const cu=state.profile.cushion||{saved:0,target:0}; const cpct=cu.target?Math.min(1,cu.saved/cu.target):0;
   $('#p-today').innerHTML=`
-  ${checkinHTML()}
+  ${upMods()?checkinHTML():''}
   <div class="card hero">
     <div class="ring"><svg viewBox="0 0 180 180"><circle cx="90" cy="90" r="78" fill="none" stroke="var(--surface-2)" stroke-width="18"/>
       <circle cx="90" cy="90" r="78" fill="none" stroke="url(#rg)" stroke-width="18" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct)}" style="transition:stroke-dashoffset .8s"/>
@@ -587,7 +623,7 @@ function renderToday(){
     <div style="min-width:0">
       <span class="eyebrow">${MONTHS_L[now.getMonth()]} ${now.getFullYear()}</span>
       <h1>${heroLine(pct,total-paid,state.profile.name)}</h1>
-      <p class="sub">${nPaid} of ${state.bills.length} bills done. Each one you tick off moves the ring.</p>
+      <p class="sub">${nPaid} of ${dueNow.length} bills done this month. Each one you tick off moves the ring.</p>
       <div class="stats">
         <div class="stat"><b class="num">${money(paid)}</b><span>Paid</span></div>
         <div class="stat"><b class="num">${money(Math.max(0,total-paid))}</b><span>To go</span></div>
@@ -610,14 +646,15 @@ function renderToday(){
         <p class="muted" style="margin:10px 0 0">${cu.target?`That covers about ${(cu.saved/Math.max(1,total+spendMonthly())).toFixed(1)} months of bills and spending.`:'Set a goal in Plan.'}</p></div>
     </div>
   </div>
-  ${spendCardHTML()}
-  <div class="section-head"><h2>All bills this month</h2><button class="btn small ghost" data-act="add">${svg('plus')}Add a bill</button></div>
+  ${mortCardHTML()}
+  ${mod('spending')?spendCardHTML():''}
+  <div class="section-head"><h2>All bills</h2><button class="btn small ghost" data-act="add">${svg('plus')}Add a bill</button></div>
   <div class="tiles">${sorted.map(tileHTML).join('')||'<p class="muted">No bills yet.</p>'}</div>`;
 }
 function tileHTML(b){
   const s=status(b); const debt=b.isDebt?`<div><div class="mini-bar"><i style="width:${Math.max(3,(1-(b.balance/(b.startBalance||b.balance||1)))*100).toFixed(0)}%"></i></div><div class="tile-sub num" style="margin-top:4px">${money(b.balance)} left · ${b.apr}% APR</div></div>`:'';
   return `<div class="tile ${s.k==='paid'?'paid':''}" style="--c:var(--c-${b.cat})"><div class="tile-top">${ico(b.cat)}<div style="min-width:0"><div class="tile-name">${esc(b.name)}</div>${(CATS[b.cat]?.label||'')!==b.name?`<div class="tile-sub">${CATS[b.cat]?.label||'Bill'}</div>`:''}</div></div>
-  <div class="tile-amt num">${money(b.amount)}</div>${debt}
+  <div class="tile-amt num">${money(b.amount)}${bfreq(b)!=='month'?`<span class="muted" style="font-size:14px;font-family:var(--body)"> ${BFREQ[bfreq(b)].l.toLowerCase()}</span>`:''}</div>${debt}${bfreq(b)!=='month'?`<div class="tile-sub">Set aside ${money(billMonthly(b))} a month</div>`:''}
   <div class="tile-foot"><span class="pill ${s.k}">${s.t}</span>${s.k==='paid'?`<button class="pay-btn" data-pay="${b.id}" title="Add another payment">${svg('plus',2.5)}</button>`:`<button class="pay-btn" data-pay="${b.id}">${svg('check',2.5)}Paid</button>`}</div></div>`;
 }
 
@@ -633,7 +670,7 @@ function spendCardHTML(){
       const spent=spentNow(it), bud=+it.amount||0, pct=bud?spent/bud:0, left=bud-spent;
       const cls=pct>1?'over':pct>.85?'near':'ok';
       const note=!bud?'':left>=0?`${money(left)} left ${PERIOD_L[it.freq]}`:`${money(-left)} over ${PERIOD_L[it.freq]}`;
-      return `<div class="spend" style="--c:var(--c-${it.cat})">${ico(it.cat)}<div style="min-width:0"><div class="top"><b>${esc(it.name)}</b><span class="per num">${money(spent)} of ${money(bud)} ${FREQ_L[it.freq]}</span></div>
+      return `<div class="spend" style="--c:var(--c-${it.cat})">${ico(it.cat)}<div style="min-width:0"><div class="stop"><b>${esc(it.name)}</b><span class="per num">${money(spent)} of ${money(bud)} ${FREQ_L[it.freq]}</span></div>
       <div class="mini-bar"><i style="width:${Math.min(100,pct*100).toFixed(1)}%;${pct>1?'background:var(--bad)':''}"></i></div>
       <div class="note ${cls}">${note}${it.freq==='year'&&bud?` <span class="muted" style="font-weight:500">· set aside ${money(bud/12)} a month</span>`:''}</div></div>
       <button class="pay-btn" style="--c:var(--c-${it.cat})" data-spend-log="${it.id}" aria-label="Log ${esc(it.name)}">${svg('plus',2.5)}</button></div>`}).join('')}</div></div>`;
@@ -646,7 +683,7 @@ function renderPlan(){
   const plan=ds.length?simulate(sp.debt,p.strategy):null; const mins=ds.length?simulate(0,p.strategy):null;
   const spendMo=spendMonthly(); const left=(+p.income||0)-total-spendMo;
   const seg=(v,cur,l)=>`<button aria-pressed="${v===cur}" data-${l}="${v}">`;
-  const firstHalf=state.bills.filter(b=>b.dueDay<=14), second=state.bills.filter(b=>b.dueDay>14);
+  const mb=state.bills.filter(b=>bfreq(b)==='month'), nonM=state.bills.filter(b=>bfreq(b)!=='month'); const firstHalf=mb.filter(b=>b.dueDay<=14), second=mb.filter(b=>b.dueDay>14);
   const sum=a=>a.reduce((s,b)=>s+(+b.amount||0),0);
   const mapParts=[[total,'var(--c-house)','Bills'],[spendMo,'var(--c-cart)','Everyday spending'],[sp.debt,'var(--accent)','Extra to debt'],[sp.cushion,'var(--c-wifi)','Cushion'],[Math.max(0,left-(+p.extra||0)),'var(--c-other)','Everything else']].filter(x=>x[0]>0);
   const mapTotal=Math.max(+p.income||0,mapParts.reduce((s,x)=>s+x[0],0))||1;
@@ -678,7 +715,7 @@ function renderPlan(){
         <div class="paycheck"><span class="eyebrow">Due 1st–14th</span><div class="big-num num" style="font-size:24px">${money(sum(firstHalf))}</div><div class="chips">${firstHalf.map(b=>`<span class="chip">${esc(b.name)}</span>`).join('')}</div></div>
         <div class="paycheck"><span class="eyebrow">Due 15th–31st</span><div class="big-num num" style="font-size:24px">${money(sum(second))}</div><div class="chips">${second.map(b=>`<span class="chip">${esc(b.name)}</span>`).join('')}</div></div>
       </div>
-      <p class="muted" style="font-size:13px;margin:8px 0 0">${weeklyItems().length?`Plus about ${money(weeklyItems().reduce((s,i)=>s+(+i.amount||0),0))} a week for ${weeklyItems().map(i=>i.name.toLowerCase()).join(' and ')}. `:''}${p.payFreq==='biweekly'?'Paid every two weeks: set aside the first-half total from the paycheck before the 1st.':p.payFreq==='weekly'?'Paid weekly: about '+money(total/4.33)+' a week covers everything.':'Paid monthly: keep the full amount aside on payday.'}</p>
+      <p class="muted" style="font-size:13px;margin:8px 0 0">${nonM.length?`Set aside ${money(nonM.reduce((s,b)=>s+billMonthly(b),0))} a month for ${nonM.map(b=>b.name).join(', ')} so ${nonM.length>1?'they\'re':'it\'s'} ready when due. `:''}${mod('spending')&&weeklyItems().length?`Plus about ${money(weeklyItems().reduce((s,i)=>s+(+i.amount||0),0))} a week for ${weeklyItems().map(i=>i.name.toLowerCase()).join(' and ')}. `:''}${p.payFreq==='biweekly'?'Paid every two weeks: set aside the first-half total from the paycheck before the 1st.':p.payFreq==='weekly'?'Paid weekly: about '+money(total/4.33)+' a week covers everything.':'Paid monthly: keep the full amount aside on payday.'}</p>
     </div>
   </div>
   ${plan?`<div class="grid2">
@@ -734,6 +771,7 @@ function reasons(){
       if(down>0) out.push({k:'good',icon:'downArrow',t:`${b.name} is down ${money(down)}`,d:`That's ${Math.round(down/sb*100)}% of the balance gone since you started.`,w:down});
       const monthlyInt=b.balance*b.apr/1200; if(b.apr>=18&&monthlyInt>15) out.push({k:'warn',icon:'alert',t:`${b.name} costs about ${money(monthlyInt)} a month in interest`,d:`At ${b.apr}% APR, ${Math.round(monthlyInt/b.amount*100)}% of the minimum payment goes to interest. Extra money here works hardest.`,w:monthlyInt*3});
       return; }
+    if(bfreq(b)!=='month') return;
     const a=ref(b,last), c=ref(b,prev);
     if(a>0&&c>0){const diff=a-c; const r=diff/c;
       if(r>0.08&&diff>=5) out.push({k:'bad',icon:'up',t:`${b.name} went up ${money(diff)}`,d:`${monthLabel(last)} was ${money(a)} vs ${money(c)} in ${monthLabel(prev)}. ${WHY[b.cat]||WHY.other}`,w:diff*2});
@@ -809,6 +847,13 @@ const UP_TYPES = {
   filter:{kind:'home',icon:'filter',label:'Furnace filter',months:3,cost:15,q:'Have you changed the furnace filter?',noun:'filter change'},
   septic:{kind:'home',icon:'drop',label:'Septic pumping',months:36,cost:450,q:'Has the septic been pumped?',noun:'septic pumping'},
   mcustom:{kind:'home',icon:'bell',label:'Home reminder',months:12,cost:0,q:'Have you taken care of',noun:'job'},
+  dl:{kind:'papers',icon:'idcard',label:"Driver's license",months:48,cost:0,q:"Have you renewed your driver's license?",noun:"driver's license"},
+  plates:{kind:'papers',icon:'plate',label:'License plate tags',months:12,cost:0,q:'Have you renewed your plate tags?',noun:'plate tags'},
+  passport:{kind:'papers',icon:'passport',label:'Passport',months:120,cost:0,q:'Have you renewed your passport?',noun:'passport'},
+  cpl:{kind:'papers',icon:'badge',label:'CPL (carry permit)',months:60,cost:0,q:'Have you renewed your CPL?',noun:'CPL'},
+  boatreg:{kind:'papers',icon:'boat',label:'Boat registration',months:36,cost:0,q:'Have you renewed the boat registration?',noun:'boat registration'},
+  fishing:{kind:'papers',icon:'fish',label:'Fishing & hunting license',months:12,cost:0,q:'Have you renewed your fishing or hunting license?',noun:'license'},
+  pcustom:{kind:'papers',icon:'bell',label:'Other renewal',months:12,cost:0,q:'Have you renewed',noun:'renewal'},
   hcustom:{kind:'health',icon:'bell',label:'Health reminder',months:12,cost:0,q:'Have you taken care of',noun:'visit'},
   ccustom:{kind:'car',icon:'bell',label:'Car reminder',months:12,cost:0,q:'Have you taken care of',noun:'service'}
 };
@@ -834,6 +879,7 @@ function odoNow(v){ if(!v) return null; const log=(v.odoLog||[]).slice().sort((a
 function effMonths(it){ const r=vehRate(vehOf(it)); const m=[]; if(it.everyMonths) m.push(+it.everyMonths); if(it.everyMiles&&r) m.push(it.everyMiles/(r*MON)); return m.length?Math.min(...m):null }
 function learnedMonths(it){ const h=(it.history||[]).map(x=>x.date).sort(); if(h.length<2) return null; let g=0; for(let i=1;i<h.length;i++) g+=(parseD(h[i])-parseD(h[i-1]))/DAY/MON; return g/(h.length-1) }
 function upDue(it){
+  if(UP_TYPES[it.type]?.kind==='papers') return it.expires?{date:parseD(it.expires),basis:'expires'}:null;
   const v=vehOf(it), r=vehRate(v), last=it.last||{};
   if(it.lifePct!=null&&it.lifeDate&&(!last.date||it.lifeDate>=last.date)){ const em=effMonths(it); if(em) return {date:addMonthsD(parseD(it.lifeDate),em*it.lifePct/100),basis:'life'} }
   const c=[];
@@ -841,7 +887,13 @@ function upDue(it){
   if(v&&it.everyMiles&&last.odo!=null&&r){ const left=last.odo+ +it.everyMiles-odoNow(v); c.push({date:new Date(todayD().getTime()+left/r*DAY),basis:'miles',milesLeft:left}) }
   if(!c.length) return null; c.sort((a,b)=>a.date-b.date); return c[0];
 }
-function upStatus(it){ const d=upDue(it); if(!d) return {k:'unset',t:isBig(it)?'Add its age or condition':'Set the last date',due:null};
+function upStatus(it){ if(UP_TYPES[it.type]?.kind==='papers'){ const d=upDue(it); if(!d) return {k:'unset',t:'Add the expiration date',due:null};
+    const days=Math.round((d.date-todayD())/DAY);
+    if(days<0) return {k:'late',t:days>-31?`Expired ${-days} days ago`:'Expired',due:d,days};
+    if(days<=60) return {k:'soon',t:days===0?'Expires today':`Expires in ${plural(days,'day')}`,due:d,days};
+    if(days>540) return {k:'up',t:`Good for about ${plural(Math.round(days/365),'year')}`,due:d,days};
+    return {k:'up',t:`Expires ${fmtM(d.date)}`,due:d,days} }
+  const d=upDue(it); if(!d) return {k:'unset',t:isBig(it)?'Add its age or condition':'Set the last date',due:null};
   const days=Math.round((d.date-todayD())/DAY);
   if(days<0&&isBig(it)) return {k:'soon',t:'Past its usual life',due:d,days};
   if(days<0){const m=Math.max(1,Math.round(-days/MON));return {k:'late',t:days>-31?`Due ${-days} days ago`:`${plural(m,'month')} past due`,due:d,days}}
@@ -849,6 +901,7 @@ function upStatus(it){ const d=upDue(it); if(!d) return {k:'unset',t:isBig(it)?'
   if(days>540){const y=Math.round(days/365);return {k:'up',t:`About ${plural(y,'year')} left`,due:d,days}}
   return {k:'up',t:`Due ${fmtM(d.date)}`,due:d,days} }
 function upQuestion(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it);
+  if(it.type==='pcustom') return `Have you renewed ${it.name}?`;
   if(it.type==='hcustom'||it.type==='ccustom') return `${T.q} “${it.name}”${v?` on the ${v.name}`:''}?`;
   return T.kind==='car'?`${T.q} on the ${v?v.name:'car'}?`:T.q }
 function homeDetail(it){ const T=UP_TYPES[it.type], ms=monthsSince(it.last?.date), parts=[];
@@ -859,6 +912,9 @@ function homeDetail(it){ const T=UP_TYPES[it.type], ms=monthsSince(it.last?.date
 function upDetail(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it), st=upStatus(it), ms=monthsSince(it.last?.date);
   const noun=(it.type.endsWith('custom')?it.name.toLowerCase():T.noun);
   if(T.kind==='home') return homeDetail(it);
+  if(T.kind==='papers'){ const st=upStatus(it); const e=st.due?.date; if(!e) return '';
+    const when=st.days<0?`expired ${fmtM(e)}`:`expires ${MONTHS_L[e.getMonth()]} ${e.getDate()}, ${e.getFullYear()} (${plural(st.days,'day')} from now)`;
+    return `Your ${it.name.toLowerCase()} ${when}. ${it.type==='passport'?'Passports can take several weeks, so starting early helps.':'Renewing a little early saves a last-minute rush.'}` }
   if(T.kind==='health'){ const m=Math.round(ms||0);
     return `It's been ${plural(m,'month')} since your last ${noun} (${fmtM(parseD(it.last.date))}). ${it.everyMonths?`Every ${plural(+it.everyMonths,'month')} is the usual rhythm`:''}${m>(+it.everyMonths||0)?`, so it's ${plural(m-(+it.everyMonths),'month')} past.`:'.'}` }
   const r=vehRate(v); const parts=[];
@@ -867,7 +923,7 @@ function upDetail(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it),
   else if(st.due?.basis==='life') parts.push(`You said it had about ${it.lifePct}% life left in ${fmtM(parseD(it.lifeDate))}.`);
   else if(it.everyMonths) parts.push(`It's due every ${plural(+it.everyMonths,'month')}.`);
   return parts.join(' ') }
-const checkins=()=>(up().items||[]).filter(it=>{const s=upStatus(it);return s.due&&s.days<=0&&(!it.snoozeUntil||it.snoozeUntil<=ymd(now))}).sort((a,b)=>upStatus(a).days-upStatus(b).days);
+const checkins=()=>(up().items||[]).filter(it=>mod(KIND_MOD[UP_TYPES[it.type]?.kind]||'health')).filter(it=>{const s=upStatus(it);return s.due&&s.days<=(UP_TYPES[it.type]?.kind==='papers'?45:0)&&(!it.snoozeUntil||it.snoozeUntil<=ymd(now))}).sort((a,b)=>upStatus(a).days-upStatus(b).days);
 function checkinHTML(){ const list=checkins().slice(0,2); if(!list.length) return '';
   return list.map(it=>{const T=UP_TYPES[it.type]||UP_TYPES.hcustom; const misses=(it.misses||[]).length;
     return `<div class="card checkin" style="--c:var(--c-${T.icon})"><div class="row" style="align-items:flex-start;flex-wrap:nowrap">${ico(T.icon)}<div style="min-width:0;flex:1"><span class="eyebrow">${misses?`Checking back in (${plural(misses,'time')} so far)`:'Quick check-in'}</span><h2 style="font-size:21px;margin:2px 0 4px">${esc(upQuestion(it))}</h2><p class="muted" style="margin:0">${esc(upDetail(it))}</p>
@@ -886,35 +942,43 @@ function upRow(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, st=upStatus(it)
   <span class="pill ${st.k==='unset'?'up':st.k}">${st.t}</span><div class="row acts" style="gap:6px"><button class="btn small" data-up-done="${it.id}">${svg('check',2.5)}Done</button><button class="icon-btn" data-up-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button></div></div>` }
 function renderUpkeep(){
   const U=up(), health=U.items.filter(it=>UP_TYPES[it.type]?.kind==='health');
-  const next=U.items.filter(it=>upStatus(it).due).sort((a,b)=>upStatus(a).due.date-upStatus(b).due.date).slice(0,4);
+  const next=U.items.filter(it=>mod(KIND_MOD[UP_TYPES[it.type]?.kind])).filter(it=>upStatus(it).due).sort((a,b)=>upStatus(a).due.date-upStatus(b).due.date).slice(0,4);
   const carYear=annualUpkeep('car'), wrench=(state.spending||[]).find(x=>x.cat==='wrench');
   $('#p-upkeep').innerHTML=`
   ${checkinHTML()}
   <div class="grid2">
     <div class="card"><span class="eyebrow">Coming up</span><h2 style="margin:4px 0 12px">${next.length?'Next on the list':'Set your first reminders'}</h2>
       <div class="next-list">${next.map(it=>{const T=UP_TYPES[it.type];const st=upStatus(it);const v=vehOf(it);return `<div class="next">${ico(T.icon)}<div class="grow"><b>${esc(it.name)}${v?` · ${esc(v.name)}`:''}</b><div class="when">${st.t}${st.due.basis==='miles'?' (by mileage)':st.due.basis==='life'?' (from life left)':''}</div></div>${it.cost?`<b class="num">${money(it.cost)}</b>`:''}</div>`}).join('')||'<p class="muted">Add your checkups and a vehicle below. Steady will tell you what is due and when.</p>'}</div></div>
-    <div class="card"><span class="eyebrow">What upkeep costs</span><div class="big-num num" style="margin:6px 0 2px">${money(carYear)}<span class="muted" style="font-size:15px;font-family:var(--body)"> a year for vehicles</span></div>
+    ${mod('car')?`<div class="card"><span class="eyebrow">What upkeep costs</span><div class="big-num num" style="margin:6px 0 2px">${money(carYear)}<span class="muted" style="font-size:15px;font-family:var(--body)"> a year for vehicles</span></div>
       <p class="muted" style="margin:0 0 12px">${carYear?`About ${money(carYear/12)} a month, based on your schedules${U.vehicles.some(v=>vehRate(v))?' and how much you drive':''}.`:'Add a vehicle to see what its upkeep costs.'}</p>
       ${carYear?`<button class="btn small" data-act="up-budget">${svg('wallet')}${wrench?`Set Car upkeep budget to ${money(Math.round(carYear/50)*50)} a year`:`Add Car upkeep to spending (${money(Math.round(carYear/50)*50)} a year)`}</button>`:''}
-      <p class="muted" style="font-size:12.5px;margin:12px 0 0">Steady shows reminders whenever you open it. It can't send alerts while it's closed.</p></div>
+      <p class="muted" style="font-size:12.5px;margin:12px 0 0">Steady shows reminders whenever you open it. It can't send alerts while it's closed.</p></div>`:`<div class="card"><span class="eyebrow">How reminders work</span><p style="margin:8px 0 0">When something comes due, Steady asks if it's done. Say yes, or "not yet" and it checks back later. Reminders show whenever you open Steady.</p><p class="muted" style="margin:10px 0 0;font-size:13px">Turn parts on or off anytime under Bills, then "What Steady helps with".</p></div>`}
   </div>
-  <div class="card"><div class="section-head"><div><h2>Health checkups</h2><p class="muted" style="margin:2px 0 0">Dentist, doctor, eyes. Tap Done after each visit.</p></div>
+  ${mod('health')?`<div class="card"><div class="section-head"><div><h2>Health checkups</h2><p class="muted" style="margin:2px 0 0">Dentist, doctor, eyes. Tap Done after each visit.</p></div>
     <div class="row">${['dentist','doctor','eye'].some(t=>!health.some(h=>h.type===t))?`<button class="btn small primary" data-act="up-health">${svg('plus')}Add dentist, doctor & eye</button>`:''}<button class="btn small ghost" data-up-add="health">${svg('plus')}Other reminder</button></div></div>
-    <div class="up-list">${health.map(upRow).join('')||'<p class="muted">No health reminders yet.</p>'}</div></div>
-  ${(()=>{const home=U.items.filter(it=>UP_TYPES[it.type]?.kind==='home'); const fund=home.reduce((s,it)=>s+setAside(it),0), hf=(state.spending||[]).find(x=>x.cat==='roof');
+    <div class="up-list">${health.map(upRow).join('')||'<p class="muted">No health reminders yet.</p>'}</div></div>`:''}
+  ${mod('papers')?papersCardHTML():''}
+  ${mod('home')?(()=>{const home=U.items.filter(it=>UP_TYPES[it.type]?.kind==='home'); const fund=home.reduce((s,it)=>s+setAside(it),0), hf=(state.spending||[]).find(x=>x.cat==='roof');
     return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('roof')}<div><h2>Home</h2><p class="muted" style="margin:2px 0 0">${home.length?(fund>=1?`Save about <b class="num">${money(fund)}</b> a month and the big stuff is covered when it wears out.`:'Roof, windows, siding, furnace, deck, driveway and the small stuff that keeps them going.'):'Roof, windows, siding, furnace, deck, driveway and the small stuff that keeps them going.'}</p></div></div>
       <div class="row"><button class="btn small primary" data-act="up-home">${svg('plus')}${home.length?'Add more':'Add home items'}</button><button class="btn small ghost" data-up-add="home">${svg('plus')}Other reminder</button>${fund>=1?`<button class="btn small ghost" data-act="up-homefund">${svg('wallet')}${hf?'Update':'Start'} Home upkeep fund</button>`:''}</div></div>
-      <div class="up-list">${home.map(upRow).join('')||'<p class="muted">Tell Steady roughly how old your roof, furnace and water heater are, and how they\'re holding up. It will say about how long they have left and what to save each month.</p>'}</div></div>`})()}
-  ${U.vehicles.map(v=>{const items=U.items.filter(it=>it.vehicleId===v.id);const r=vehRate(v);const o=odoNow(v);
+      <div class="up-list">${home.map(upRow).join('')||'<p class="muted">Tell Steady roughly how old your roof, furnace and water heater are, and how they\'re holding up. It will say about how long they have left and what to save each month.</p>'}</div></div>`})():''}
+  ${mod('car')?U.vehicles.map(v=>{const items=U.items.filter(it=>it.vehicleId===v.id);const r=vehRate(v);const o=odoNow(v);
     return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('car')}<div><h2>${esc(v.name)}</h2><p class="muted" style="margin:2px 0 0">${o!=null?`About ${o.toLocaleString()} miles`:'Mileage not set'}${r?` · ${Math.round(r*MON).toLocaleString()} miles a month`:''}</p></div></div>
       <div class="row"><button class="btn small primary" data-up-odo="${v.id}">${svg('car')}Update mileage</button><button class="btn small ghost" data-up-add="car:${v.id}">${svg('plus')}Reminder</button><button class="icon-btn" data-up-veh="${v.id}" aria-label="Edit ${esc(v.name)}">${svg('edit')}</button></div></div>
       ${!r?`<p class="muted" style="margin:10px 0 0;font-size:13px">Update the mileage now and again (or enter miles per week) and Steady will predict services from how much you really drive.</p>`:''}
-      <div class="up-list">${items.map(upRow).join('')}</div></div>`}).join('')}
-  <div class="card" style="text-align:center"><button class="btn primary" data-act="up-addveh">${svg('car')}Add a vehicle</button><p class="muted" style="margin:10px 0 0;font-size:13px">Comes with oil, tire rotation, tires, brakes, battery and coolant. Defaults are common guidelines; check your owner's manual and adjust.</p></div>`;
+      <div class="up-list">${items.map(upRow).join('')}</div></div>`}).join(''):''}
+  ${mod('car')?`<div class="card" style="text-align:center"><button class="btn primary" data-act="up-addveh">${svg('car')}Add a vehicle</button><p class="muted" style="margin:10px 0 0;font-size:13px">Comes with oil, tire rotation, tires, brakes, battery and coolant. Defaults are common guidelines; check your owner's manual and adjust.</p></div>`:''}`;
 }
 function newUpItem(type,vehicleId){const T=UP_TYPES[type];return {id:uid(),type,vehicleId:vehicleId||null,name:T.label,everyMonths:T.months,everyMiles:T.miles||null,cost:T.cost,last:{},history:[],misses:[],lifePct:null,lifeDate:null,snoozeUntil:null}}
 function spendFor(it){const kd=UP_TYPES[it.type]?.kind;const k=kd==='car'?'wrench':kd==='home'?'roof':'pill';return (state.spending||[]).find(x=>x.cat===k)}
 function upDoneModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(it), sp=spendFor(it);
+  if(T.kind==='papers'){ const base=it.expires?parseD(it.expires):todayD(); const nx=new Date(base.getFullYear(),base.getMonth()+(+it.everyMonths||12),base.getDate());
+    openModal(`<div class="row" style="flex-wrap:nowrap">${ico(T.icon)}<div><h2>${esc(it.name)} renewed</h2><p class="muted" style="margin:0">One less thing to think about.</p></div></div>
+    <div class="fields" style="margin-top:16px"><div class="field"><label for="pd-exp">New expiration date</label><input id="pd-exp" type="date" value="${ymd(nx)}"></div><div class="field"><label for="pd-cost">What it cost</label><input id="pd-cost" inputmode="decimal" value="${it.cost||''}" placeholder="$"></div></div>
+    <p class="muted" style="font-size:12.5px;margin:10px 0 0">Check the date on the new card or sticker and fix it here if it's different.</p>
+    <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="pd-go">${svg('check',2.5)}Save</button></div>`);
+    $('#pd-go').onclick=()=>{ const c=num($('#pd-cost').value); it.history=(it.history||[]).concat([{date:ymd(now),cost:c}]); it.expires=$('#pd-exp').value||ymd(nx); if(c) it.cost=c; it.snoozeUntil=null; it.misses=[];
+      if(state.example) state.example=false; closeModal(); save(); renderAll(); toast(`${it.name} renewed.`,`Good until ${fmtM(parseD(it.expires))}.`); confetti(60); }; return; }
   openModal(`<div class="row" style="flex-wrap:nowrap">${ico(T.icon)}<div><h2>${esc(it.name)}${v?` · ${esc(v.name)}`:''}${isBig(it)?' replaced':''}</h2><p class="muted" style="margin:0">${isBig(it)?'A big one. Good to have it done.':'Nice. That\'s one less thing hanging over you.'}</p></div></div>
   <div class="fields" style="margin-top:16px"><div class="field"><label for="ud-date">When</label><input id="ud-date" type="date" value="${ymd(now)}"></div>
   ${T.kind==='car'?`<div class="field"><label for="ud-odo">Odometer</label><input id="ud-odo" inputmode="numeric" value="${odoNow(v)??''}" placeholder="miles"></div>`:''}
@@ -929,22 +993,24 @@ function upDoneModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom, v=vehOf(i
     const st=upStatus(it); toast(`${it.name} done.`, st.due?`Next one around ${fmtM(st.due.date)}.`:''); confetti(70); };
 }
 const NOT_YET={holding:'Still holding up fine',time:'Haven\'t had time',money:'Money is tight',forgot:'Didn\'t know it was due',little:'Hardly drove it',fine:'Feeling fine, putting it off',other:'Something else'};
-function upNotYetModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom; const keys=T.kind==='car'?['time','money','forgot','little','other']:T.kind==='home'?(isBig(it)?['holding','money','time','other']:['time','forgot','money','other']):['time','money','forgot','fine','other'];
+function upNotYetModal(it){ const T=UP_TYPES[it.type]||UP_TYPES.hcustom; const keys=T.kind==='papers'?['time','money','forgot','other']:T.kind==='car'?['time','money','forgot','little','other']:T.kind==='home'?(isBig(it)?['holding','money','time','other']:['time','forgot','money','other']):['time','money','forgot','fine','other'];
   openModal(`<h2>No problem. What got in the way?</h2><p class="lead">No judgment. Your answer helps Steady give a better nudge next time. I'll check back in a month.</p>
   <div class="goal">${keys.map(k=>`<label><input type="radio" name="ny" value="${k}" ${k==='time'?'checked':''}><span><b>${NOT_YET[k]}</b></span></label>`).join('')}</div>
   <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="ny-go">Remind me in a month</button></div>`);
   $('#ny-go').onclick=()=>{ const k=(document.querySelector('[name=ny]:checked')||{}).value||'other';
-    it.misses=(it.misses||[]).concat([{date:ymd(now),reason:k}]); it.snoozeUntil=ymd(new Date(todayD().getTime()+(isBig(it)&&k==='holding'?182:30)*DAY));
+    it.misses=(it.misses||[]).concat([{date:ymd(now),reason:k}]); it.snoozeUntil=ymd(new Date(todayD().getTime()+(isBig(it)&&k==='holding'?182:T.kind==='papers'?14:30)*DAY));
     if(state.example) state.example=false; closeModal(); save(); renderAll();
     const tips={time:T.kind==='car'?'Many quick-lube shops take walk-ins in about 30 minutes. Maybe a Saturday morning?':'Booking the next opening now, even weeks out, means it\'s handled.',
       money:T.kind==='home'?`Saving ${money(Math.max(10,setAside(it)||it.cost/24))} a month in a Home upkeep fund makes it doable. Ask about financing or ask for a few quotes too.`:T.kind==='car'?`Setting aside ${money((annualUpkeep('car')||600)/12)} a month in Car upkeep spreads the cost out.`:'Ask about payment plans or what your insurance covers. Many checkups are covered at 100%.',
       forgot:'Now you know. I\'ll keep it on the list.', holding:'Good to hear. Tell me how it looks now and I\'ll adjust. I\'ll check again in six months.', little:'Update the mileage and Steady will move the date out if you really drove less.', fine:'Checkups catch things before they hurt. Worth booking soon.', other:'Got it.'};
-    toast(k==='holding'?'I\'ll check back in six months.':'I\'ll check back in a month.', tips[k]); if(k==='little'){ const v=vehOf(it); if(v) setTimeout(()=>odoModal(v),400) } if(k==='holding') setTimeout(()=>upEditModal(it),400); };
+    if(T.kind==='papers'){ tips.time='Many renewals can be done online in a few minutes.'; tips.money='Check the fee now so it\'s not a surprise. Late renewals can cost extra.'; }
+    toast(k==='holding'?'I\'ll check back in six months.':T.kind==='papers'?'I\'ll check back in two weeks.':'I\'ll check back in a month.', tips[k]); if(k==='little'){ const v=vehOf(it); if(v) setTimeout(()=>odoModal(v),400) } if(k==='holding') setTimeout(()=>upEditModal(it),400); };
 }
 function upEditModal(it,kind,vehicleId){ const isNew=!it; kind=kind||(UP_TYPES[it.type]?.kind);
   const types=Object.keys(UP_TYPES).filter(k=>UP_TYPES[k].kind===kind);
-  it=it||newUpItem(kind==='car'?'ccustom':kind==='home'?'mcustom':'hcustom',vehicleId); const T=UP_TYPES[it.type];
+  it=it||newUpItem(kind==='car'?'ccustom':kind==='home'?'mcustom':kind==='papers'?'pcustom':'hcustom',vehicleId); const T=UP_TYPES[it.type];
   if(kind==='home'){ homeEditModal(it,isNew); return }
+  if(kind==='papers'){ papersEditModal(it,isNew); return }
   openModal(`<h2>${isNew?'Add a reminder':'Edit '+esc(it.name)}</h2><p class="lead">${kind==='car'?'Whichever comes first, months or miles, sets the due date.':'Steady will ask if you went once it is due.'}</p>
   <div class="fields"><div class="field"><label for="ue-type">Type</label><select id="ue-type">${types.map(k=>`<option value="${k}" ${k===it.type?'selected':''}>${UP_TYPES[k].label}</option>`).join('')}</select></div>
   <div class="field"><label for="ue-name">Name</label><input id="ue-name" value="${esc(it.name)}"></div>
@@ -999,6 +1065,65 @@ function homeEditModal(it,isNew){ const T=UP_TYPES[it.type], big=isBig(it); cons
     if(isNew) up().items.push(it); if(state.example) state.example=false; closeModal(); save(); renderAll(); };
   if($('#he-del')){ const d=$('#he-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().items=up().items.filter(x=>x.id!==it.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
 }
+function papersCardHTML(){ const items=up().items.filter(it=>UP_TYPES[it.type]?.kind==='papers');
+  return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('idcard')}<div><h2>Papers & renewals</h2><p class="muted" style="margin:2px 0 0">Steady only keeps the expiration date, never your ID numbers.</p></div></div>
+    <button class="btn small primary" data-act="up-papers">${svg('plus')}${items.length?'Add more':'Add renewals'}</button></div>
+    <div class="up-list">${items.sort((a,b)=>(a.expires||'9')<(b.expires||'9')?-1:1).map(it=>{const T=UP_TYPES[it.type],st=upStatus(it);
+      return `<div class="up-row" style="--c:var(--c-${T.icon})">${ico(T.icon)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta">${it.expires?`Expires ${MONTHS[parseD(it.expires).getMonth()]} ${parseD(it.expires).getDate()}, ${parseD(it.expires).getFullYear()}`:'No date yet'} · renews every ${it.everyMonths%12===0?plural(it.everyMonths/12,'year'):plural(+it.everyMonths,'month')}${it.cost?` · about ${money(it.cost)}`:''}</div></div>
+      <span class="pill ${st.k==='unset'?'up':st.k}">${st.t}</span><div class="row acts" style="gap:6px"><button class="btn small" data-up-done="${it.id}">${svg('check',2.5)}Renewed</button><button class="icon-btn" data-up-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button></div></div>`}).join('')||'<p class="muted">Add the things that expire, like your driver\'s license or plate tags. Steady reminds you about 6 weeks before.</p>'}</div></div>` }
+const PAPER_KEYS=['dl','plates','passport','cpl','boatreg','fishing'];
+function papersAddModal(){ const have=new Set(up().items.map(x=>x.type)); const keys=PAPER_KEYS.filter(k=>!have.has(k)); const pick=new Set(keys.filter(k=>['dl','plates'].includes(k)));
+  const draw=()=>{ openModal(`<h2>Papers & renewals</h2><p class="lead">Pick what you'd like reminders for and add the expiration date. It's printed on the card or document. Steady never asks for ID numbers.</p>
+    <div class="pick">${keys.map(k=>`<button type="button" style="--c:var(--c-${UP_TYPES[k].icon})" aria-pressed="${pick.has(k)}" data-ppick="${k}">${ico(UP_TYPES[k].icon)}<span>${UP_TYPES[k].label}</span></button>`).join('')}<button type="button" style="--c:var(--c-bell)" data-act="up-pcustom">${ico('bell')}<span>Something else</span></button></div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:14px">${[...pick].map(k=>`<div class="wiz-bill" data-prow="${k}">${ico(UP_TYPES[k].icon)}<div><b>${UP_TYPES[k].label}</b><div class="fields" style="margin-top:8px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))"><div class="field"><label>Expires on</label><input type="date" data-p="exp"></div><div class="field"><label>Renewal cost (optional)</label><input data-p="cost" inputmode="decimal" placeholder="$"></div></div></div></div>`).join('')}</div>
+    <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="p-save">Add to Upkeep</button></div>`);
+    document.querySelectorAll('[data-ppick]').forEach(b=>b.onclick=()=>{const k=b.dataset.ppick;pick.has(k)?pick.delete(k):pick.add(k);draw()});
+    $('#p-save').onclick=()=>{ document.querySelectorAll('[data-prow]').forEach(r=>{const it=newUpItem(r.dataset.prow);it.expires=r.querySelector('[data-p=exp]').value||null;it.cost=num(r.querySelector('[data-p=cost]').value);up().items.push(it)});
+      if(state.example) state.example=false; closeModal(); save(); tab='upkeep'; renderAll(); toast('Renewals added.','Steady will check in about six weeks before each one expires.'); }; };
+  draw(); }
+function papersEditModal(it,isNew){ const types=Object.keys(UP_TYPES).filter(k=>UP_TYPES[k].kind==='papers');
+  openModal(`<h2>${isNew?'Add a renewal':'Edit '+esc(it.name)}</h2><p class="lead">Just the date it expires. No ID numbers needed.</p>
+  <div class="fields"><div class="field"><label for="pe-type">Type</label><select id="pe-type">${types.map(k=>`<option value="${k}" ${k===it.type?'selected':''}>${UP_TYPES[k].label}</option>`).join('')}</select></div>
+  <div class="field"><label for="pe-name">Name</label><input id="pe-name" value="${esc(it.name)}"></div>
+  <div class="field"><label for="pe-exp">Expires on</label><input id="pe-exp" type="date" value="${it.expires||''}"></div>
+  <div class="field"><label for="pe-yrs">Renews every (years)</label><input id="pe-yrs" inputmode="decimal" value="${(it.everyMonths||12)/12}"></div>
+  <div class="field"><label for="pe-cost">Renewal cost</label><input id="pe-cost" inputmode="decimal" value="${it.cost||''}" placeholder="$ (optional)"></div></div>
+  <div class="sheet-foot">${isNew?'<span></span>':`<button class="btn ghost" id="pe-del" style="color:var(--bad)">${svg('trash')}Remove</button>`}<div class="row"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="pe-save">${isNew?'Add':'Save'}</button></div></div>`);
+  $('#pe-type').onchange=e=>{const N=UP_TYPES[e.target.value];$('#pe-name').value=N.label;$('#pe-yrs').value=N.months/12};
+  $('#pe-save').onclick=()=>{ it.type=$('#pe-type').value; it.name=$('#pe-name').value.trim()||UP_TYPES[it.type].label; it.expires=$('#pe-exp').value||null; it.everyMonths=Math.max(1,Math.round(num($('#pe-yrs').value)*12))||12; it.cost=num($('#pe-cost').value); it.snoozeUntil=null;
+    if(isNew) up().items.push(it); if(state.example) state.example=false; closeModal(); save(); renderAll(); };
+  if($('#pe-del')){ const d=$('#pe-del'); d.onclick=()=>{ if(d.dataset.confirm){ up().items=up().items.filter(x=>x.id!==it.id); closeModal(); save(); renderAll() } else { d.dataset.confirm='1'; d.textContent='Tap again to remove' } } }
+}
+/* ---------- printable folder tabs ---------- */
+function labelGroups(){ const g=[];
+  g.push({t:'Bills',items:state.bills.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(b=>({icon:b.cat,name:b.name,sub:(CATS[b.cat]?.label||'Bill')+' · '+(bfreq(b)==='month'?`due the ${ord(b.dueDay)}`:`${BFREQ[bfreq(b)].l.toLowerCase()}, ${MONTHS_L[(b.dueMonth||1)-1]}`)}))});
+  const life=[];
+  if(mod('home')) life.push({icon:'roof',name:'Home repairs & upkeep',sub:'Receipts, quotes, warranties'});
+  if(mod('car')) up().vehicles.forEach(v=>life.push({icon:'car',name:v.name,sub:'Service records, title, receipts'}));
+  if(mod('health')) life.push({icon:'steth',name:'Medical & dental',sub:'Visits, bills, insurance papers'});
+  if(mod('papers')) life.push({icon:'idcard',name:'IDs & renewals',sub:'Copies of license, passport, registrations'});
+  if(life.length) g.push({t:'Home, car & family',items:life});
+  g.push({t:'Everyday folders',items:[{icon:'folder',name:`Taxes ${now.getFullYear()}`,sub:'W-2s, 1099s, receipts'},{icon:'folder',name:'Pay stubs',sub:'Keep at least a year'},{icon:'bank',name:'Bank statements',sub:'Checking & savings'},{icon:'folder',name:'Receipts',sub:'Big purchases'},{icon:'folder',name:'Warranties & manuals',sub:'Appliances, electronics'},{icon:'folder',name:'Important documents',sub:'Birth certificates, deeds, wills'}]});
+  return g }
+function labelsModal(){ const groups=labelGroups();
+  openModal(`<h2>Folder tabs for your filing cabinet</h2><p class="lead">Pick the tabs you want. Print them on plain paper, cut along the dashed lines, and tape or slide them onto your folders.</p>
+  ${groups.map((g,gi)=>`<h3 style="font-size:15px;margin:14px 0 8px">${g.t}</h3><div class="mod-grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">${g.items.map((it,i)=>`<label class="mod" style="--c:var(--c-${it.icon});padding:8px 10px"><input type="checkbox" data-lab="${gi}:${i}" checked>${ico(it.icon)}<span><b>${esc(it.name)}</b></span></label>`).join('')||'<p class="muted">Add bills first.</p>'}</div>`).join('')}
+  <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="lab-go">${svg('down')}${window.claude?'Save tabs to print':'Print tabs'}</button></div>`);
+  $('#lab-go').onclick=()=>{ const pick=[...document.querySelectorAll('[data-lab]:checked')].map(c=>{const [g,i]=c.dataset.lab.split(':');return groups[g].items[i]}); if(!pick.length) return; printLabels(pick) } }
+function labelsDoc(items){ const cs=getComputedStyle(document.documentElement);
+  const col=k=>(cs.getPropertyValue('--c-'+k).trim()||'#666');
+  const tab=it=>`<div class="tab"><i style="background:${col(it.icon)}"></i><svg viewBox="0 0 24 24" fill="none" stroke="${col(it.icon)}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${P[it.icon]||P.folder}</svg><div><b>${esc(it.name)}</b><span>${esc(it.sub||'')}</span></div></div>`;
+  return `<!doctype html><html><head><meta charset="utf-8"><title>Folder tabs</title><style>
+@page{size:letter;margin:.5in}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Segoe UI',Arial,sans-serif;color:#222;background:#fff}
+p{font-size:10pt;color:#666;margin:0 0 .15in}.grid{display:grid;grid-template-columns:repeat(2,3.4in);gap:.12in .25in}
+.tab{height:.78in;border:1px dashed #9a9a9a;display:flex;align-items:center;gap:.1in;padding:0 .12in 0 0;break-inside:avoid;overflow:hidden}
+.tab i{align-self:stretch;width:.14in;flex:none}.tab svg{width:.34in;height:.34in;flex:none}.tab div{min-width:0}
+.tab b{display:block;font-size:13pt;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tab span{display:block;font-size:8.5pt;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}</style></head><body><p>Cut along the dashed lines. Made with Steady.</p><div class="grid">${items.map(tab).join('')}</div></body></html>` }
+async function printLabels(items){ const html=labelsDoc(items);
+  if(window.claude){ closeModal(); offerFile('Steady folder tabs.html',html); toast('Folder tabs saved.','Open the file and print it from your browser.'); return }
+  const f=document.createElement('iframe'); f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0'; document.body.appendChild(f);
+  f.srcdoc=html; f.onload=()=>{ try{ f.contentWindow.focus(); f.contentWindow.print() }catch(e){ offerFile('Steady folder tabs.html',html) } setTimeout(()=>f.remove(),60000) }; closeModal(); }
 function homeFund(){ const amt=Math.ceil(up().items.reduce((s,it)=>s+setAside(it),0)/5)*5; let f=(state.spending||[]).find(x=>x.cat==='roof');
   if(!f){f={id:uid(),cat:'roof',name:SPEND.roof.label,amount:amt,freq:'month'};state.spending.push(f)} else {f.amount=amt;f.freq='month'}
   if(state.example) state.example=false; save(); renderAll(); toast('Home upkeep fund set.',`${money(amt)} a month. When the roof or furnace goes, the money is there.`); }
@@ -1030,12 +1155,15 @@ function upBudget(){ const yr=Math.round(annualUpkeep('car')/50)*50; let it=(sta
 function renderBills(){
   const total=monthlyTotal();
   $('#p-bills').innerHTML=`
-  <div class="card"><div class="section-head"><div><h2>Your bills</h2><p class="muted" style="margin:2px 0 0">${state.bills.length} bills · ${money(total)} a month</p></div>
-    <div class="row"><button class="btn primary small" data-act="add">${svg('plus')}Add bill</button><button class="btn small" data-act="gmail">${svg('upload')}Check Gmail</button><button class="btn small" data-act="import">${svg('upload')}Import</button><button class="btn small" data-act="export">${svg('down')}Export CSV</button></div></div>
-    <div class="bill-list" style="margin-top:14px">${state.bills.slice().sort((a,b)=>a.dueDay-b.dueDay).map(b=>`<div class="bill-row">${ico(b.cat)}<div style="min-width:0"><b>${esc(b.name)}</b><div class="meta num">Due the ${ord(b.dueDay)}${b.isDebt?` · ${money(b.balance)} owed at ${b.apr}%`:''}${b.autopay?' · Autopay':''}</div></div><b class="num">${money(b.amount)}</b><div class="acts row" style="gap:6px"><button class="icon-btn" data-edit="${b.id}" aria-label="Edit ${esc(b.name)}">${svg('edit')}</button><button class="icon-btn" data-del="${b.id}" aria-label="Remove ${esc(b.name)}">${svg('trash')}</button></div></div>`).join('')||'<p class="muted">No bills yet. Add one or run the questions.</p>'}</div></div>
-  <div class="card"><div class="section-head"><div><h2>Everyday spending</h2><p class="muted" style="margin:2px 0 0">${(state.spending||[]).length} items · about ${money(spendMonthly())} a month</p></div>
+  <div class="card"><div class="section-head"><div><h2>Your bills</h2><p class="muted" style="margin:2px 0 0">${state.bills.length} bills · about ${money(total)} a month</p></div>
+    <div class="row"><button class="btn primary small" data-act="add">${svg('plus')}Add bill</button><button class="btn small" data-act="gmail">${svg('upload')}Find bills in email</button><button class="btn small" data-act="import">${svg('upload')}Import</button><button class="btn small" data-act="export">${svg('down')}Export CSV</button></div></div>
+    <div class="bill-list" style="margin-top:14px">${state.bills.slice().sort((a,b)=>nextDue(a)-nextDue(b)).map(b=>`<div class="bill-row">${ico(b.cat)}<div style="min-width:0"><b>${esc(b.name)}</b><div class="meta num">${bfreq(b)==='month'?`Due the ${ord(b.dueDay)}`:`${BFREQ[bfreq(b)].l} · next due ${MONTHS[nextDue(b).getMonth()]} ${nextDue(b).getDate()}`}${b.isDebt?` · ${money(b.balance)} owed at ${b.apr}%`:''}${b.autopay?' · Autopay':''}</div></div><b class="num">${money(b.amount)}</b><div class="acts row" style="gap:6px"><button class="icon-btn" data-edit="${b.id}" aria-label="Edit ${esc(b.name)}">${svg('edit')}</button><button class="icon-btn" data-del="${b.id}" aria-label="Remove ${esc(b.name)}">${svg('trash')}</button></div></div>`).join('')||'<p class="muted">No bills yet. Add one or run the questions.</p>'}</div></div>
+  <div class="card"><h2 style="font-size:20px">What Steady helps with</h2><p class="muted" style="margin:4px 0 12px">Bills are always on. Turn the rest on or off anytime. Nothing is deleted when you turn something off.</p>
+    <div class="mod-grid">${Object.entries(MODS).map(([k,m])=>`<label class="mod" style="--c:var(--c-${m.icon})"><input type="checkbox" data-mod="${k}" ${mod(k)?'checked':''}>${ico(m.icon)}<span><b>${m.l}</b><br><span class="muted">${m.d}</span></span></label>`).join('')}</div></div>
+  ${mod('spending')?`<div class="card"><div class="section-head"><div><h2>Everyday spending</h2><p class="muted" style="margin:2px 0 0">${(state.spending||[]).length} items · about ${money(spendMonthly())} a month</p></div>
     <div class="row"><button class="btn primary small" data-act="spend-add">${svg('plus')}Add</button><button class="btn small" data-act="spend-log">${svg('wallet')}Log spending</button></div></div>
-    <div class="bill-list" style="margin-top:14px">${(state.spending||[]).map(it=>`<div class="bill-row">${ico(it.cat)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta num">${money(it.amount)} ${FREQ_L[it.freq]}${it.freq!=='month'?` · about ${money(perMonth(it))} a month`:''}</div></div><b class="num">${money(spentNow(it))}<span class="muted" style="font-weight:500;font-size:12px"> ${PERIOD_L[it.freq]}</span></b><div class="acts row" style="gap:6px"><button class="icon-btn" data-spend-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button><button class="icon-btn" data-spend-del="${it.id}" aria-label="Remove ${esc(it.name)}">${svg('trash')}</button></div></div>`).join('')||'<p class="muted">Add groceries, fuel and other regular spending so the plan counts them.</p>'}</div></div>
+    <div class="bill-list" style="margin-top:14px">${(state.spending||[]).map(it=>`<div class="bill-row">${ico(it.cat)}<div style="min-width:0"><b>${esc(it.name)}</b><div class="meta num">${money(it.amount)} ${FREQ_L[it.freq]}${it.freq!=='month'?` · about ${money(perMonth(it))} a month`:''}</div></div><b class="num">${money(spentNow(it))}<span class="muted" style="font-weight:500;font-size:12px"> ${PERIOD_L[it.freq]}</span></b><div class="acts row" style="gap:6px"><button class="icon-btn" data-spend-edit="${it.id}" aria-label="Edit ${esc(it.name)}">${svg('edit')}</button><button class="icon-btn" data-spend-del="${it.id}" aria-label="Remove ${esc(it.name)}">${svg('trash')}</button></div></div>`).join('')||'<p class="muted">Add groceries, fuel and other regular spending so the plan counts them.</p>'}</div></div>`:''}
+  <div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('folder')}<div><h2 style="font-size:20px">Paper files</h2><p class="muted" style="margin:2px 0 0">Print matching tabs for a filing cabinet: one for each bill, plus home, car, medical and everyday folders.</p></div></div><button class="btn small primary" data-act="labels">${svg('down')}Make folder tabs</button></div></div>
   <div class="grid2">
     <div class="card"><h2 style="font-size:20px">Questions & setup</h2><p class="muted">Rerun the friendly questions to change your pay, bills or goal.</p><button class="btn" data-act="wizard">${svg('star')}${state.example?'Start my plan':'Edit my answers'}</button></div>
     <div class="card"><h2 style="font-size:20px">Start over</h2><p class="muted">Clears every bill and payment saved in Steady.</p><div id="reset-zone"><button class="btn ghost" data-act="reset-ask">${svg('trash')}Clear everything</button></div></div>
@@ -1080,6 +1208,7 @@ function applyActions(actions){
   (actions||[]).forEach(a=>{
     if(a.type==='mark_paid'){const b=findBill(a.bill); if(b){recordPayment(b,num(a.amount)||b.amount,true);did.push(`Marked ${b.name} paid`)}}
     if(a.type==='add_bill'&&a.name){const cat=CATS[a.cat]?a.cat:guessCat(a.name);const b={id:uid(),cat,name:a.name,amount:num(a.amount),dueDay:Math.min(31,Math.max(1,parseInt(a.dueDay)||1))};
+      if(BFREQ[a.freq]&&a.freq!=='month'){b.freq=a.freq;b.dueMonth=Math.min(12,Math.max(1,parseInt(a.dueMonth)||now.getMonth()+1))}
       if(CATS[cat].debt||a.balance){b.isDebt=true;b.balance=num(a.balance);b.startBalance=b.balance;b.apr=num(a.apr)} state.bills.push(b);did.push(`Added ${b.name}`)}
     if(a.type==='update_bill'){const b=findBill(a.bill); if(b&&a.fields){['amount','dueDay','balance','apr'].forEach(k=>{if(a.fields[k]!=null)b[k]=num(a.fields[k])}); if(a.fields.name)b.name=String(a.fields.name);did.push(`Updated ${b.name}`)}}
     if(a.type==='log_spend'){const it=findSpend(a.item); if(it&&num(a.amount)>0){state.spends.push({id:uid(),itemId:it.id,amount:num(a.amount),date:/^\d{4}-\d\d-\d\d$/.test(a.date||'')?a.date:ymd(now)});did.push(`Logged ${money(num(a.amount))} for ${it.name}`)}}
@@ -1112,13 +1241,13 @@ async function ask(text){
     const summary={today:ymd(now),profile:state.profile,monthlyBills:monthlyTotal(),totalDebt:totalDebt(),
       upkeep:(up().items||[]).map(it=>({name:it.name,vehicle:vehOf(it)?.name,status:upStatus(it).t,lastDone:it.last?.date,cost:it.cost})),
       everydaySpending:(state.spending||[]).map(it=>({name:it.name,estimate:it.amount,per:it.freq,spentSoFar:spentNow(it),period:PERIOD_L[it.freq]})),
-      bills:state.bills.map(b=>({name:b.name,cat:b.cat,amount:b.amount,dueDay:b.dueDay,status:status(b).t,balance:b.balance,apr:b.apr,paidLastMonth:paidIn(b,mkey(addMonths(now,-1))),paidMonthBefore:paidIn(b,mkey(addMonths(now,-2)))})),
+      bills:state.bills.map(b=>({name:b.name,cat:b.cat,amount:b.amount,howOften:BFREQ[bfreq(b)].l,dueDay:b.dueDay,status:status(b).t,balance:b.balance,apr:b.apr,paidLastMonth:paidIn(b,mkey(addMonths(now,-1))),paidMonthBefore:paidIn(b,mkey(addMonths(now,-2)))})),
       plan:debts().length?(()=>{const s=simulate(splitExtra().debt,state.profile.strategy);return {debtFreeBy:s.never?'never at current payments':fromNow(s.months),order:s.order.map(o=>o.name),interest:Math.round(s.interest)}})():null};
     const history=chat.slice(-8,-2).map(m=>`${m.who==='me'?'User':'Steady'}: ${m.t}`).join('\n');
     const prompt=`You are Steady, a warm, hopeful, plain-spoken bills coach inside a household bill tracker. Be encouraging but honest; never shame. Keep replies to 1-3 short sentences a person would say out loud (they may be read aloud). Use the data below; don't invent numbers. You are not a financial advisor; give practical, general guidance.
 Return ONLY JSON: {"reply": string, "actions": [ ... ]}. Allowed actions (only when the user clearly asks or states it):
 - {"type":"mark_paid","bill":<existing bill name>,"amount":<number, omit to use the usual amount>}
-- {"type":"add_bill","name":string,"cat":one of ${CAT_KEYS.join('|')},"amount":number,"dueDay":1-31,"balance":number?,"apr":number?}
+- {"type":"add_bill","name":string,"cat":one of ${CAT_KEYS.join('|')},"amount":number,"dueDay":1-31,"freq":"month|quarter|half|year"?,"dueMonth":1-12?,"balance":number?,"apr":number?}  (e.g. 'flood insurance 423.88 yearly due in June' -> freq year, dueMonth 6)
 - {"type":"update_bill","bill":<existing bill name>,"fields":{"amount"?,"dueDay"?,"balance"?,"apr"?,"name"?}}
 - {"type":"add_cushion","amount":number}
 - {"type":"upkeep_done","item":<upkeep reminder name, e.g. Oil change or Dentist checkup>,"date":"YYYY-MM-DD"?,"odometer":number?,"cost":number?}  (for 'I changed the oil', 'went to the dentist')
@@ -1138,7 +1267,22 @@ ${history?'Recent chat:\n'+history+'\n':''}User: ${text}`;
 
 /* ---------- payments + celebration ---------- */
 const CHEERS=['Nice.','Done and done.','Look at you go.','One more off the list.','That\'s progress.','Steady wins it.'];
+function mortInfo(b){ const m=b.mort; if(!m) return null; const parts=[['Principal & interest',m.pi,'var(--c-house)'],['Property taxes',m.tax,'var(--c-bank)'],['Home insurance',m.ins,'var(--c-shield)'],['PMI',m.pmi,'var(--c-brake)']].filter(x=>x[1]>0);
+  const r=(m.rate||0)/1200, interest=m.balance&&r?m.balance*r:null, principal=interest!=null&&m.pi?Math.max(0,m.pi-interest):null;
+  const ltv=m.balance&&m.value?m.balance/m.value:null; let toEighty=null, toEightyX=null;
+  const months=(extra)=>{ if(!(m.balance&&m.value&&m.pi&&r)) return null; let bal=m.balance,k=0; const tgt=m.value*0.8; while(bal>tgt&&k<480){bal-=Math.max(0,m.pi+extra-bal*r);k++} return k>=480?null:k };
+  if(ltv!=null&&ltv>0.8){ toEighty=months(0); toEightyX=months(100) }
+  return {m,parts,interest,principal,ltv,equity:m.value&&m.balance!=null?m.value-m.balance:null,toEighty,toEightyX} }
+function mortCardHTML(){ const b=state.bills.find(x=>x.cat==='house'&&x.mort); if(!b) return ''; const I=mortInfo(b), m=I.m, tot=I.parts.reduce((s,x)=>s+x[1],0)||1;
+  const pmiMsg=m.pmi>0&&I.ltv!=null?(I.ltv<=0.8?`<div class="reason" style="margin-top:12px"><span class="dot" style="background:var(--good)">${svg('star',2.5)}</span><p><b>You may be able to drop PMI now and save ${money(m.pmi)} a month.</b><span class="muted">Your loan is at ${Math.round(I.ltv*100)}% of the home's original value. Lenders usually let you ask to remove PMI at 80% if payments are on time, and it ends automatically at 78%. Call your lender and ask how to request it. FHA loans have different rules.</span></p></div>`
+      :`<div class="reason" style="margin-top:12px"><span class="dot" style="background:var(--c-bank)">${svg('calendar',2.5)}</span><p><b>PMI can come off ${I.toEighty!=null?`around ${fromNow(I.toEighty)}`:'once you reach 80%'}.</b><span class="muted">That's when the loan reaches 80% of the home's original value (now ${Math.round(I.ltv*100)}%). ${I.toEightyX!=null&&I.toEighty!=null&&I.toEighty-I.toEightyX>=2?`Adding $100 a month toward principal gets you there about ${plural(I.toEighty-I.toEightyX,'month')} sooner. `:''}Steady will remind you when you're there.</span></p></div>`):'';
+  return `<div class="card"><div class="section-head"><div class="row" style="flex-wrap:nowrap">${ico('house')}<div><h2 style="font-size:20px">Where your ${esc(b.name.toLowerCase())} goes</h2><p class="muted" style="margin:2px 0 0">${money(tot)} a month${I.equity!=null?` · about ${money(I.equity)} in equity (${Math.round((1-I.ltv)*100)}%)`:''}</p></div></div><button class="btn small ghost" data-edit="${b.id}">${svg('edit')}Update</button></div>
+    <div class="money-map" style="margin-top:12px">${I.parts.map(x=>`<div style="flex:${x[1]/tot};background:${x[2]}">${x[1]/tot>.14?money(x[1]):''}</div>`).join('')}</div>
+    <div class="legend">${I.parts.map(x=>`<span><i style="background:${x[2]}"></i>${x[0]} <b class="num">${money(x[1])}</b></span>`).join('')}</div>
+    ${I.principal!=null?`<p class="muted" style="margin:10px 0 0">This month about <b style="color:var(--good)">${money(I.principal)}</b> builds your equity and ${money(I.interest)} goes to interest. That split gets better every month.</p>`:''}
+    ${pmiMsg}</div>` }
 function recordPayment(b,amount,quiet){
+  if(b.mort&&b.mort.balance&&b.mort.rate){ const I=mortInfo(b); if(I.principal) b.mort.balance=Math.max(0,Math.round((b.mort.balance-I.principal)*100)/100) }
   const before=debts().length?simulate(splitExtra().debt,state.profile.strategy).months:0;
   state.payments.push({id:uid(),billId:b.id,amount:amount,date:ymd(now)});
   if(b.isDebt){ const i=b.balance*(b.apr||0)/1200; b.balance=Math.max(0,Math.round((b.balance+i-amount)*100)/100); }
@@ -1217,16 +1361,27 @@ function billModal(b){
   <div class="fields">
     <div class="field"><label for="b-cat">Type</label><select id="b-cat">${CAT_KEYS.map(k=>`<option value="${k}" ${k===b.cat?'selected':''}>${CATS[k].label}</option>`).join('')}</select></div>
     <div class="field"><label for="b-name">Name</label><input id="b-name" value="${esc(b.name)}" placeholder="e.g. DTE Electric"></div>
-    <div class="field"><label for="b-amt">Monthly payment</label><input id="b-amt" inputmode="decimal" value="${b.amount}"></div>
-    <div class="field"><label for="b-due">Due day of month</label><input id="b-due" type="number" min="1" max="31" value="${b.dueDay}"></div>
+    <div class="field"><label for="b-amt">Amount</label><input id="b-amt" inputmode="decimal" value="${b.amount}"></div>
+    <div class="field"><label for="b-freq">How often</label><select id="b-freq">${Object.entries(BFREQ).map(([k,v])=>`<option value="${k}" ${k===bfreq(b)?'selected':''}>${v.l}</option>`).join('')}</select></div>
+    <div class="field"><label for="b-due">Due day</label><input id="b-due" type="number" min="1" max="31" value="${b.dueDay}"></div>
+    <div class="field" id="b-dmw"><label for="b-dm">Next due month</label><select id="b-dm">${MONTHS_L.map((m,i)=>`<option value="${i+1}" ${(+b.dueMonth||now.getMonth()+1)===i+1?'selected':''}>${m}</option>`).join('')}</select></div>
+    <div class="field mortf" style="grid-column:1/-1"><b>Mortgage breakdown (optional)</b><div class="muted" style="font-size:12.5px">From your mortgage statement. Lets Steady show where the payment goes and when you can drop PMI.</div></div>
+    <div class="field mortf"><label for="m-pi">Principal & interest</label><input id="m-pi" inputmode="decimal" value="${b.mort?.pi??''}" placeholder="$ a month"></div>
+    <div class="field mortf"><label for="m-tax">Property taxes</label><input id="m-tax" inputmode="decimal" value="${b.mort?.tax??''}" placeholder="$ a month"></div>
+    <div class="field mortf"><label for="m-ins">Home insurance</label><input id="m-ins" inputmode="decimal" value="${b.mort?.ins??''}" placeholder="$ a month"></div>
+    <div class="field mortf"><label for="m-pmi">PMI / mortgage insurance</label><input id="m-pmi" inputmode="decimal" value="${b.mort?.pmi??''}" placeholder="$ a month, 0 if none"></div>
+    <div class="field mortf"><label for="m-bal">Loan balance</label><input id="m-bal" inputmode="decimal" value="${b.mort?.balance??''}" placeholder="$"></div>
+    <div class="field mortf"><label for="m-rate">Interest rate (%)</label><input id="m-rate" inputmode="decimal" value="${b.mort?.rate??''}" placeholder="e.g. 6.5"></div>
+    <div class="field mortf"><label for="m-val">Home value when you bought it</label><input id="m-val" inputmode="decimal" value="${b.mort?.value??''}" placeholder="price or appraisal"></div>
     <div class="field debtf"><label for="b-bal">Balance owed</label><input id="b-bal" inputmode="decimal" value="${b.balance??''}"></div>
     <div class="field debtf"><label for="b-apr">Interest rate (APR %)</label><input id="b-apr" inputmode="decimal" value="${b.apr??''}"></div>
   </div>
   <label class="switch" style="margin-top:12px"><input type="checkbox" id="b-auto" ${b.autopay?'checked':''}>It's on autopay</label>
   <div class="sheet-foot"><button class="btn ghost" data-close>Cancel</button><button class="btn primary" id="b-save">${isNew?'Add bill':'Save'}</button></div>`);
-  const tog=()=>{const d=CATS[$('#b-cat').value].debt||num($('#b-bal').value)>0;document.querySelectorAll('.debtf').forEach(e=>e.hidden=!d)}; tog(); $('#b-cat').onchange=tog;
+  const tog=()=>{const d=CATS[$('#b-cat').value].debt||num($('#b-bal').value)>0;document.querySelectorAll('.debtf').forEach(e=>e.hidden=!d);$('#b-dmw').hidden=$('#b-freq').value==='month';document.querySelectorAll('.mortf').forEach(e=>e.hidden=$('#b-cat').value!=='house'||/rent/i.test($('#b-name').value))}; $('#b-name').oninput=tog; tog(); $('#b-cat').onchange=tog; $('#b-freq').onchange=tog;
   $('#b-save').onclick=()=>{
-    const nb=isNew?{id:uid()}:b; nb.cat=$('#b-cat').value; nb.name=$('#b-name').value.trim()||CATS[nb.cat].label; nb.amount=num($('#b-amt').value); nb.dueDay=Math.min(31,Math.max(1,parseInt($('#b-due').value)||1)); nb.autopay=$('#b-auto').checked;
+    const nb=isNew?{id:uid()}:b; nb.cat=$('#b-cat').value; nb.name=$('#b-name').value.trim()||CATS[nb.cat].label; nb.amount=num($('#b-amt').value); nb.dueDay=Math.min(31,Math.max(1,parseInt($('#b-due').value)||1)); nb.autopay=$('#b-auto').checked; nb.freq=$('#b-freq').value; if(nb.freq==='month') delete nb.dueMonth; else nb.dueMonth=+$('#b-dm').value;
+    if(nb.cat==='house'){ const mv=k=>{const v=$('#m-'+k).value.trim();return v===''?null:num(v)}; const m={pi:mv('pi'),tax:mv('tax'),ins:mv('ins'),pmi:mv('pmi'),balance:mv('bal'),rate:mv('rate'),value:mv('val')}; if(Object.values(m).some(v=>v!=null)) nb.mort=m; else delete nb.mort }
     const bal=num($('#b-bal').value); if(CATS[nb.cat].debt||bal>0){nb.isDebt=true;if(nb.balance!==bal&&(!nb.startBalance||bal>nb.startBalance))nb.startBalance=bal;nb.balance=bal;nb.apr=num($('#b-apr').value)}else{delete nb.isDebt;delete nb.balance;delete nb.apr;delete nb.startBalance}
     if(isNew){ if(state.example){state=blankState();} state.bills.push(nb); }
     closeModal(); save(); renderAll();
@@ -1268,23 +1423,98 @@ async function scanGmail(progress){
 From the emails below, identify each RECURRING BILL or DEBT ACCOUNT the person actually pays (mortgage/rent, car loan, credit cards, store cards, loans, utilities, internet, cable/streaming, phone, insurance, ferry/transit, etc).
 Ignore: marketing and offers, credit card applications, "enroll in autopay" promotions, shipping and order receipts for one-time purchases, service reminders, newsletters.
 Merge emails about the same account into one bill (e.g. a due reminder and a payment receipt from the same card). Use a short friendly name like "Store Card" or "Home Internet". Never include account numbers.
-For each bill give: name, cat (one of ${CAT_KEYS.join('|')}), amount (typical monthly payment or minimum due, number), dueDay (1-31 if known, else null), isDebt (true for cards and loans), balance (number or null), apr (number or null), autopay (true/false), payments (list of {date:"YYYY-MM-DD", amount} found in receipts/confirmations), note (one short line on what you saw, e.g. "Due reminder Oct 4; autopay $50 receipts").
+For each bill give: name, cat (one of ${CAT_KEYS.join('|')}), amount (the payment or minimum due, number), freq (month|quarter|half|year; insurance and registrations are often yearly), dueMonth (1-12, only when not monthly), dueDay (1-31 if known, else null), isDebt (true for cards and loans), balance (number or null), apr (number or null), autopay (true/false), payments (list of {date:"YYYY-MM-DD", amount} found in receipts/confirmations), note (one short line on what you saw, e.g. "Due reminder Oct 4; autopay $50 receipts").
 Only use numbers that appear in the emails. If an amount is missing from the snippet, you may call read_email on that thread. If still unknown, use null.
 Return ONLY JSON: {"bills":[...]}
 EMAILS (threadId | date | from | subject | snippet):
 ${emails.map(e=>`${e.threadId} | ${e.date} | ${e.from} | ${e.subject} | ${e.snippet}`).join('\n')}`;
   const out=await sample.json(prompt,{tools,modelTier:'default',cache:false});
   return ((out&&out.bills)||[]).filter(b=>b&&b.name).map(b=>({id:uid(),name:String(b.name).slice(0,60),cat:CATS[b.cat]?b.cat:guessCat(b.name),amount:num(b.amount),dueDay:b.dueDay?Math.min(31,Math.max(1,parseInt(b.dueDay))):null,
-    isDebt:!!b.isDebt||!!CATS[b.cat]?.debt,balance:b.balance!=null?num(b.balance):null,apr:b.apr!=null?num(b.apr):null,autopay:!!b.autopay,note:String(b.note||'').slice(0,140),
+    isDebt:!!b.isDebt||!!CATS[b.cat]?.debt,freq:BFREQ[b.freq]?b.freq:'month',dueMonth:b.dueMonth?Math.min(12,Math.max(1,parseInt(b.dueMonth))):null,balance:b.balance!=null?num(b.balance):null,apr:b.apr!=null?num(b.apr):null,autopay:!!b.autopay,note:String(b.note||'').slice(0,140),
     payments:(Array.isArray(b.payments)?b.payments:[]).filter(p=>/^\d{4}-\d\d-\d\d$/.test(p&&p.date)&&num(p.amount)>0).map(p=>({date:p.date,amount:num(p.amount)}))}));
 }
+/* ---------- email from any provider ---------- */
+const BILL_WORDS=/(bill|statement|payment|amount due|minimum|balance|invoice|premium|autopay|auto-pay|renewal|due date|policy)/i;
+const MONTH_RX='(jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)';
+function parseDateText(t){ if(!t) return null; let m=String(t).match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/); if(m){let y=+m[3];if(y<100)y+=2000;return new Date(y,+m[1]-1,+m[2])}
+  m=String(t).match(new RegExp(MONTH_RX+'\\.?\\s+(\\d{1,2}),?\\s+(\\d{4})','i')); if(m){const mi=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'].indexOf(m[1].slice(0,3).toLowerCase());return new Date(+m[3],mi,+m[2])}
+  const d=new Date(t); return isNaN(d)?null:d }
+function senderName(from){ let f=String(from||'').trim(); const q=f.match(/^\s*"?([^"<]+?)"?\s*</); if(q&&!/no-?reply|donotreply|notification|alerts?$/i.test(q[1])) return q[1].replace(/\b(customer service|billing|team|alerts?|notifications?)\b/ig,'').trim();
+  const dm=f.match(/@([\w.-]+)/); if(dm){const parts=dm[1].split('.');const core=parts.length>2?parts[parts.length-2]:parts[0];return core.charAt(0).toUpperCase()+core.slice(1)} return f.slice(0,40) }
+function moneyAfter(text,rx){const m=text.match(new RegExp(rx.source+'[^$\\d]{0,40}\\$\\s?([\\d,]+\\.\\d{2})','i'));return m?num(m[m.length-1]):null}
+function parseBillEmail(m){
+  const subject=m.subject||'', body=(m.body||'').replace(/\s+/g,' '), text=subject+' . '+body;
+  if(!BILL_WORDS.test(text)) return null;
+  let name=senderName(m.from)||subject.split(/[:\-|]/)[0].trim(); if(!name) return null;
+  const amount=moneyAfter(text,/(total amount due|amount due|total due|minimum payment due|minimum payment|minimum due|payment amount|premium|amount of|payment of|you paid|amount paid)/)??(()=>{const a=text.match(/\$\s?([\d,]+\.\d{2})/);return a?num(a[1]):null})();
+  const balance=moneyAfter(text,/(statement balance|new balance|current balance|total balance|account balance)/);
+  const aprM=text.match(/(\d{1,2}\.\d{1,2})\s?%\s*(apr|annual percentage)/i)||text.match(/apr[^\d]{0,25}(\d{1,2}\.\d{1,2})\s?%/i);
+  const dueM=text.match(new RegExp('(due date|payment due|due on|due by|is due|pay by)[^A-Za-z\\d]{0,12}('+MONTH_RX+'\\.?\\s+\\d{1,2},?\\s+\\d{4}|\\d{1,2}\\/\\d{1,2}\\/\\d{2,4})','i'));
+  const due=dueM?parseDateText(dueM[2]):null;
+  const freq=/(semi-?annual|6[- ]month|six[- ]month)/i.test(text)?'half':/(quarterly|3[- ]month|three[- ]month)/i.test(text)?'quarter':/(annual|yearly|12[- ]month|policy renewal|renewal premium|per year)/i.test(text)?'year':'month';
+  const cat=guessCat(name+' '+subject); const paidM=/(thank you for your payment|thanks for your payment|payment (received|confirmation|processed|posted|scheduled)|you paid|we've received your payment)/i.test(text);
+  const md=parseDateText(m.date)||todayD();
+  return {id:uid(),name:name.slice(0,50),cat,amount:amount||0,dueDay:due?due.getDate():null,freq,dueMonth:due&&freq!=='month'?due.getMonth()+1:null,isDebt:!!CATS[cat]?.debt||balance!=null,balance,apr:aprM?num(aprM[1]):null,autopay:/(autopay|auto-pay|automatic payment)/i.test(text),
+    payments:paidM&&amount?[{date:ymd(md),amount}]:[],note:subject.slice(0,90)} }
+function mergeFoundList(list){ const by={}; list.filter(Boolean).forEach(f=>{const k=f.name.toLowerCase(); const e=by[k];
+  if(!e){by[k]=f;return} e.payments=e.payments.concat(f.payments); ['dueDay','balance','apr','dueMonth'].forEach(x=>{if(e[x]==null&&f[x]!=null)e[x]=f[x]}); if(!e.amount&&f.amount)e.amount=f.amount; if(f.freq!=='month')e.freq=f.freq; e.autopay=e.autopay||f.autopay});
+  return Object.values(by).filter(f=>f.amount>0||f.balance>0) }
+function decodeQP(t){return t.replace(/=\r?\n/g,'').replace(/=([0-9A-F]{2})/gi,(_,h)=>String.fromCharCode(parseInt(h,16)))}
+function stripHtml(h){return String(h).replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/gi,' ').replace(/<br\s*\/?>|<\/p>|<\/td>|<\/tr>/gi,'\n').replace(/<[^>]+>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&#36;|&dollar;/g,'$')}
+function parseEml(raw){ raw=String(raw).replace(/\r\n/g,'\n'); const i=raw.indexOf('\n\n'); const head=i>0?raw.slice(0,i):raw, bodyRaw=i>0?raw.slice(i+2):'';
+  const hdr=k=>{const m=head.match(new RegExp('^'+k+':\\s*(.*(?:\\n[ \\t].*)*)','im'));return m?m[1].replace(/\n[ \t]+/g,' ').trim():''};
+  const decodeWord=v=>v.replace(/=\?[^?]+\?([BQ])\?([^?]*)\?=/gi,(_,e,t)=>{try{return e.toUpperCase()==='B'?atob(t):decodeQP(t.replace(/_/g,' '))}catch(x){return t}});
+  let body='';
+  const parts=bodyRaw.split(/\n--[^\n]+\n/);
+  const pick=parts.find(p=>/content-type:\s*text\/plain/i.test(p))||parts.find(p=>/content-type:\s*text\/html/i.test(p))||bodyRaw;
+  const pi=pick.indexOf('\n\n'); const ph=pi>0&&/content-/i.test(pick.slice(0,pi))?pick.slice(0,pi):''; let pb=ph?pick.slice(pi+2):pick;
+  const enc=(ph||head).match(/content-transfer-encoding:\s*(\S+)/i)?.[1]?.toLowerCase();
+  try{ if(enc==='base64') pb=atob(pb.replace(/\s+/g,'')); else if(enc==='quoted-printable') pb=decodeQP(pb) }catch(e){}
+  body=/<html|<div|<table|<p[ >]/i.test(pb)?stripHtml(pb):pb;
+  return {from:decodeWord(hdr('From')),subject:decodeWord(hdr('Subject')),date:hdr('Date'),body:body.slice(0,20000)} }
+function splitMbox(t){ return String(t).split(/\n(?=From [^\n]*\d{4}\s*\n)/) }
+async function readEmailsSmart(msgs,say){ // msgs: [{from,subject,date,body}]
+  const bills=msgs.filter(m=>BILL_WORDS.test((m.subject||'')+' '+(m.body||'').slice(0,4000)));
+  let sample=null; try{ sample=window.claude&&claude.use?await claude.use('sample'):null }catch(e){}
+  if(sample&&bills.length){ say&&say('Steady is reading the emails…');
+    try{ const out=await sample.json(`You are reading bill emails a person gave you to set up their household bill tracker. Today is ${ymd(now)}. Identify each recurring bill or debt account. Ignore ads and one-time purchases. Never include account numbers.
+For each give: name, cat (one of ${CAT_KEYS.join('|')}), amount (number), freq (month|quarter|half|year), dueMonth (1-12 or null), dueDay (1-31 or null), isDebt, balance (or null), apr (or null), autopay, payments ([{date:"YYYY-MM-DD",amount}]), note (short). Only use numbers that appear in the emails. Return ONLY JSON {"bills":[...]}
+EMAILS:
+${bills.slice(0,40).map((m,i)=>`--- ${i+1}. From: ${m.from} | Date: ${m.date} | Subject: ${m.subject}\n${String(m.body).replace(/\s+/g,' ').slice(0,1500)}`).join('\n')}`,{modelTier:'default',cache:false});
+      const list=((out&&out.bills)||[]).filter(b=>b&&b.name).map(b=>({id:uid(),name:String(b.name).slice(0,60),cat:CATS[b.cat]?b.cat:guessCat(b.name),amount:num(b.amount),dueDay:b.dueDay?Math.min(31,Math.max(1,parseInt(b.dueDay))):null,freq:BFREQ[b.freq]?b.freq:'month',dueMonth:b.dueMonth?Math.min(12,Math.max(1,parseInt(b.dueMonth))):null,isDebt:!!b.isDebt||!!CATS[b.cat]?.debt,balance:b.balance!=null?num(b.balance):null,apr:b.apr!=null?num(b.apr):null,autopay:!!b.autopay,note:String(b.note||'').slice(0,140),payments:(Array.isArray(b.payments)?b.payments:[]).filter(p=>/^\d{4}-\d\d-\d\d$/.test(p&&p.date)&&num(p.amount)>0).map(p=>({date:p.date,amount:num(p.amount)}))}));
+      if(list.length) return list; }catch(e){}
+  }
+  return mergeFoundList(bills.map(parseBillEmail)) }
+function emailSourcesHTML(){ return `<div class="mod-grid" style="margin-top:4px">
+  <button type="button" class="mod" style="--c:var(--c-wifi);text-align:left" data-esrc="gmail">${ico('wifi')}<span><b>Scan Gmail</b><br><span class="muted">Works when Steady is open inside Claude</span></span></button>
+  <button type="button" class="mod" style="--c:var(--c-house);text-align:left" data-esrc="paste">${ico('edit')}<span><b>Paste a bill email</b><br><span class="muted">Any email: Outlook, Yahoo, iCloud, work</span></span></button>
+  <button type="button" class="mod" style="--c:var(--c-bank);text-align:left" data-esrc="file">${ico('upload')}<span><b>Open saved emails</b><br><span class="muted">.eml files, or a mailbox export (.mbox)</span></span></button></div>
+  <input type="file" id="eml-file" accept=".eml,.mbox,.txt,message/rfc822" multiple hidden>
+  <div id="paste-box" hidden style="margin-top:12px"><div class="field"><label for="paste-text">Paste the whole email here, including who it's from if you can</label><textarea id="paste-text" rows="7" style="width:100%;border:1.5px solid var(--line);border-radius:12px;padding:10px;background:var(--bg)"></textarea></div><button type="button" class="btn primary small" id="paste-go" style="margin-top:8px">Read it</button></div>
+  <div id="scan-out" style="margin-top:12px"></div>` }
+function wireEmailSources(onFound){
+  const out=()=>$('#scan-out'); const say=t=>{out().innerHTML=`<p class="muted" style="display:flex;gap:8px;align-items:center"><span class="mic live" style="width:14px;height:14px"></span>${esc(t)}</p>`};
+  document.querySelectorAll('[data-esrc]').forEach(b=>b.onclick=async()=>{ const k=b.dataset.esrc;
+    if(k==='gmail'){ if(!await gmailAvailable()){out().innerHTML='<p class="muted">Gmail scanning works when Steady is opened inside Claude with Gmail connected. Paste an email or open saved emails instead. Those work anywhere.</p>';return}
+      say('Waiting for Gmail permission. If Claude asks whether Steady may use Gmail, click Continue.'); try{ onFound(await scanGmail(say)) }catch(e){ out().innerHTML=`<p style="color:var(--bad)">${esc(scanErrorText(e))}</p>` } }
+    if(k==='paste'){ $('#paste-box').hidden=false; $('#paste-text').focus() }
+    if(k==='file') $('#eml-file').click() });
+  $('#paste-go').onclick=async()=>{ const t=$('#paste-text').value.trim(); if(!t) return; say('Reading…');
+    const m=/^(from|subject|date):/im.test(t)?parseEml(t.replace(/^\s+/,'')):{from:(t.match(/^from:?\s*(.+)$/im)||[])[1]||'',subject:t.split('\n')[0],date:'',body:t};
+    if(!m.body) m.body=t; const f=await readEmailsSmart([m],say); if(!f.length){out().innerHTML='<p class="muted">Steady couldn\'t find a bill in that one. Check that the amount is in the text, or add it by hand on the next step.</p>';return}
+    $('#paste-text').value=''; onFound(f) };
+  $('#eml-file').onchange=async e=>{ const files=[...e.target.files]; if(!files.length) return; say(`Opening ${plural(files.length,'file')}…`); const msgs=[];
+    for(const f of files){ const t=await f.text(); if(/\.mbox$/i.test(f.name)||/^From \S+.*\d{4}/.test(t)) splitMbox(t).slice(-3000).forEach(x=>msgs.push(parseEml(x.replace(/^From [^\n]*\n/,'')))); else msgs.push(parseEml(t)) }
+    say(`Looking through ${plural(msgs.length,'email')} for bills…`); const found=await readEmailsSmart(msgs,say); e.target.value='';
+    if(!found.length){out().innerHTML='<p class="muted">No bills turned up in those emails. You can add them by hand on the next step.</p>';return} onFound(found) };
+}
 function scanReviewHTML(found,picked){
-  if(!found.length) return '<p class="muted">No bills turned up in your email. You can tap them in on the next step.</p>';
-  return `<p style="margin:14px 0 8px"><b>Found ${found.length} bills.</b> <span class="muted">Uncheck any that aren't yours, and fix amounts or due days.</span></p>
+  if(!found.length) return '';
+  return `<p style="margin:14px 0 8px"><b>Found ${plural(found.length,'bill')}.</b> <span class="muted">Uncheck any that aren't yours, and fix amounts or due days.</span></p>
   <div style="display:flex;flex-direction:column;gap:8px">${found.map(b=>`<label class="wiz-bill" style="grid-template-columns:auto auto 1fr;cursor:pointer">
     <input type="checkbox" data-scanpick="${b.id}" ${picked.has(b.id)?'checked':''} style="accent-color:var(--accent);width:20px;height:20px;margin-top:9px">${ico(b.cat)}
     <div style="min-width:0"><b>${esc(b.name)}</b> <span class="muted" style="font-size:12px">${b.payments.length?b.payments.length+' payments found':''}${b.autopay?' · autopay':''}</span>
-    <div class="f4" style="margin-top:6px"><div class="field"><label>Payment</label><input data-scanf="amount" data-sid="${b.id}" inputmode="decimal" value="${b.amount||''}" placeholder="$"></div>
+    <div class="f4" style="margin-top:6px"><div class="field"><label>Amount${b.freq&&b.freq!=='month'?` (${BFREQ[b.freq].l.toLowerCase()})`:''}</label><input data-scanf="amount" data-sid="${b.id}" inputmode="decimal" value="${b.amount||''}" placeholder="$"></div>
     <div class="field"><label>Due day</label><input data-scanf="dueDay" data-sid="${b.id}" type="number" min="1" max="31" value="${b.dueDay||''}" placeholder="?"></div>
     ${b.isDebt?`<div class="field"><label>Owed</label><input data-scanf="balance" data-sid="${b.id}" inputmode="decimal" value="${b.balance??''}" placeholder="$"></div>`:'<div></div>'}</div>
     ${b.note?`<div class="muted" style="font-size:12px;margin-top:4px">${esc(b.note)}</div>`:''}</div></label>`).join('')}</div>`;
@@ -1306,6 +1536,13 @@ async function runScan(outEl,onDone){
   try{const found=await scanGmail(say); onDone(found)}
   catch(e){outEl.innerHTML=`<p style="color:var(--bad)">${esc(scanErrorText(e))}</p>`; if(btn) btn.disabled=false}
 }
+function emailModal(){
+  const S={found:[],picked:new Set()};
+  const draw=()=>{ openModal(`<h2>Find bills in your email</h2><p class="lead">Pick how you'd like to bring them in. Nothing is saved until you add it.</p>${emailSourcesHTML()}<div id="scan-list">${S.found.length?scanReviewHTML(S.found,S.picked):''}</div>
+    <div class="sheet-foot"><button class="btn ghost" data-close>Close</button><button class="btn primary" id="scan-add" ${S.found.length?'':'hidden'}>Add checked bills</button></div>`);
+    wireEmailSources(found=>{ if(S.found.length) readScanReview(S.found,S.picked); S.found=mergeFoundList(S.found.concat(found)); S.found.forEach(x=>S.picked.add(x.id)); draw() });
+    $('#scan-add').onclick=()=>{readScanReview(S.found,S.picked);mergeFound(S.found.filter(b=>S.picked.has(b.id)));closeModal()}; };
+  draw(); }
 function gmailModal(){
   const S={found:null,picked:new Set()};
   openModal(`<h2>Check Gmail for bills</h2><p class="lead">Steady reads statements, due reminders and payment receipts from the last 7 months, then shows you what it found. Nothing is saved until you add it.</p>
@@ -1315,6 +1552,7 @@ function gmailModal(){
   $('#scan-add').onclick=()=>{readScanReview(S.found,S.picked);mergeFound(S.found.filter(b=>S.picked.has(b.id)));closeModal()};
 }
 function foundToBill(f){const b={id:uid(),cat:f.cat,name:f.name,amount:num(f.amount)||(f.payments[0]?.amount)||0,dueDay:f.dueDay||(f.payments[0]?+f.payments[0].date.slice(8):1),autopay:f.autopay};
+  if(f.freq&&f.freq!=='month'&&BFREQ[f.freq]){b.freq=f.freq;b.dueMonth=+f.dueMonth||(f.payments[0]?+f.payments[0].date.slice(5,7):now.getMonth()+1)}
   if(f.isDebt){b.isDebt=true;b.balance=num(f.balance);b.startBalance=b.balance;b.apr=num(f.apr)} return b}
 function mergeFound(list){
   if(state.example) state=blankState();
@@ -1324,7 +1562,7 @@ function mergeFound(list){
     f.payments.forEach(p=>{if(!state.payments.some(q=>q.billId===b.id&&q.date===p.date&&Math.abs(q.amount-p.amount)<.01)){state.payments.push({id:uid(),billId:b.id,amount:p.amount,date:p.date});pays++}});
   });
   state.payments.sort((a,b)=>a.date<b.date?-1:1);
-  save(); renderAll(); toast('Gmail scan added.',`${added} new bills and ${pays} past payments.`); if(added) confetti(80);
+  save(); renderAll(); toast('Bills added from email.',`${added} new bills and ${pays} past payments.`); if(added) confetti(80);
 }
 
 /* ---------- discovery wizard ---------- */
@@ -1332,69 +1570,75 @@ let wiz=null;
 function startWizard(){
   const fromExample=state.example;
   const base=fromExample?blankState():JSON.parse(JSON.stringify(state));
+  if(!base.profile.modules) base.profile.modules=fromExample?{spending:true,health:false,car:false,home:false,papers:false}:{spending:true,health:true,car:true,home:true,papers:true};
   wiz={step:0,data:base,picked:new Set(base.bills.map(b=>b.cat)),fresh:fromExample,scan:{found:null,picked:new Set(),applied:false},payments:[]};
   renderWizard();
 }
-const S_STEPS=7;
+const S_STEPS=8;
 function renderWizard(){
   const d=wiz.data,p=d.profile; const S=S_STEPS;
   const dots=`<div class="steps">${Array.from({length:S},(_,i)=>`<i class="${i<=wiz.step?'on':''}"></i>`).join('')}</div>`;
   let body='';
-  if(wiz.step===0) body=`<span class="eyebrow">Step 1 of ${S}</span><h2>Let's get you a plan.</h2><p class="lead">A few easy questions. No judgment, just numbers. You can change anything later.</p>
+  if(wiz.step===0){ const ms=p.modules;
+    body=`<span class="eyebrow">Step 1 of ${S}</span><h2>What would you like help with?</h2><p class="lead">Pick as few or as many as you like. Just bills is perfectly fine. You can change this anytime.</p>
+    <div class="mod-grid"><label class="mod locked" style="--c:var(--c-house)"><input type="checkbox" checked disabled>${ico('house')}<span><b>Bills & a payoff plan</b><br><span class="muted">Always on. Due dates, progress, debt-free date</span></span></label>
+    ${Object.entries(MODS).map(([k,m])=>`<label class="mod" style="--c:var(--c-${m.icon})"><input type="checkbox" data-wmod="${k}" ${ms[k]?'checked':''}>${ico(m.icon)}<span><b>${m.l}</b><br><span class="muted">${m.d}</span></span></label>`).join('')}</div>`; }
+  if(wiz.step===1) body=`<span class="eyebrow">Step 2 of ${S}</span><h2>Let's get you a plan.</h2><p class="lead">A few easy questions. No judgment, just numbers. You can change anything later.</p>
     <div class="fields"><div class="field"><label for="w-name">What should I call you?</label><input id="w-name" value="${esc(p.name)}" placeholder="First name"></div>
     <div class="field"><label for="w-inc">Total monthly income</label><input id="w-inc" inputmode="decimal" value="${p.income||''}" placeholder="After taxes, all sources"></div>
     <div class="field"><label for="w-freq">How often do you get paid?</label><select id="w-freq">${[['weekly','Every week'],['biweekly','Every two weeks'],['twice','Twice a month'],['monthly','Once a month']].map(([v,l])=>`<option value="${v}" ${p.payFreq===v?'selected':''}>${l}</option>`).join('')}</select></div></div>
     `;
-  if(wiz.step===1){ const sc=wiz.scan;
-    body=`<span class="eyebrow">Step 2 of ${S}</span><h2>Want me to check your email for bills?</h2><p class="lead">Steady can read bill emails in your Gmail (statements, due reminders, autopay receipts) and fill most of this in, with a few months of history. You'll check everything before it's saved.</p>
-    <div class="row"><button class="btn primary scan-btn" ${sc.found?'hidden':''}>${svg('upload')}Scan my Gmail</button><button class="btn ghost small" data-act="import">${svg('upload')}Or import CSV / Excel</button></div>
-    <div id="scan-out" style="margin-top:12px">${sc.found?scanReviewHTML(sc.found,sc.picked):''}</div>`; }
-  if(wiz.step===2) body=`<span class="eyebrow">Step 3 of ${S}</span><h2>Tap everything you pay.</h2><p class="lead">${wiz.scan.applied?'Bills from your email are already picked. Add anything it missed.':'Pick as many as fit. You\'ll add amounts next.'}</p>
+  if(wiz.step===2){ const sc=wiz.scan;
+    body=`<span class="eyebrow">Step 3 of ${S}</span><h2>Want Steady to look through your email for bills?</h2><p class="lead">It can save a lot of typing: statements, due reminders and payment receipts. Totally optional. You'll check everything before it's saved, and you can add anything it misses next.</p>
+    ${emailSourcesHTML()}<div id="scan-list">${sc.found&&sc.found.length?scanReviewHTML(sc.found,sc.picked):''}</div>
+    <p class="muted" style="font-size:13px;margin:12px 0 0">Have a spreadsheet instead? <button class="btn ghost small" data-act="import">${svg('upload')}Import CSV / Excel</button></p>`; }
+  if(wiz.step===3) body=`<span class="eyebrow">Step 4 of ${S}</span><h2>Tap everything you pay.</h2><p class="lead">${wiz.scan.applied?'Bills from your email are already picked. Add anything it missed.':'Pick as many as fit. You\'ll add amounts next.'}</p>
     <div class="pick">${CAT_KEYS.map(k=>`<button type="button" style="--c:var(--c-${k})" aria-pressed="${wiz.picked.has(k)}" data-pick="${k}">${ico(k)}<span>${CATS[k].label}<br><span class="muted" style="font-weight:500;font-size:11px">${CATS[k].hint}</span></span></button>`).join('')}</div>`;
-  if(wiz.step===3) body=`<span class="eyebrow">Step 4 of ${S}</span><h2>The details.</h2><p class="lead">Ballpark is fine. For debts, the balance and interest rate let Steady build a real payoff date.</p>
+  if(wiz.step===4) body=`<span class="eyebrow">Step 5 of ${S}</span><h2>The details.</h2><p class="lead">Ballpark is fine. For debts, the balance and interest rate let Steady build a real payoff date.</p>
     <div style="display:flex;flex-direction:column;gap:10px" id="w-rows">${d.bills.map(wizRow).join('')}</div>
     <div class="row" style="margin-top:12px"><select id="w-addcat" style="padding:9px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg)">${CAT_KEYS.map(k=>`<option value="${k}">${CATS[k].label}</option>`).join('')}</select><button class="btn small" id="w-add">${svg('plus')}Add another</button></div>`;
-  if(wiz.step===4){ const have=Object.fromEntries((d.spending||[]).map(it=>[it.cat,it]));
-    body=`<span class="eyebrow">Step 5 of ${S}</span><h2>Everyday spending.</h2><p class="lead">Money that goes out every week but isn't a bill. Rough guesses are fine. Leave blank anything you don't spend on.</p>
+  if(wiz.step===5){ const have=Object.fromEntries((d.spending||[]).map(it=>[it.cat,it]));
+    body=`<span class="eyebrow">Step 6 of ${S}</span><h2>Everyday spending.</h2><p class="lead">Money that goes out every week but isn't a bill. Rough guesses are fine. Leave blank anything you don't spend on.</p>
     <div style="display:flex;flex-direction:column;gap:8px">${SPEND_KEYS.filter(k=>k!=='other').map(k=>{const it=have[k]||{amount:'',freq:SPEND[k].freq};return `<div class="spend-row" data-srow="${k}">${ico(k)}<div style="min-width:0"><b>${SPEND[k].label}</b><div class="muted" style="font-size:12px">${SPEND[k].hint}</div></div>
       <input data-sf="amount" inputmode="decimal" value="${it.amount||''}" placeholder="$ e.g. ${SPEND[k].ph}" aria-label="${SPEND[k].label} amount"><select data-sf="freq" aria-label="${SPEND[k].label} how often">${['week','month','year'].map(f=>`<option value="${f}" ${f===it.freq?'selected':''}>${FREQ_L[f].replace('a ','per ')}</option>`).join('')}</select></div>`}).join('')}</div>`; }
-  if(wiz.step===5) body=`<span class="eyebrow">Step 6 of ${S}</span><h2>What would feel like a win?</h2><p class="lead">This shapes where extra money goes.</p>
+  if(wiz.step===6) body=`<span class="eyebrow">Step 7 of ${S}</span><h2>What would feel like a win?</h2><p class="lead">This shapes where extra money goes.</p>
     <div class="goal">${[['cards','Pay off debt faster','Every extra dollar goes at the highest-interest balance.'],['both','Both: chip away and build a cushion','Extra money splits 50/50. Good when work feels uncertain.'],['cushion','Build a cushion first','Save up breathing room, then attack debt.']].map(([v,t,s])=>`<label><input type="radio" name="w-goal" value="${v}" ${p.goal===v?'checked':''}><span><b>${t}</b><br><span class="muted">${s}</span></span></label>`).join('')}</div>
     <div class="fields" style="margin-top:14px"><div class="field"><label for="w-extra">Extra I could set aside each month</label><input id="w-extra" inputmode="decimal" value="${p.extra}"></div>
     <div class="field"><label for="w-cu">Already saved for emergencies</label><input id="w-cu" inputmode="decimal" value="${p.cushion.saved||''}" placeholder="0 is fine"></div></div>`;
-  if(wiz.step===6){
-    const tot=d.bills.reduce((s,b)=>s+num(b.amount),0); const spMo=(d.spending||[]).reduce((s,it)=>s+perMonth(it),0); const left=num(p.income)-tot-spMo;
-    body=`<span class="eyebrow">Step 7 of ${S}</span><h2>Here's where you stand${p.name?', '+esc(p.name):''}.</h2><p class="lead">You did the hard part. This is the plan.</p>
+  if(wiz.step===7){
+    const tot=d.bills.reduce((s,b)=>s+num(b.amount)/(BFREQ[b.freq||'month']?.n||1),0); const spMo=(d.spending||[]).reduce((s,it)=>s+perMonth(it),0); const left=num(p.income)-tot-spMo;
+    body=`<span class="eyebrow">Step 8 of ${S}</span><h2>Here's where you stand${p.name?', '+esc(p.name):''}.</h2><p class="lead">You did the hard part. This is the plan.</p>
     <div class="grid3" style="gap:10px"><div class="paycheck"><span class="eyebrow">Bills + spending a month</span><div class="big-num num" style="font-size:24px">${money(tot+spMo)}</div></div>
     <div class="paycheck"><span class="eyebrow">Income</span><div class="big-num num" style="font-size:24px">${money(p.income)}</div></div>
     <div class="paycheck"><span class="eyebrow">Left over</span><div class="big-num num" style="font-size:24px;color:${left<0?'var(--bad)':'var(--good)'}">${money(left)}</div></div></div>
     <p style="margin-top:14px">${left<0?'Bills and spending are more than income right now. That\'s fixable, and Steady will help you find where.':left<num(p.extra)?`Your extra (${money(p.extra)}) is more than what's left (${money(left)}). Steady will start with ${money(Math.max(0,Math.floor(left/25)*25))} so the plan stays real.`:`${money(p.extra)} a month toward your goal. Open Plan to see your debt-free date.`}</p>
     ${wiz.payments.length?`<p class="muted">${wiz.payments.length} past payments from your email will fill in Trends.</p>`:''}`;
   }
-  const nextLabel=wiz.step===6?'Show my plan':(wiz.step===1&&!wiz.scan.found?'Skip':'Next');
+  const nextLabel=wiz.step===7?'Show my plan':(wiz.step===2&&!wiz.scan.found?'Skip':'Next');
   openModal(dots+body+`<div class="sheet-foot"><button class="btn ghost" id="w-back">${wiz.step?'Back':'Cancel'}</button><button class="btn primary" id="w-next">${nextLabel}</button></div>`);
-  if(wiz.step===1){ const b=document.querySelector('.scan-btn'); if(b) b.onclick=async()=>{
-      if(!await gmailAvailable()){$('#scan-out').innerHTML='<p class="muted">Email scan works when Steady is opened inside Claude with Gmail connected. Skip this step and tap your bills in instead.</p>';return}
-      runScan($('#scan-out'),found=>{wiz.scan.found=found;found.forEach(x=>wiz.scan.picked.add(x.id));renderWizard()}); }; }
-  if(wiz.step===2) document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{const k=b.dataset.pick;wiz.picked.has(k)?wiz.picked.delete(k):wiz.picked.add(k);b.setAttribute('aria-pressed',wiz.picked.has(k))});
-  if(wiz.step===3){ $('#w-add').onclick=()=>{readWizRows();const c=$('#w-addcat').value;d.bills.push(newWizBill(c));renderWizard()};
+  if(wiz.step===2) wireEmailSources(found=>{ if(wiz.scan.found) readScanReview(wiz.scan.found,wiz.scan.picked); const merged=mergeFoundList((wiz.scan.found||[]).concat(found)); wiz.scan.found=merged; found.forEach(x=>wiz.scan.picked.add(x.id)); merged.forEach(x=>{if(!wiz.scan.picked.has(x.id)&&found.some(f=>f.name.toLowerCase()===x.name.toLowerCase()))wiz.scan.picked.add(x.id)}); renderWizard(); setTimeout(()=>$('#scan-list')?.scrollIntoView({block:'nearest'}),30) });
+  if(wiz.step===3) document.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{const k=b.dataset.pick;wiz.picked.has(k)?wiz.picked.delete(k):wiz.picked.add(k);b.setAttribute('aria-pressed',wiz.picked.has(k))});
+  if(wiz.step===4){ document.querySelectorAll('[data-refresh]').forEach(sel=>sel.onchange=()=>{readWizRows();renderWizard()}); $('#w-add').onclick=()=>{readWizRows();const c=$('#w-addcat').value;d.bills.push(newWizBill(c));renderWizard()};
     document.querySelectorAll('[data-wdel]').forEach(b=>b.onclick=()=>{readWizRows();d.bills=d.bills.filter(x=>x.id!==b.dataset.wdel);renderWizard()}); }
-  $('#w-back').onclick=()=>{collectWiz(); if(!wiz.step){closeModal();return} wiz.step--; renderWizard()};
-  $('#w-next').onclick=()=>{collectWiz(); if(wiz.step<6){wiz.step++;renderWizard()} else finishWizard()};
+  $('#w-back').onclick=()=>{collectWiz(); if(!wiz.step){closeModal();return} wiz.step--; if(wiz.step===5&&!wiz.data.profile.modules.spending) wiz.step--; renderWizard()};
+  $('#w-next').onclick=()=>{collectWiz(); if(wiz.step<7){wiz.step++; if(wiz.step===5&&!wiz.data.profile.modules.spending) wiz.step++; renderWizard()} else finishWizard()};
 }
 function newWizBill(c){const b={id:uid(),cat:c,name:CATS[c].label,amount:'',dueDay:1}; if(CATS[c].debt){b.isDebt=true;b.balance='';b.apr=''} return b}
 function wizRow(b){const debt=CATS[b.cat].debt||b.isDebt;
   return `<div class="wiz-bill" data-row="${b.id}">${ico(b.cat)}<div class="f4 ${debt?'debt':''}">
   <div class="field"><label>Name</label><input data-f="name" value="${esc(b.name)}"></div>
-  <div class="field"><label>Payment</label><input data-f="amount" inputmode="decimal" value="${b.amount}" placeholder="$"></div>
+  <div class="field"><label>Amount</label><input data-f="amount" inputmode="decimal" value="${b.amount}" placeholder="$"></div>
+  <div class="field"><label>How often</label><select data-f="freq" data-refresh="1">${Object.entries(BFREQ).map(([k,v])=>`<option value="${k}" ${k===(b.freq||'month')?'selected':''}>${v.l}</option>`).join('')}</select></div>
   <div class="field"><label>Due day</label><input data-f="dueDay" type="number" min="1" max="31" value="${b.dueDay}"></div>
+  ${(b.freq&&b.freq!=='month')?`<div class="field"><label>Next due month</label><select data-f="dueMonth">${MONTHS.map((m,i)=>`<option value="${i+1}" ${(+b.dueMonth||now.getMonth()+1)===i+1?'selected':''}>${m}</option>`).join('')}</select></div>`:''}
   ${debt?`<div class="field"><label>Owed</label><input data-f="balance" inputmode="decimal" value="${b.balance??''}" placeholder="$"></div><div class="field"><label>APR %</label><input data-f="apr" inputmode="decimal" value="${b.apr??''}"></div>`:''}
   </div><button class="icon-btn" data-wdel="${b.id}" aria-label="Remove" style="grid-column:2;justify-self:end;width:30px;height:30px">${svg('trash')}</button></div>`}
 function readWizRows(){document.querySelectorAll('[data-row]').forEach(r=>{const b=wiz.data.bills.find(x=>x.id===r.dataset.row);if(!b)return;
   r.querySelectorAll('[data-f]').forEach(i=>{b[i.dataset.f]=i.value})})}
 function collectWiz(){const p=wiz.data.profile;
-  if(wiz.step===0){p.name=$('#w-name').value.trim();p.income=num($('#w-inc').value);p.payFreq=$('#w-freq').value}
-  if(wiz.step===1&&wiz.scan.found){ readScanReview(wiz.scan.found,wiz.scan.picked);
+  if(wiz.step===0){ p.modules=Object.assign({},p.modules); document.querySelectorAll('[data-wmod]').forEach(i=>p.modules[i.dataset.wmod]=i.checked) }
+  if(wiz.step===1){p.name=$('#w-name').value.trim();p.income=num($('#w-inc').value);p.payFreq=$('#w-freq').value}
+  if(wiz.step===2&&wiz.scan.found){ readScanReview(wiz.scan.found,wiz.scan.picked);
     // replace previous scan-applied rows, then add the checked ones
     wiz.data.bills=wiz.data.bills.filter(b=>!b.fromScan); wiz.payments=[];
     wiz.scan.found.filter(f=>wiz.scan.picked.has(f.id)).forEach(f=>{
@@ -1403,25 +1647,26 @@ function collectWiz(){const p=wiz.data.profile;
       const nb=foundToBill(f); nb.fromScan=true; wiz.data.bills.push(nb); wiz.picked.add(nb.cat);
       f.payments.forEach(pp=>wiz.payments.push({id:uid(),billId:nb.id,amount:pp.amount,date:pp.date}));
     }); wiz.scan.applied=true; }
-  if(wiz.step===2){
+  if(wiz.step===3){
     wiz.picked.forEach(c=>{if(!wiz.data.bills.some(b=>b.cat===c)) wiz.data.bills.push(newWizBill(c))});
     wiz.data.bills=wiz.data.bills.filter(b=>wiz.picked.has(b.cat));
   }
-  if(wiz.step===3) readWizRows();
-  if(wiz.step===4){ const old=Object.fromEntries((wiz.data.spending||[]).map(it=>[it.cat,it])); const keep=(wiz.data.spending||[]).filter(it=>it.cat==='other');
+  if(wiz.step===4) readWizRows();
+  if(wiz.step===5){ const old=Object.fromEntries((wiz.data.spending||[]).map(it=>[it.cat,it])); const keep=(wiz.data.spending||[]).filter(it=>it.cat==='other');
     const list=[]; document.querySelectorAll('[data-srow]').forEach(r=>{const k=r.dataset.srow;const a=num(r.querySelector('[data-sf=amount]').value);const f=r.querySelector('[data-sf=freq]').value;
       if(a>0){const it=old[k]||{id:uid(),cat:k,name:SPEND[k].label};it.amount=a;it.freq=f;list.push(it)}});
     wiz.data.spending=list.concat(keep); }
-  if(wiz.step===5){p.goal=(document.querySelector('[name=w-goal]:checked')||{}).value||'both';p.extra=num($('#w-extra').value);p.cushion.saved=num($('#w-cu').value)}
+  if(wiz.step===6){p.goal=(document.querySelector('[name=w-goal]:checked')||{}).value||'both';p.extra=num($('#w-extra').value);p.cushion.saved=num($('#w-cu').value)}
 }
 function finishWizard(){
   const d=wiz.data; const p=d.profile;
   d.bills=d.bills.map(b=>{const o={id:b.id,cat:b.cat,name:String(b.name||CATS[b.cat].label).trim(),amount:num(b.amount),dueDay:Math.min(31,Math.max(1,parseInt(b.dueDay)||1)),autopay:!!b.autopay};
+    if(b.freq&&b.freq!=='month'){o.freq=b.freq;o.dueMonth=+b.dueMonth||now.getMonth()+1}
     const bal=num(b.balance); if(CATS[b.cat].debt||bal>0){o.isDebt=true;o.balance=bal;o.apr=num(b.apr);o.startBalance=Math.max(num(b.startBalance),bal)} return o}).filter(b=>b.amount>0||b.balance>0);
   if(!d.spending) d.spending=[]; if(!d.spends) d.spends=[];
-  const left=p.income-d.bills.reduce((s,b)=>s+b.amount,0)-d.spending.reduce((s,it)=>s+perMonth(it),0);
+  const left=p.income-d.bills.reduce((s,b)=>s+billMonthly(b),0)-d.spending.reduce((s,it)=>s+perMonth(it),0);
   if(p.income&&left<p.extra) p.extra=Math.max(0,Math.floor(left/25)*25);
-  if(!p.cushion.target) p.cushion.target=Math.round((d.bills.reduce((s,b)=>s+b.amount,0)+d.spending.reduce((s,it)=>s+perMonth(it),0))*3/100)*100;
+  if(!p.cushion.target) p.cushion.target=Math.round((d.bills.reduce((s,b)=>s+billMonthly(b),0)+d.spending.reduce((s,it)=>s+perMonth(it),0))*3/100)*100;
   d.example=false; if(wiz.fresh){d.payments=[];d.history=[];d.spends=[];d.startedAt=ymd(now)}
   const ids=new Set(d.bills.map(b=>b.id));
   wiz.payments.filter(x=>ids.has(x.billId)).forEach(x=>{if(!d.payments.some(q=>q.billId===x.billId&&q.date===x.date&&q.amount===x.amount))d.payments.push(x)});
@@ -1430,7 +1675,7 @@ function finishWizard(){
 }
 
 /* ---------- import ---------- */
-const KEYWORDS=[['house',/mortgage|rent|hoa|escrow|home loan/],['car',/car|auto|vehicle|toyota|ford|honda|chevy|gm financial|ally/],['card',/visa|master|amex|american express|discover|card|capital one|synchrony|citi|chase/],['bank',/loan|student|navient|sofi|lending|bank/],['bolt',/electric|power|dte|consumers|energy|edison/],['flame',/gas|propane|heat|semco/],['drop',/water|sewer|trash|garbage/],['tv',/cable|tv|netflix|hulu|disney|spotify|stream|youtube|directv|dish/],['wifi',/internet|wifi|broadband|comcast|xfinity|spectrum|wow|fiber/],['phone',/phone|verizon|t-mobile|tmobile|at&t|att|cricket|mint|wireless|cell/],['shield',/insurance|geico|progressive|state farm|allstate|life|health/],['transit',/ferry|toll|bus|transit|parking/]];
+const KEYWORDS=[['house',/mortgage|rent|hoa|escrow|home loan/],['car',/\bcar\b|car loan|auto loan|auto finance|vehicle|toyota|ford credit|honda finance|chevy|gm financial|ally auto/],['card',/visa|master|amex|american express|discover|card|capital one|synchrony|citi|chase/],['bank',/loan|student|navient|sofi|lending|bank/],['bolt',/electric|power|dte|consumers|energy|edison/],['flame',/gas|propane|heat|semco/],['drop',/water|sewer|trash|garbage/],['tv',/cable|tv|netflix|hulu|disney|spotify|stream|youtube|directv|dish/],['wifi',/internet|wifi|broadband|comcast|xfinity|spectrum|wow|fiber/],['phone',/phone|verizon|t-mobile|tmobile|at&t|att|cricket|mint|wireless|cell/],['shield',/insurance|geico|progressive|state farm|allstate|life|health/],['transit',/ferry|toll|bus|transit|parking/]];
 function guessCat(name){const n=String(name).toLowerCase();for(const [c,r] of KEYWORDS) if(r.test(n)) return c; return 'other'}
 let pending=null;
 function importModal(){
@@ -1444,7 +1689,7 @@ function importModal(){
   ['dragleave','drop'].forEach(ev=>dz.addEventListener(ev,e=>{e.preventDefault();dz.classList.remove('over')}));
   dz.addEventListener('drop',e=>{const f=e.dataTransfer.files[0];if(f)readFile(f)});
   $('#file').onchange=e=>{const f=e.target.files[0];if(f)readFile(f)};
-  $('#tmpl').onclick=()=>offerFile('steady-bills-template.csv','Name,Category,Amount,Due day,Balance,APR\nRent,house,1500,1,,\nVisa,card,120,18,4200,24.9\nDTE Electric,bolt,140,15,,\n');
+  $('#tmpl').onclick=()=>offerFile('steady-bills-template.csv','Name,Category,Amount,How often,Due day,Due month,Balance,APR\nRent,house,1500,Monthly,1,,,\nVisa,card,120,Monthly,18,,4200,24.9\nElectric,bolt,140,Monthly,15,,,\nHome insurance,shield,1180,Yearly,10,June,,\n');
 }
 function readFile(f){
   const out=$('#imp-out'); out.innerHTML='<p class="muted">Reading…</p>';
@@ -1472,6 +1717,8 @@ function mapRows(rows){
     const balance=num(pick(o,[/balance|owed|remaining|principal/])), apr=num(pick(o,[/apr|rate|interest/]));
     let cat=String(pick(o,[/categ|type/])||'').toLowerCase().trim(); if(!CATS[cat]){const byLabel=CAT_KEYS.find(k=>CATS[k].label.toLowerCase().includes(cat)&&cat);cat=byLabel||guessCat(name+' '+cat)}
     const b={id:uid(),cat,name:name||CATS[cat].label,amount,dueDay:Math.min(31,Math.max(1,dueDay))};
+    const fr=String(pick(o,[/freq|how often|period|every/])||'').toLowerCase(); const f=/year|annual|12/.test(fr)?'year':/half|semi|6/.test(fr)?'half':/quarter|3/.test(fr)?'quarter':'month';
+    if(f!=='month'){b.freq=f; const dm=parseInt(pick(o,[/due month/]))||((dueRaw instanceof Date)?dueRaw.getMonth()+1:(String(dueRaw).match(/^(\d{1,2})\//)||[])[1]); b.dueMonth=+dm||now.getMonth()+1}
     if(balance>0||CATS[cat].debt){b.isDebt=true;b.balance=balance;b.apr=apr;b.startBalance=balance}
     return b;
   }).filter(b=>b.name&&(b.amount>0||b.balance>0));
@@ -1490,9 +1737,10 @@ async function offerFile(filename,data){
   $('#cp').onclick=()=>{navigator.clipboard.writeText(data).then(()=>{$('#cp').textContent='Copied'}).catch(()=>{$('#csvtxt').select()})};
 }
 function exportCSV(){const q=v=>/[",\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':v;
-  offerFile('steady-bills.csv','Name,Category,Amount,Due day,Balance,APR,Autopay\n'+state.bills.map(b=>[b.name,b.cat,b.amount,b.dueDay,b.balance??'',b.apr??'',b.autopay?'yes':''].map(q).join(',')).join('\n')+'\n')}
+  offerFile('steady-bills.csv','Name,Category,Amount,How often,Due day,Due month,Balance,APR,Autopay\n'+state.bills.map(b=>[b.name,b.cat,b.amount,BFREQ[bfreq(b)].l,b.dueDay,bfreq(b)==='month'?'':MONTHS_L[(b.dueMonth||1)-1],b.balance??'',b.apr??'',b.autopay?'yes':''].map(q).join(',')).join('\n')+'\n')}
 
 /* ---------- global actions ---------- */
+document.addEventListener('change',e=>{const m=e.target.closest('[data-mod]'); if(!m||!e.target.closest('#p-bills')) return; state.profile.modules=Object.assign({},state.profile.modules,{[m.dataset.mod]:m.checked}); if(state.example) state.example=false; save(); renderAll(); toast(m.checked?`${MODS[m.dataset.mod].l} is on.`:`${MODS[m.dataset.mod].l} is off.`, m.checked?'Find it on Today and in Upkeep.':'Your info is kept if you turn it back on.')});
 document.addEventListener('click',e=>{
   const tj=e.target.closest('[data-tabjump]'); if(tj){tab=tj.dataset.tabjump;renderTabs();renderPanel();window.scrollTo({top:0});return}
   const ud=e.target.closest('[data-up-done]'); if(ud){const it=up().items.find(x=>x.id===ud.dataset.upDone); if(it) upDoneModal(it); return}
@@ -1513,13 +1761,16 @@ document.addEventListener('click',e=>{
   const a=t.dataset.act;
   if(a==='wizard') startWizard();
   if(a==='import') importModal();
-  if(a==='gmail') gmailAvailable().then(ok=>ok?gmailModal():toast('Email scan needs Claude.','Open Steady inside Claude with Gmail connected to use it.'));
+  if(a==='gmail') emailModal();
   if(a==='add') billModal(null);
   if(a==='cushion') cushionModal();
   if(a==='spend-log') spendLogModal();
   if(a==='up-addveh') vehModal(null);
   if(a==='up-budget') upBudget();
   if(a==='up-home') homeAddModal();
+  if(a==='labels') labelsModal();
+  if(a==='up-papers') papersAddModal();
+  if(a==='up-pcustom'){ closeModal(); upEditModal(null,'papers'); }
   if(a==='up-homefund') homeFund();
   if(a==='up-health'){ ['dentist','doctor','eye'].forEach(t=>{if(!up().items.some(x=>x.type===t)) up().items.push(newUpItem(t))}); if(state.example) state.example=false; save(); renderAll(); toast('Checkups added.','Tap the pencil on each to set when you last went.') }
   if(a==='spend-add') spendEditModal(null);
