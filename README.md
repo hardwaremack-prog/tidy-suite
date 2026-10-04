@@ -24,13 +24,21 @@ They work together. Copy cells from Tidy and paste them into Neat or Spruce as a
 
 Keep all the app folders together and open them in the same browser. That's how Ready, Snug and the home page can see what the other apps saved.
 
-## Run it at localhost
+## Run it at localhost or on your home network
 
 Double-click **`Start Tidy Suite.bat`**. A small window opens and your browser goes to **http://localhost:8765**, the suite home page. Every app runs from that one address. Leave the window open while you use the apps, and close it to stop.
 
-It uses PowerShell, which comes with Windows, so there is nothing to install. It only answers on this computer (localhost) and only serves files from the Tidy Suite folder.
+The window also shows a network address like `http://192.168.1.20:8765`. Phones, tablets and other computers on the same Wi-Fi can open that address to use the suite. The first time, Windows may ask whether to allow PowerShell on your network: allow it on **Private networks**. To keep the suite on this computer only, run `Start Tidy Suite.ps1 -LocalOnly`.
 
-Moving your work over: apps opened at localhost save separately from apps opened by double-clicking the files. Open Snug the old way and save a backup file, then open Snug at localhost and restore it. Stick with one way after that. Always use the same port (8765) too, because a different port starts with fresh saved data.
+It uses PowerShell, which comes with Windows, so there is nothing to install. It only serves files from the Tidy Suite folder, and never the launcher itself.
+
+## People
+
+Every app has a small **people button** in the bottom corner. Tap it to pick who's using the suite, add a person, rename, or remove someone. Each person's work is saved separately, so on a shared computer nobody's bills, chores or resume get mixed up with anyone else's. Switching people switches every open suite app. Snug backs up and restores the person who is picked.
+
+Work is saved in the browser on each device, so a phone and a computer each keep their own. The first person keeps everything saved before people were added. The picker keeps work tidy and separate. It isn't a password lock.
+
+Moving your work over to localhost: apps opened at localhost save separately from apps opened by double-clicking the files. Open Snug the old way and save a backup file, then open Snug at localhost and restore it. After that, stick with one way and one port (8765).
 
 ## Tidy
 

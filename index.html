@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<html lang="en"><head><script src="suite-users.js"></script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tidy Suite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
@@ -161,7 +161,8 @@ const real=a=>(a||[]).filter(x=>x&&!x.ex&&!x.example);
 const pad=n=>String(n).padStart(2,'0'),now=new Date(),TODAY=now.getFullYear()+'-'+pad(now.getMonth()+1)+'-'+pad(now.getDate());
 
 /* Open links work when the suite runs from its folder or GitHub Pages; elsewhere they point to the file on GitHub. */
-const local=location.protocol==='file:'||/github\.io$/.test(location.hostname)||/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+const hn=location.hostname;
+const local=location.protocol==='file:'||/github\.io$/.test(hn)||/^(localhost|\d+\.\d+\.\d+\.\d+|\[[0-9a-f:]+\])$/i.test(hn)||/\.(local|lan|home)$/.test(hn)||!hn.includes('.');
 const href=id=>local?`${id}/${id}.html`:`https://github.com/hardwaremack-prog/tidy-suite/blob/main/${id}/${id}.html`;
 
 const I={
