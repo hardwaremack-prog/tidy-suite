@@ -1,6 +1,6 @@
 # The Tidy Suite
 
-Four friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
+Five friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
 
 | App | What it does | Open it |
 |---|---|---|
@@ -8,10 +8,11 @@ Four friendly apps that run in your web browser. No install, no account. Downloa
 | **Neat** | Writing: letters, notes, reports, with a helper that tells you how easy it reads | [`neat/neat.html`](neat/neat.html) |
 | **Spruce** | Slides: build a talk, present it, save it as PowerPoint | [`spruce/spruce.html`](spruce/spruce.html) |
 | **Steady** | Bills: a plan for every bill, a debt-free date, and progress you can see | [`steady/steady.html`](steady/steady.html) |
+| **Clearout** | Selling: price your stuff, write the listing, handle buyers, offer local services, track every sale | [`clearout/clearout.html`](clearout/clearout.html) |
 
-Open `index.html` for a home page that links all four apps.
+Open `index.html` for a home page that links all five apps.
 
-They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy.
+They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use.
 
 ## Tidy
 
@@ -52,6 +53,20 @@ A bill tracker that gives you hope and a plan. Use as much or as little as you l
 When you open `steady.html` from your computer, everything works and saves in that browser, including reading pasted or saved emails. Only the Gmail scan and the smarter chat need Claude.
 
 Steady does the math with the numbers you give it. It's not financial advice.
+
+## Clearout
+
+![Clearout](clearout/screenshot.png)
+
+For people with too much stuff who want to turn it into money. It takes the stress out of selling.
+
+- **Price it** gives you three numbers for any item: a price to list at, its fair value, and a walk-away price so you know your limit before anyone messages you. Add a few sold prices you've seen and it leans on those.
+- **List it** writes a title and description that explain the price, and ranks Facebook Marketplace, Craigslist, Nextdoor, eBay and more for that item.
+- **Handle buyers** checks any offer (take it, counter, or pass) and gives you a reply to copy. A quick checklist tells genuine buyers from resellers, time-wasters and scams. Real buyers can get a small discount; lowballers get a polite no.
+- **Offer a service** turns what you have (a truck, tools, a mower, computer skills) into local service ideas with starting prices, works out your hourly rate from what you need each month, and writes your posts, quotes and thank-you messages.
+- **Dashboard** checks in on each item: "Did it sell?" Say yes, enter the price, and a bell rings. Say not yet, pick what happened, and it suggests a fix like a lower price, a different site, or a fresh relist. Every sale goes into Your wins, and it shows which site makes you the most.
+
+Prices are estimates. Real sold prices near you are always better.
 
 ---
 Made by hardwaremack.
