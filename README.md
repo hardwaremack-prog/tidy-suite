@@ -1,6 +1,6 @@
 # The Tidy Suite
 
-Eight friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
+Thirteen friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
 
 | App | What it does | Open it |
 |---|---|---|
@@ -12,10 +12,17 @@ Eight friendly apps that run in your web browser. No install, no account. Downlo
 | **Handy** | Side income: offer local services, price yourself, find customers, track jobs and debt paid down | [`handy/handy.html`](handy/handy.html) |
 | **Sorted** | Repairs: step-by-step troubleshooting for engines, vehicles, HVAC and appliances, plus what to bill, flip price and cost to own | [`sorted/sorted.html`](sorted/sorted.html) |
 | **Hearty** | Meals: plan a week of food you'll enjoy, one shopping list, food and gas budget, and what you keep by skipping the drive-thru | [`hearty/hearty.html`](hearty/hearty.html) |
+| **Ready** | Calendar and to-dos: the next 14 days, a month calendar, and dates pulled in from Steady, Handy, Stocked, Polished and Chipper | [`ready/ready.html`](ready/ready.html) |
+| **Stocked** | Home inventory: photos, what you paid, what it's worth today, warranties, and a printable insurance list | [`stocked/stocked.html`](stocked/stocked.html) |
+| **Polished** | Job hunt: resume builder, cover letters, interview practice, and a tracker for every job you go after | [`polished/polished.html`](polished/polished.html) |
+| **Chipper** | Chores and allowance: a tap-to-check chore chart, save/spend/give jars, and savings goals for kids | [`chipper/chipper.html`](chipper/chipper.html) |
+| **Snug** | Backup: one file saves your work from every app, and brings it back on a new computer | [`snug/snug.html`](snug/snug.html) |
 
-Open `index.html` for a home page that links all eight apps.
+Open `index.html` for the suite home page. It has a menu of every app grouped by part of life, a description of each one, an **Open** button, and a live status line ("3 bills tracked", "Last backup 2 days ago") read from what's saved on this computer. It also reminds you when it's time to back up.
 
-They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills. Fixing something to sell or for a customer? Sorted walks you through the repair and tells you what to charge. Trying to stretch the food budget? Hearty plans your meals and shopping trip, and its weekly total pairs with the groceries line in Steady.
+They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills. Fixing something to sell or for a customer? Sorted walks you through the repair and tells you what to charge. Trying to stretch the food budget? Hearty plans your meals and shopping trip, and its weekly total pairs with the groceries line in Steady. Ready gathers the dates from every app into one calendar, Stocked keeps the list your insurance company will ask for, Polished helps you land a job, Chipper teaches the kids about money, and Snug keeps a backup of all of it.
+
+Keep all the app folders together and open them in the same browser. That's how Ready, Snug and the home page can see what the other apps saved.
 
 ## Tidy
 
@@ -114,6 +121,62 @@ You're the chef. You've totally got this. Hearty helps you choose meals, shop in
 - **Planned treat out** lets you budget an eating-out night on purpose, so skipping the others feels easy.
 
 Prices are typical estimates. Your store's prices are always better, and Hearty remembers the ones you type in.
+
+## Ready
+
+![Ready](ready/screenshot.png)
+
+Here's what's coming. You're ready. One calendar for your own dates and everything the rest of the suite knows about.
+
+- **Next 14 days** lists what's coming, day by day, with Today and Tomorrow called out.
+- **Month calendar** shows every date in color by app. Tap a day to see it or add something.
+- **To-do list** with optional due dates. Overdue items turn red so nothing slips.
+- **Show dates from** pulls in Steady bill due dates and renewals, Handy jobs, Stocked warranty end dates, Polished follow-ups and interviews, and Chipper's allowance day. Ready only reads them; it never changes the other apps.
+
+## Stocked
+
+![Stocked](stocked/screenshot.png)
+
+Know what you own. List your things room by room so a fire, flood or break-in claim takes minutes instead of weeks.
+
+- **Add a thing** with a photo (shrunk automatically to save room), room, type, brand and model, serial number, when you got it, what you paid, how many, and when the warranty ends.
+- **Worth today** gives a rough value based on age and type of item, so you know what to insure. Jewelry and collectibles keep their value.
+- **Rooms and search** to find anything fast. Cards flag missing photos, warranties ending within 90 days, and things you might sell with Clearout.
+- **Print insurance list** prints a clean table with photos and totals. **Save as spreadsheet** makes a CSV you can open in Tidy.
+
+## Polished
+
+![Polished](polished/screenshot.png)
+
+Show them what you've got. Everything you need to go after a job, in one place.
+
+- **Resume** builds as you type, with a live paper preview. A checklist shows how polished it is (a summary, two lines per job, numbers, action words, five skills) and a row of strong starting words you can click to add. Print it or save as PDF.
+- **Cover letter** writes a first draft from your resume and a couple of honest sentences about the job. Edit every word, then print or copy it.
+- **Interview practice** has 12 common questions, each with a tip. Story questions get four boxes (the situation, what you had to do, what you did, how it turned out). A two-minute timer helps you practice out loud.
+- **Jobs I'm going for** tracks each company, where it stands (want to apply, applied, interview, offer), and the next step and date. Those dates show up in Ready.
+
+## Chipper
+
+![Chipper](chipper/screenshot.png)
+
+Do the chores. Earn the stars. A fridge chore chart that teaches kids about money.
+
+- **Kids** each get a color, a running total for the week, and three jars: save, spend and give. Tap a jar to add money or take some out.
+- **Savings goals** show how close each kid is and about how many weeks of chores to go.
+- **This week's chores** is a big tap-to-check board. Each star is a little celebration.
+- **Pay allowance** splits what each kid earned into the jars (50/40/10 by default, and you can change it) and keeps a money history.
+- Set the chores, who does them, what they're worth and which days, and pick your allowance day. Allowance day shows up in Ready.
+
+## Snug
+
+![Snug](snug/screenshot.png)
+
+Keep your work safe. The apps save in your web browser, and clearing browser data, switching browsers or a computer problem can erase that. Snug keeps a copy somewhere else.
+
+- **Save backup file** puts all your work from every Tidy Suite app into one small file. Keep it on a USB stick, in a cloud drive, or email it to yourself.
+- **Restore** opens a backup file, shows which apps are in it, and lets you pick what to bring back. Snug keeps a copy of what was there first, so you can undo a restore.
+- **Your saved work** shows which apps have work saved on this computer and how much.
+- **Reminder** tells you (and the suite home page) when it's time for a fresh backup.
 
 ---
 Made by hardwaremack.
