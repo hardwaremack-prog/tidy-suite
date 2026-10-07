@@ -9,7 +9,7 @@
   --bg:#EEF2F5; --surface:#FFFFFF; --ink:#1B2530; --muted:#5A6876; --line:#D8E0E7; --soft:#E4EAEF;
   --ok:#1F9D62; --warn:#B87400; --warn-soft:#FBEBCC;
   --tidy:#3F6E63; --neat:#C2694F; --spruce:#C99A1E; --steady:#E8682A; --clearout:#23824A; --handy:#3E3AA0; --sorted:#C99312; --hearty:#2E6A3E;
-  --ready:#2B63B5; --snug:#7A3E8C; --stocked:#2F6F7E; --polished:#33415C; --chipper:#D9446F;
+  --ready:#2B63B5; --snug:#7A3E8C; --stocked:#2F6F7E; --polished:#33415C; --chipper:#D9446F; --rugged:#C4561D;
   --display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
   --body:"Figtree","Segoe UI",system-ui,sans-serif;
   --r:14px;
@@ -18,13 +18,13 @@
   --bg:#121820; --surface:#1A222C; --ink:#E8EEF4; --muted:#9AA8B6; --line:#2A3542; --soft:#222C38;
   --ok:#3CCF8A; --warn:#F2B13C; --warn-soft:#3A2D13;
   --tidy:#7FB3A5; --neat:#E8957D; --spruce:#EBC254; --steady:#FF9458; --clearout:#4FBF7D; --handy:#8F8BF0; --sorted:#F2C14E; --hearty:#7FC690;
-  --ready:#7DA8EA; --snug:#C890DA; --stocked:#5DB3C4; --polished:#9DB0D6; --chipper:#F27499;
+  --ready:#7DA8EA; --snug:#C890DA; --stocked:#5DB3C4; --polished:#9DB0D6; --chipper:#F27499; --rugged:#E57A3E;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121820; --surface:#1A222C; --ink:#E8EEF4; --muted:#9AA8B6; --line:#2A3542; --soft:#222C38;
   --ok:#3CCF8A; --warn:#F2B13C; --warn-soft:#3A2D13;
   --tidy:#7FB3A5; --neat:#E8957D; --spruce:#EBC254; --steady:#FF9458; --clearout:#4FBF7D; --handy:#8F8BF0; --sorted:#F2C14E; --hearty:#7FC690;
-  --ready:#7DA8EA; --snug:#C890DA; --stocked:#5DB3C4; --polished:#9DB0D6; --chipper:#F27499;
+  --ready:#7DA8EA; --snug:#C890DA; --stocked:#5DB3C4; --polished:#9DB0D6; --chipper:#F27499; --rugged:#E57A3E;
   color-scheme:dark}
 *{box-sizing:border-box}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -178,9 +178,10 @@ const I={
  snug:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>',
  stocked:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
  polished:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18"/></svg>',
+ rugged:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>',
  chipper:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 16.8l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>'};
 
-const GROUPS=[['Office',['tidy','neat','spruce']],['Money',['steady','clearout','handy','polished']],['Home & family',['hearty','sorted','stocked','chipper','ready']],['Keep it safe',['snug']]];
+const GROUPS=[['Office',['tidy','neat','spruce']],['Money',['steady','clearout','handy','polished']],['Home & family',['hearty','sorted','stocked','chipper','ready']],['Keep it safe',['rugged','snug']]];
 const A={
  tidy:{name:'Tidy',kind:'Spreadsheets',tag:'Where the suite started.',
   desc:'A spreadsheet that stays out of your way. Build budgets, lists, trackers and tables, and keep every number in neat rows and columns.',
@@ -231,6 +232,10 @@ const A={
   desc:'A family chore chart. Kids tap a star when a chore is done, and on allowance day their money goes into save, spend and give jars.',
   feats:['Tap-to-check week board','Save, spend and give jars','Savings goals with progress','Allowance day shows up in Ready'],pairs:['steady','ready'],
   status:()=>{const s=J('chipper.v1');const k=real(s&&s.kids);return k.length?pl(k.length,'kid')+' · '+money(k.reduce((t,x)=>t+x.jars.save,0))+' saved':null}},
+ rugged:{name:'Rugged',kind:'Grid-down living',tag:'Lights out? Here\'s what to do next.',
+  desc:'A step-by-step plan for when the power and stores are down: safety, water, warmth, food, power and fuel, then trading and teaching.',
+  feats:['First 24 hours to first season, in order','Searchable offline field guide: food, planting, fuel, medical, leading','How many days your water, food, wood and fuel last','Barter board, comms plan and daily lessons'],pairs:['stocked','hearty','sorted','handy'],
+  status:()=>{const s=(J('rugged.v1')||J('hardy.v1'));if(!s)return null;const n=Object.values(s.done||{}).filter(Boolean).length;const t=real(s.trades).length;return (n||t)?[n?pl(n,'step')+' done':'',t?pl(t,'trade')+' logged':''].filter(Boolean).join(' · '):null}},
  snug:{name:'Snug',kind:'Backup & restore',tag:'Keep your work safe.',
   desc:'Saves all your Tidy Suite work into one small backup file, and brings it back if your browser is cleared or you move to a new computer.',
   feats:['One file backs up every app','Pick which apps to restore','Undo a restore','Reminds you when it\'s time to back up'],pairs:['tidy','steady','stocked'],
