@@ -1,6 +1,6 @@
 # The Tidy Suite
 
-Thirteen friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
+Fourteen friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
 
 | App | What it does | Open it |
 |---|---|---|
@@ -16,11 +16,12 @@ Thirteen friendly apps that run in your web browser. No install, no account. Dow
 | **Stocked** | Home inventory: photos, what you paid, what it's worth today, warranties, and a printable insurance list | [`stocked/stocked.html`](stocked/stocked.html) |
 | **Polished** | Job hunt: resume builder, cover letters, interview practice, and a tracker for every job you go after | [`polished/polished.html`](polished/polished.html) |
 | **Chipper** | Chores and allowance: a tap-to-check chore chart, save/spend/give jars, and savings goals for kids | [`chipper/chipper.html`](chipper/chipper.html) |
+| **Rugged** | Grid-down living: step-by-step plan, a searchable offline field guide, supply and power calculators, barter board, radio tools (Morse, antenna calculator, PSK31 decoder) and kids' lessons | [`rugged/rugged.html`](rugged/rugged.html) |
 | **Snug** | Backup: one file saves your work from every app, and brings it back on a new computer | [`snug/snug.html`](snug/snug.html) |
 
 Open `index.html` for the suite home page. It has a menu of every app grouped by part of life, a description of each one, an **Open** button, and a live status line ("3 bills tracked", "Last backup 2 days ago") read from what's saved on this computer. It also reminds you when it's time to back up.
 
-They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills. Fixing something to sell or for a customer? Sorted walks you through the repair and tells you what to charge. Trying to stretch the food budget? Hearty plans your meals and shopping trip, and its weekly total pairs with the groceries line in Steady. Ready gathers the dates from every app into one calendar, Stocked keeps the list your insurance company will ask for, Polished helps you land a job, Chipper teaches the kids about money, and Snug keeps a backup of all of it.
+They work together. Copy cells from Tidy and paste them into Neat or Spruce as a table. Open a Neat document in Spruce and each heading becomes a slide. Export your bills from Steady as a CSV and open them in Tidy. Need money for those bills? Clearout helps you sell what you don't use, and Handy helps you earn with your time and skills. Fixing something to sell or for a customer? Sorted walks you through the repair and tells you what to charge. Trying to stretch the food budget? Hearty plans your meals and shopping trip, and its weekly total pairs with the groceries line in Steady. Ready gathers the dates from every app into one calendar, Stocked keeps the list your insurance company will ask for, Polished helps you land a job, Chipper teaches the kids about money, Rugged is the plan for when the power and stores are down, and Snug keeps a backup of all of it.
 
 Keep all the app folders together and open them in the same browser. That's how Ready, Snug and the home page can see what the other apps saved.
 
@@ -199,6 +200,23 @@ Do the chores. Earn the stars. A fridge chore chart that teaches kids about mone
 - **This week's chores** is a big tap-to-check board. Each star is a little celebration.
 - **Pay allowance** splits what each kid earned into the jars (50/40/10 by default, and you can change it) and keeps a money history.
 - Set the chores, who does them, what they're worth and which days, and pick your allowance day. Allowance day shows up in Ready.
+
+## Rugged
+
+![Rugged](rugged/screenshot.png)
+
+A plan for when the power, phones and stores are down. Everything works offline once it's open.
+
+- **Steps** puts the work in order, from "Prepare now" through the first 24 hours, 3 days, 2 weeks and first season, with safety items flagged.
+- **Guide** is a searchable field guide of 60+ topics (water, food storage, preserving, Michigan gardening, heat, fire and chimneys, power, first aid, security, nuclear, chemical and drone threats, hunting, trapping, knots, salvage and more) plus 30+ tap-to-open emergency cards. Print the whole guide on paper.
+- **Supplies** turns what you have on hand into days of water, food, wood and fuel, tracks anything else that runs out, and has a power budget calculator for batteries, solar and radio gear.
+- **Barter** prices trades in hours of work and keeps a trade log.
+- **Comms** holds the family comms plan, a Morse code chart with a sound player, listening practice and a decoder, a wire antenna calculator, and a PSK31 digital mode monitor with a waterfall, log, band presets and type-and-send macros.
+- **Learn** has a 12-week lesson plan that changes every Monday, and a Scout ranks and merit badge tracker for each kid.
+- **Household** keeps each person's medicines, contacts and key places, and prints a one-page emergency sheet.
+- **Print** prints any tab. **Night** switches to a dim red screen that saves battery and night vision. **A+** makes the text bigger.
+
+The microphone features (Morse decoder, PSK31 monitor) need the browser's permission. Browsers usually block the microphone for pages opened straight from the file, so start the suite with `Start Tidy Suite.bat` and open Rugged from http://localhost:8780. Or use **Open recording** to decode a sound file instead.
 
 ## Snug
 
