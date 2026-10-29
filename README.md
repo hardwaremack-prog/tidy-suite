@@ -33,6 +33,8 @@ The window also shows a network address like `http://192.168.1.20:8780`. Phones,
 
 It uses PowerShell, which comes with Windows, so there is nothing to install. It only serves files from the Tidy Suite folder, and never the launcher itself.
 
+**On a Raspberry Pi, Linux or a Mac**, run `python3 tidy_server.py` in this folder instead (`--local-only`, `--port 8781` and `--no-browser` work the same way). It keeps the same **Saved work** folder layout as the Windows launcher, so you can copy that folder between a PC and a Pi. The [Pi Server Suite](https://github.com/hardwaremack-prog/pi-server-suite) can set it up to start with the Pi, so the whole house always has the suite.
+
 ## Standalone or server mode
 
 You can use the suite two ways, and switch whenever you like.
