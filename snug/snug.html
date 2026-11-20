@@ -154,7 +154,7 @@ const APPS=[
  {id:'stocked',name:'Stocked',what:'Home inventory',c:'#2F6F7E',match:k=>k.startsWith('stocked.')},
  {id:'polished',name:'Polished',what:'Job hunt',c:'#33415C',match:k=>k.startsWith('polished.')},
  {id:'chipper',name:'Chipper',what:'Chores',c:'#D9446F',match:k=>k.startsWith('chipper.')},
- {id:'labels',name:'Labels',what:'Labels & cards',c:'#B23A48',match:k=>k.startsWith('labels.')},
+ {id:'labels',name:'Tidy Labels',what:'Labels & cards',c:'#B23A48',match:k=>k.startsWith('labels.')},
  {id:'rugged',name:'Rugged',what:'Grid-down plan',c:'#C4561D',match:k=>k.startsWith('rugged.')||k.startsWith('hardy.')}];
 let S; try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){} S=S||{last:null,every:14,undo:null};
 function save(){saveLight('saving');const ok=storeOK(KEY,JSON.stringify(S));setTimeout(()=>saveLight(ok?'saved':'error'),300)}

@@ -237,7 +237,7 @@ const A={
   desc:'A step-by-step plan for when the power and stores are down: safety, water, warmth, food, power and fuel, then trading and teaching.',
   feats:['First 24 hours to first season, in order','Searchable offline field guide: food, planting, fuel, medical, leading','How many days your water, food, wood and fuel last','Barter board, comms plan and daily lessons'],pairs:['stocked','hearty','sorted','handy'],
   status:()=>{const s=(J('rugged.v1')||J('hardy.v1'));if(!s)return null;const n=Object.values(s.done||{}).filter(Boolean).length;const t=real(s.trades).length;return (n||t)?[n?pl(n,'step')+' done':'',t?pl(t,'trade')+' logged':''].filter(Boolean).join(' · '):null}},
- labels:{name:'Labels',kind:'Labels & cards',tag:'Make it once. Print it any time.',
+ labels:{name:'Tidy Labels',kind:'Labels & cards',tag:'Make it once. Print it any time.',
   desc:'Design address labels, stickers and little how-to cards, pick your Avery sheet, and print them lined up. Every label you make is saved for next time.',
   feats:['Avery 5160, 5167, 5163, 5164, 5371 and 22805 sheets','Text fits itself to the label','Start part-way down a used sheet','Every label kept, one click to reprint'],pairs:['stocked','clearout','neat'],
   status:()=>{const s=J('labels.v1');const n=s&&Array.isArray(s.labels)?s.labels.length:0;return n?pl(n,'label')+' saved':null}},
