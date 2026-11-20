@@ -1,12 +1,13 @@
 # The Tidy Suite
 
-Fourteen friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
+Fifteen friendly apps that run in your web browser. No install, no account. Download one file, double-click it, and you're working. Everything saves on your own computer.
 
 | App | What it does | Open it |
 |---|---|---|
 | **Tidy** | Spreadsheets: budgets, lists, anything with rows and columns | [`tidy/tidy.html`](tidy/tidy.html) |
 | **Neat** | Writing: letters, notes, reports, with a helper that tells you how easy it reads | [`neat/neat.html`](neat/neat.html) |
 | **Spruce** | Slides: build a talk, present it, save it as PowerPoint | [`spruce/spruce.html`](spruce/spruce.html) |
+| **Labels** | Labels and cards: address labels, stickers and how-to cards on Avery sheets, every one saved to reprint | [`labels/labels.html`](labels/labels.html) |
 | **Steady** | Bills: a plan for every bill, a debt-free date, and progress you can see | [`steady/steady.html`](steady/steady.html) |
 | **Clearout** | Selling: price your stuff, write the listing, handle buyers, offer local services, track every sale | [`clearout/clearout.html`](clearout/clearout.html) |
 | **Handy** | Side income: offer local services, price yourself, find customers, track jobs and debt paid down | [`handy/handy.html`](handy/handy.html) |
@@ -65,6 +66,12 @@ To back up server mode, copy the **Saved work** folder somewhere safe (or use Sn
 ![Tidy](tidy/screenshot.png)
 
 A spreadsheet that stays out of your way. Formulas, charts and printing. The manual is in [`tidy/tidy-manual.pdf`](tidy/tidy-manual.pdf).
+
+## Labels
+
+![Labels](labels/screenshot.png)
+
+Make a label once and print it any time. Type what it says (`backticks` for addresses and passwords, **stars** for bold), pick your Avery sheet (5160, 5167, 5163, 5164, 5371 business cards or 22805 squares), and the text sizes itself to fit. Print a full sheet or just a few, starting part-way down a sheet you've already used. Every label you make stays in the list for next time. Print at **Actual size / 100%**.
 
 ## Neat
 
